@@ -1,0 +1,38 @@
+name: Update Templates and Push
+
+on:
+  # Allow API to be hit to trigger workflow.
+  workflow_dispatch:
+
+  # Every Monday at 1PM UTC (7AM EST)
+  schedule:
+    - cron: "0 11 * * 1"
+
+jobs:
+  rebuild-templates:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v4
+
+      - name: "Install Cookiecutter"
+        run: pip install --user cookiecutter
+
+      - name: "Configure GIT"
+        run: |
+          git config --global user.name 'Robert Hafner'
+          git config --global user.email 'tedivm@users.noreply.github.com'
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+
+      - name: "Rebuild Templates"
+        run: |
+          make rebuild_all
+
+      - name: "Push Changes"
+        run: |
+          git add -A
+          git commit -m "Updating Templates"
+          git push -u origin master
