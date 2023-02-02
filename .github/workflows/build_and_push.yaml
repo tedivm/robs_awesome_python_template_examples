@@ -35,4 +35,4 @@ jobs:
         run: |
           git add -A
           git commit -m "Updating Templates"
-          git push -u origin master
+          git push -u origin main
