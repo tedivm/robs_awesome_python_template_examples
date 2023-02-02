@@ -1,6 +1,6 @@
-# Awesome Python Template's Awesome Examples
+# Rob's Awesome Python Template's Awesome Examples
 
-This repository is made up of examples from the [awesome python template](https://github.com/tedivm/tedivms_awesome_python_template).
+This repository is made up of examples from the [awesome python template](https://github.com/tedivm/robs_awesome_python_template).
 
 
 - [Basic Library](./library)- enables basic library features without the full scale applications.
