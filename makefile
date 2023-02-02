@@ -1,7 +1,7 @@
 PROJECTS := bare full library
 
 define build_project
-	cookiecutter https://github.com/tedivm/tedivms_awesome_python_template --config-file confs/$(1).yaml --no-input
+	cookiecutter gh:tedivm/tedivms_awesome_python_template --config-file confs/$(1).yaml --no-input
 endef
 
 all: $(PROJECTS)
