@@ -87,7 +87,7 @@ mdurl==0.1.2
     # via markdown-it-py
 mypy==0.991
     # via full (pyproject.toml)
-mypy-extensions==0.4.3
+mypy-extensions==1.0.0
     # via
     #   black
     #   mypy
