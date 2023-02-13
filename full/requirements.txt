@@ -6,7 +6,7 @@
 #
 aiosqlite==0.18.0
     # via full (pyproject.toml)
-alembic==1.9.2
+alembic==1.9.3
     # via full (pyproject.toml)
 amqp==5.1.1
     # via kombu
@@ -36,7 +36,7 @@ decorator==5.1.1
     # via dogpile-cache
 dogpile-cache==1.1.8
     # via full (pyproject.toml)
-fastapi==0.89.1
+fastapi==0.91.0
     # via full (pyproject.toml)
 greenlet==2.0.2
     # via sqlalchemy
@@ -64,19 +64,19 @@ pydantic==1.10.4
     #   full (pyproject.toml)
 pytz==2022.7.1
     # via celery
-redis==4.4.2
+redis==4.5.1
     # via full (pyproject.toml)
 six==1.16.0
     # via click-repl
 sniffio==1.3.0
     # via anyio
-sqlalchemy==2.0.1
+sqlalchemy==2.0.3
     # via
     #   alembic
     #   full (pyproject.toml)
-starlette==0.22.0
+starlette==0.24.0
     # via fastapi
-stevedore==4.1.1
+stevedore==5.0.0
     # via dogpile-cache
 typing-extensions==4.4.0
     # via
