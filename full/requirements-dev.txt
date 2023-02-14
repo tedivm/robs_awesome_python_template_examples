@@ -146,7 +146,7 @@ sqlalchemy==2.0.3
     # via
     #   alembic
     #   full (pyproject.toml)
-starlette==0.24.0
+starlette==0.25.0
     # via fastapi
 stevedore==5.0.0
     # via dogpile-cache
