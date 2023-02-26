@@ -1,5 +1,6 @@
 default_context:
   package_name: "full"
+  short_description: "A full application to demonstrate the Awesome Template."
   author_name: "Robert Hafner"
   python_version": "3.11.1"
   license": "MIT license"

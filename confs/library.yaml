@@ -1,5 +1,6 @@
 default_context:
   package_name: "library"
+  short_description: "A Python Library, CLI, and support systems to demonstrate the Awesome Template."
   author_name: "Robert Hafner"
   python_version": "3.11.1"
   license": "MIT license"
