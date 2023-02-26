@@ -2,26 +2,12 @@
 build-backend = "setuptools.build_meta"
 requires = ["setuptools>=67.0", "setuptools_scm[toml]>=7.1"]
 
-[tool.setuptools.dynamic]
-readme = {file = ["README.md"]}
-
-[tool.setuptools.packages]
-find = {}
-
-[tool.setuptools.package-data]
-full = ["py.typed"]
-
-[tool.setuptools_scm]
-fallback_version = "0.0.0-dev"
-write_to = "full/_version.py"
-
 [project]
 authors = [{"name" = "Robert Hafner"}]
 description = "A python library"
 dynamic = ["version", "readme"]
 license = {"file" = "LICENSE"}
 name = "full"
-
 dependencies = [
   "aiosqlite",
   "alembic",
@@ -33,7 +19,7 @@ dependencies = [
   "psycopg2-binary",
   "pydantic",
   "SQLAlchemy",
-  "redis",
+  "redis"
 ]
 
 [project.optional-dependencies]
@@ -49,14 +35,8 @@ dev = [
   "pytest-cov",
   "pytest-pretty",
   "ruamel.yaml",
+  "toml-sort"
 ]
-
-
-
-[tool.isort]
-profile = "black"
-skip = [".venv"]
-src_paths = ["full", "tests"]
 
 [tool.black]
 exclude = '''
@@ -78,3 +58,21 @@ exclude = '''
 '''
 line-length = 120
 target-version = ['py38', 'py39', 'py310', 'py311']
+
+[tool.isort]
+profile = "black"
+skip = [".venv"]
+src_paths = ["full", "tests"]
+
+[tool.setuptools.dynamic]
+readme = {file = ["README.md"]}
+
+[tool.setuptools.package-data]
+full = ["py.typed"]
+
+[tool.setuptools.packages]
+find = {}
+
+[tool.setuptools_scm]
+fallback_version = "0.0.0-dev"
+write_to = "full/_version.py"
