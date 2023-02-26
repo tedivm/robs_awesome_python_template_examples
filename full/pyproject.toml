@@ -4,7 +4,7 @@ requires = ["setuptools>=67.0", "setuptools_scm[toml]>=7.1"]
 
 [project]
 authors = [{"name" = "Robert Hafner"}]
-description = "A python library"
+description = "A full application to demonstrate the Awesome Template."
 dynamic = ["version", "readme"]
 license = {"file" = "LICENSE"}
 name = "full"
@@ -53,6 +53,7 @@ exclude = '''
     | buck-out
     | build
     | dist
+    | full/_version.py
   )
 )
 '''

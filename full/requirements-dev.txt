@@ -49,7 +49,7 @@ click-plugins==1.1.1
     # via celery
 click-repl==0.2.0
     # via celery
-coverage[toml]==7.2.0
+coverage[toml]==7.2.1
     # via pytest-cov
 dapperdata==0.3.0
     # via full (pyproject.toml)
