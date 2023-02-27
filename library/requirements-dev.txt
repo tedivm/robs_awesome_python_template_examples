@@ -81,7 +81,7 @@ ruamel-yaml==0.17.21
     # via
     #   dapperdata
     #   library (pyproject.toml)
-toml-sort==0.22.3
+toml-sort==0.22.4
     # via library (pyproject.toml)
 tomlkit==0.11.6
     # via toml-sort
