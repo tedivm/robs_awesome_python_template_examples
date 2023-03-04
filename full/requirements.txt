@@ -54,7 +54,7 @@ markupsafe==2.1.2
     #   mako
 pbr==5.11.1
     # via stevedore
-prompt-toolkit==3.0.37
+prompt-toolkit==3.0.38
     # via click-repl
 psycopg2-binary==2.9.5
     # via full (pyproject.toml)

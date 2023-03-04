@@ -100,13 +100,13 @@ pathspec==0.11.0
     # via black
 pbr==5.11.1
     # via stevedore
-pip-tools==6.12.2
+pip-tools==6.12.3
     # via full (pyproject.toml)
-platformdirs==3.0.0
+platformdirs==3.1.0
     # via black
 pluggy==1.0.0
     # via pytest
-prompt-toolkit==3.0.37
+prompt-toolkit==3.0.38
     # via click-repl
 psycopg2-binary==2.9.5
     # via full (pyproject.toml)
@@ -119,7 +119,7 @@ pygments==2.14.0
     # via rich
 pyproject-hooks==1.0.0
     # via build
-pytest==7.2.1
+pytest==7.2.2
     # via
     #   full (pyproject.toml)
     #   pytest-cov
@@ -132,7 +132,7 @@ pytz==2022.7.1
     # via celery
 redis==4.5.1
     # via full (pyproject.toml)
-rich==13.3.1
+rich==13.3.2
     # via pytest-pretty
 ruamel-yaml==0.17.21
     # via

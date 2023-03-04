@@ -52,9 +52,9 @@ packaging==23.0
     #   pytest
 pathspec==0.11.0
     # via black
-pip-tools==6.12.2
+pip-tools==6.12.3
     # via library (pyproject.toml)
-platformdirs==3.0.0
+platformdirs==3.1.0
     # via black
 pluggy==1.0.0
     # via pytest
@@ -66,7 +66,7 @@ pygments==2.14.0
     # via rich
 pyproject-hooks==1.0.0
     # via build
-pytest==7.2.1
+pytest==7.2.2
     # via
     #   library (pyproject.toml)
     #   pytest-cov
@@ -75,7 +75,7 @@ pytest-cov==4.0.0
     # via library (pyproject.toml)
 pytest-pretty==1.1.0
     # via library (pyproject.toml)
-rich==13.3.1
+rich==13.3.2
     # via pytest-pretty
 ruamel-yaml==0.17.21
     # via
