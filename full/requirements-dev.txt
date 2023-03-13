@@ -6,7 +6,7 @@
 #
 aiosqlite==0.18.0
     # via full (pyproject.toml)
-alembic==1.10.0
+alembic==1.10.2
     # via full (pyproject.toml)
 amqp==5.1.1
     # via kombu
@@ -59,7 +59,7 @@ dogpile-cache==1.1.8
     # via full (pyproject.toml)
 face==20.1.1
     # via glom
-fastapi==0.92.0
+fastapi==0.94.0
     # via full (pyproject.toml)
 glom==23.1.1
     # via full (pyproject.toml)
@@ -85,7 +85,7 @@ markupsafe==2.1.2
     #   mako
 mdurl==0.1.2
     # via markdown-it-py
-mypy==1.0.1
+mypy==1.1.1
     # via full (pyproject.toml)
 mypy-extensions==1.0.0
     # via
@@ -102,7 +102,7 @@ pbr==5.11.1
     # via stevedore
 pip-tools==6.12.3
     # via full (pyproject.toml)
-platformdirs==3.1.0
+platformdirs==3.1.1
     # via black
 pluggy==1.0.0
     # via pytest
@@ -110,7 +110,7 @@ prompt-toolkit==3.0.38
     # via click-repl
 psycopg2-binary==2.9.5
     # via full (pyproject.toml)
-pydantic==1.10.5
+pydantic==1.10.6
     # via
     #   dapperdata
     #   fastapi
@@ -146,7 +146,7 @@ sqlalchemy==2.0.5.post1
     # via
     #   alembic
     #   full (pyproject.toml)
-starlette==0.25.0
+starlette==0.26.0.post1
     # via fastapi
 stevedore==5.0.0
     # via dogpile-cache
