@@ -56,13 +56,13 @@ prompt-toolkit==3.0.38
     # via click-repl
 psycopg2-binary==2.9.5
     # via full (pyproject.toml)
-pydantic==1.10.6
+pydantic==1.10.7
     # via
     #   fastapi
     #   full (pyproject.toml)
-pytz==2022.7.1
+pytz==2023.2
     # via celery
-redis==4.5.2
+redis==4.5.3
     # via full (pyproject.toml)
 six==1.16.0
     # via click-repl
