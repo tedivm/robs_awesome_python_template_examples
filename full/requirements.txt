@@ -12,6 +12,8 @@ amqp==5.1.1
     # via kombu
 anyio==3.6.2
     # via starlette
+async-timeout==4.0.2
+    # via redis
 asyncpg==0.27.0
     # via full (pyproject.toml)
 billiard==3.6.4.0
@@ -60,15 +62,15 @@ pydantic==1.10.7
     # via
     #   fastapi
     #   full (pyproject.toml)
-pytz==2023.2
+pytz==2023.3
     # via celery
-redis==4.5.3
+redis==4.5.4
     # via full (pyproject.toml)
 six==1.16.0
     # via click-repl
 sniffio==1.3.0
     # via anyio
-sqlalchemy==2.0.7
+sqlalchemy==2.0.8
     # via
     #   alembic
     #   full (pyproject.toml)

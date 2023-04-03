@@ -8,7 +8,7 @@ attrs==22.2.0
     # via
     #   glom
     #   pytest
-black==23.1.0
+black==23.3.0
     # via library (pyproject.toml)
 boltons==23.0.0
     # via
@@ -29,7 +29,7 @@ dapperdata==0.3.0
     # via library (pyproject.toml)
 face==20.1.1
     # via glom
-glom==23.1.1
+glom==23.3.0
     # via library (pyproject.toml)
 iniconfig==2.0.0
     # via pytest
