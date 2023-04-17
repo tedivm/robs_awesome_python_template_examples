@@ -4,7 +4,7 @@
 #
 #    pip-compile --extra=dev --output-file=requirements-dev.txt --resolver=backtracking pyproject.toml
 #
-attrs==22.2.0
+attrs==23.1.0
     # via glom
 black==23.3.0
     # via library (pyproject.toml)
@@ -43,7 +43,7 @@ mypy-extensions==1.0.0
     # via
     #   black
     #   mypy
-packaging==23.0
+packaging==23.1
     # via
     #   black
     #   build
@@ -60,11 +60,11 @@ pydantic==1.10.7
     # via
     #   dapperdata
     #   library (pyproject.toml)
-pygments==2.14.0
+pygments==2.15.0
     # via rich
 pyproject-hooks==1.0.0
     # via build
-pytest==7.3.0
+pytest==7.3.1
     # via
     #   library (pyproject.toml)
     #   pytest-cov
@@ -73,7 +73,7 @@ pytest-cov==4.0.0
     # via library (pyproject.toml)
 pytest-pretty==1.2.0
     # via library (pyproject.toml)
-rich==13.3.3
+rich==13.3.4
     # via pytest-pretty
 ruamel-yaml==0.17.21
     # via

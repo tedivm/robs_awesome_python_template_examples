@@ -4,7 +4,7 @@
 #
 #    pip-compile --extra=dev --output-file=requirements-dev.txt --resolver=backtracking pyproject.toml
 #
-aiosqlite==0.18.0
+aiosqlite==0.19.0
     # via full (pyproject.toml)
 alembic==1.10.3
     # via full (pyproject.toml)
@@ -16,7 +16,7 @@ async-timeout==4.0.2
     # via redis
 asyncpg==0.27.0
     # via full (pyproject.toml)
-attrs==22.2.0
+attrs==23.1.0
     # via glom
 billiard==3.6.4.0
     # via celery
@@ -57,7 +57,7 @@ dogpile-cache==1.1.8
     # via full (pyproject.toml)
 face==20.1.1
     # via glom
-fastapi==0.95.0
+fastapi==0.95.1
     # via full (pyproject.toml)
 glom==23.3.0
     # via full (pyproject.toml)
@@ -89,7 +89,7 @@ mypy-extensions==1.0.0
     # via
     #   black
     #   mypy
-packaging==23.0
+packaging==23.1
     # via
     #   black
     #   build
@@ -113,11 +113,11 @@ pydantic==1.10.7
     #   dapperdata
     #   fastapi
     #   full (pyproject.toml)
-pygments==2.14.0
+pygments==2.15.0
     # via rich
 pyproject-hooks==1.0.0
     # via build
-pytest==7.3.0
+pytest==7.3.1
     # via
     #   full (pyproject.toml)
     #   pytest-cov
@@ -130,7 +130,7 @@ pytz==2023.3
     # via celery
 redis==4.5.4
     # via full (pyproject.toml)
-rich==13.3.3
+rich==13.3.4
     # via pytest-pretty
 ruamel-yaml==0.17.21
     # via
