@@ -75,20 +75,23 @@ pytest-pretty==1.2.0
     # via library (pyproject.toml)
 rich==13.3.5
     # via pytest-pretty
-ruamel-yaml==0.17.21
+ruamel-yaml==0.17.24
     # via
     #   dapperdata
     #   library (pyproject.toml)
-toml-sort==0.23.0
+ruamel-yaml-clib==0.2.7
+    # via ruamel-yaml
+toml-sort==0.23.1
     # via library (pyproject.toml)
 tomlkit==0.11.8
     # via toml-sort
-typer==0.7.0
+typer==0.9.0
     # via dapperdata
 typing-extensions==4.5.0
     # via
     #   mypy
     #   pydantic
+    #   typer
 wheel==0.40.0
     # via pip-tools
 
