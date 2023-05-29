@@ -10,7 +10,7 @@ alembic==1.11.1
     # via full (pyproject.toml)
 amqp==5.1.1
     # via kombu
-anyio==3.6.2
+anyio==3.7.0
     # via starlette
 async-timeout==4.0.2
     # via redis
@@ -47,7 +47,7 @@ click-plugins==1.1.1
     # via celery
 click-repl==0.2.0
     # via celery
-coverage[toml]==7.2.5
+coverage[toml]==7.2.6
     # via pytest-cov
 dapperdata==0.3.0
     # via full (pyproject.toml)
@@ -108,7 +108,7 @@ prompt-toolkit==3.0.38
     # via click-repl
 psycopg2-binary==2.9.6
     # via full (pyproject.toml)
-pydantic==1.10.7
+pydantic==1.10.8
     # via
     #   dapperdata
     #   fastapi
@@ -122,7 +122,7 @@ pytest==7.3.1
     #   full (pyproject.toml)
     #   pytest-cov
     #   pytest-pretty
-pytest-cov==4.0.0
+pytest-cov==4.1.0
     # via full (pyproject.toml)
 pytest-pretty==1.2.0
     # via full (pyproject.toml)
@@ -132,7 +132,7 @@ redis==4.5.5
     # via full (pyproject.toml)
 rich==13.3.5
     # via pytest-pretty
-ruamel-yaml==0.17.26
+ruamel-yaml==0.17.28
     # via
     #   dapperdata
     #   full (pyproject.toml)
@@ -156,7 +156,7 @@ tomlkit==0.11.8
     # via toml-sort
 typer==0.9.0
     # via dapperdata
-typing-extensions==4.5.0
+typing-extensions==4.6.2
     # via
     #   alembic
     #   mypy

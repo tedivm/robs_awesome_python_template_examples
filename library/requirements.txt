@@ -4,7 +4,7 @@
 #
 #    pip-compile --output-file=requirements.txt --resolver=backtracking pyproject.toml
 #
-pydantic==1.10.7
+pydantic==1.10.8
     # via library (pyproject.toml)
-typing-extensions==4.5.0
+typing-extensions==4.6.2
     # via pydantic
