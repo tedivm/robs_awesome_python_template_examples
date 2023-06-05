@@ -6,5 +6,5 @@
 #
 pydantic==1.10.8
     # via library (pyproject.toml)
-typing-extensions==4.6.2
+typing-extensions==4.6.3
     # via pydantic
