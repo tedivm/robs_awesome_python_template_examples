@@ -52,11 +52,11 @@ pathspec==0.11.1
     # via black
 pip-tools==6.13.0
     # via library (pyproject.toml)
-platformdirs==3.5.1
+platformdirs==3.5.3
     # via black
 pluggy==1.0.0
     # via pytest
-pydantic==1.10.8
+pydantic==1.10.9
     # via
     #   dapperdata
     #   library (pyproject.toml)
@@ -64,7 +64,7 @@ pygments==2.15.1
     # via rich
 pyproject-hooks==1.0.0
     # via build
-pytest==7.3.1
+pytest==7.3.2
     # via
     #   library (pyproject.toml)
     #   pytest-cov
