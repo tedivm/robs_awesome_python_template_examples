@@ -38,7 +38,7 @@ decorator==5.1.1
     # via dogpile-cache
 dogpile-cache==1.2.2
     # via full (pyproject.toml)
-fastapi==0.100.0
+fastapi==0.100.1
     # via full (pyproject.toml)
 greenlet==2.0.2
     # via sqlalchemy
@@ -60,12 +60,12 @@ prompt-toolkit==3.0.39
     # via click-repl
 psycopg2-binary==2.9.6
     # via full (pyproject.toml)
-pydantic==2.0.3
+pydantic==2.1.1
     # via
     #   fastapi
     #   full (pyproject.toml)
     #   pydantic-settings
-pydantic-core==2.3.0
+pydantic-core==2.4.0
     # via pydantic
 pydantic-settings==2.0.2
     # via full (pyproject.toml)

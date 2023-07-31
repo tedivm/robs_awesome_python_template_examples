@@ -50,20 +50,20 @@ packaging==23.1
     #   black
     #   build
     #   pytest
-pathspec==0.11.1
+pathspec==0.11.2
     # via black
 pip-tools==7.1.0
     # via library (pyproject.toml)
-platformdirs==3.9.1
+platformdirs==3.10.0
     # via black
 pluggy==1.2.0
     # via pytest
-pydantic==2.0.3
+pydantic==2.1.1
     # via
     #   dapperdata
     #   library (pyproject.toml)
     #   pydantic-settings
-pydantic-core==2.3.0
+pydantic-core==2.4.0
     # via pydantic
 pydantic-settings==2.0.2
     # via
@@ -84,7 +84,7 @@ pytest-pretty==1.2.0
     # via library (pyproject.toml)
 python-dotenv==1.0.0
     # via pydantic-settings
-rich==13.4.2
+rich==13.5.1
     # via pytest-pretty
 ruamel-yaml==0.17.32
     # via
@@ -94,7 +94,7 @@ ruamel-yaml-clib==0.2.7
     # via ruamel-yaml
 toml-sort==0.23.1
     # via library (pyproject.toml)
-tomlkit==0.11.8
+tomlkit==0.12.1
     # via toml-sort
 typer==0.9.0
     # via dapperdata

@@ -59,7 +59,7 @@ dogpile-cache==1.2.2
     # via full (pyproject.toml)
 face==20.1.1
     # via glom
-fastapi==0.100.0
+fastapi==0.100.1
     # via full (pyproject.toml)
 glom==23.3.0
     # via full (pyproject.toml)
@@ -96,13 +96,13 @@ packaging==23.1
     #   black
     #   build
     #   pytest
-pathspec==0.11.1
+pathspec==0.11.2
     # via black
 pbr==5.11.1
     # via stevedore
 pip-tools==7.1.0
     # via full (pyproject.toml)
-platformdirs==3.9.1
+platformdirs==3.10.0
     # via black
 pluggy==1.2.0
     # via pytest
@@ -110,13 +110,13 @@ prompt-toolkit==3.0.39
     # via click-repl
 psycopg2-binary==2.9.6
     # via full (pyproject.toml)
-pydantic==2.0.3
+pydantic==2.1.1
     # via
     #   dapperdata
     #   fastapi
     #   full (pyproject.toml)
     #   pydantic-settings
-pydantic-core==2.3.0
+pydantic-core==2.4.0
     # via pydantic
 pydantic-settings==2.0.2
     # via
@@ -141,7 +141,7 @@ python-dotenv==1.0.0
     # via pydantic-settings
 redis==4.6.0
     # via full (pyproject.toml)
-rich==13.4.2
+rich==13.5.1
     # via pytest-pretty
 ruamel-yaml==0.17.32
     # via
@@ -163,7 +163,7 @@ stevedore==5.1.0
     # via dogpile-cache
 toml-sort==0.23.1
     # via full (pyproject.toml)
-tomlkit==0.11.8
+tomlkit==0.12.1
     # via toml-sort
 typer==0.9.0
     # via dapperdata
