@@ -52,7 +52,7 @@ packaging==23.1
     #   pytest
 pathspec==0.11.2
     # via black
-pip-tools==7.1.0
+pip-tools==7.2.0
     # via library (pyproject.toml)
 platformdirs==3.10.0
     # via black
@@ -69,7 +69,7 @@ pydantic-settings==2.0.2
     # via
     #   dapperdata
     #   library (pyproject.toml)
-pygments==2.15.1
+pygments==2.16.1
     # via rich
 pyproject-hooks==1.0.0
     # via build
@@ -84,7 +84,7 @@ pytest-pretty==1.2.0
     # via library (pyproject.toml)
 python-dotenv==1.0.0
     # via pydantic-settings
-rich==13.5.1
+rich==13.5.2
     # via pytest-pretty
 ruamel-yaml==0.17.32
     # via
@@ -104,7 +104,7 @@ typing-extensions==4.7.1
     #   pydantic
     #   pydantic-core
     #   typer
-wheel==0.41.0
+wheel==0.41.1
     # via pip-tools
 
 # The following packages are considered to be unsafe in a requirements file:

@@ -6,7 +6,7 @@
 #
 aiosqlite==0.19.0
     # via full (pyproject.toml)
-alembic==1.11.1
+alembic==1.11.2
     # via full (pyproject.toml)
 amqp==5.1.1
     # via kombu
@@ -38,7 +38,7 @@ decorator==5.1.1
     # via dogpile-cache
 dogpile-cache==1.2.2
     # via full (pyproject.toml)
-fastapi==0.100.1
+fastapi==0.101.0
     # via full (pyproject.toml)
 greenlet==2.0.2
     # via sqlalchemy
@@ -58,7 +58,7 @@ pbr==5.11.1
     # via stevedore
 prompt-toolkit==3.0.39
     # via click-repl
-psycopg2-binary==2.9.6
+psycopg2-binary==2.9.7
     # via full (pyproject.toml)
 pydantic==2.1.1
     # via
