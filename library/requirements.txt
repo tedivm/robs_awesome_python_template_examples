@@ -6,11 +6,11 @@
 #
 annotated-types==0.5.0
     # via pydantic
-pydantic==2.2.1
+pydantic==2.3.0
     # via
     #   library (pyproject.toml)
     #   pydantic-settings
-pydantic-core==2.6.1
+pydantic-core==2.6.3
     # via pydantic
 pydantic-settings==2.0.3
     # via library (pyproject.toml)
