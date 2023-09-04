@@ -14,7 +14,7 @@ boltons==23.0.0
     # via
     #   face
     #   glom
-build==0.10.0
+build==1.0.0
     # via
     #   library (pyproject.toml)
     #   pip-tools
@@ -73,7 +73,7 @@ pygments==2.16.1
     # via rich
 pyproject-hooks==1.0.0
     # via build
-pytest==7.4.0
+pytest==7.4.1
     # via
     #   library (pyproject.toml)
     #   pytest-cov
