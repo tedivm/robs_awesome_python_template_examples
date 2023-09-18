@@ -16,7 +16,7 @@ pydantic-settings==2.0.3
     # via library (pyproject.toml)
 python-dotenv==1.0.0
     # via pydantic-settings
-typing-extensions==4.7.1
+typing-extensions==4.8.0
     # via
     #   pydantic
     #   pydantic-core

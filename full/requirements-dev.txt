@@ -143,7 +143,7 @@ python-dotenv==1.0.0
     # via pydantic-settings
 redis==5.0.0
     # via full (pyproject.toml)
-rich==13.5.2
+rich==13.5.3
     # via pytest-pretty
 ruamel-yaml==0.17.32
     # via
@@ -169,7 +169,7 @@ tomlkit==0.12.1
     # via toml-sort
 typer==0.9.0
     # via dapperdata
-typing-extensions==4.7.1
+typing-extensions==4.8.0
     # via
     #   alembic
     #   fastapi

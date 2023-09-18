@@ -89,7 +89,7 @@ starlette==0.27.0
     # via fastapi
 stevedore==5.1.0
     # via dogpile-cache
-typing-extensions==4.7.1
+typing-extensions==4.8.0
     # via
     #   alembic
     #   fastapi
