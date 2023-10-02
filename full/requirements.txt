@@ -40,7 +40,7 @@ decorator==5.1.1
     # via dogpile-cache
 dogpile-cache==1.2.2
     # via full (pyproject.toml)
-fastapi==0.103.1
+fastapi==0.103.2
     # via full (pyproject.toml)
 greenlet==2.0.2
     # via sqlalchemy
@@ -60,14 +60,14 @@ pbr==5.11.1
     # via stevedore
 prompt-toolkit==3.0.39
     # via click-repl
-psycopg2-binary==2.9.7
+psycopg2-binary==2.9.8
     # via full (pyproject.toml)
-pydantic==2.3.0
+pydantic==2.4.2
     # via
     #   fastapi
     #   full (pyproject.toml)
     #   pydantic-settings
-pydantic-core==2.6.3
+pydantic-core==2.10.1
     # via pydantic
 pydantic-settings==2.0.3
     # via full (pyproject.toml)
@@ -75,7 +75,7 @@ python-dateutil==2.8.2
     # via celery
 python-dotenv==1.0.0
     # via pydantic-settings
-redis==5.0.0
+redis==5.0.1
     # via full (pyproject.toml)
 six==1.16.0
     # via python-dateutil
@@ -103,5 +103,5 @@ vine==5.0.0
     #   amqp
     #   celery
     #   kombu
-wcwidth==0.2.6
+wcwidth==0.2.8
     # via prompt-toolkit
