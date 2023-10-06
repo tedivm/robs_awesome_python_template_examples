@@ -10,7 +10,7 @@ alembic==1.12.0
     # via full (pyproject.toml)
 amqp==5.1.1
     # via kombu
-annotated-types==0.5.0
+annotated-types==0.6.0
     # via pydantic
 anyio==3.7.1
     # via
@@ -30,6 +30,7 @@ click==8.1.7
     #   click-didyoumean
     #   click-plugins
     #   click-repl
+    #   typer
 click-didyoumean==0.3.0
     # via celery
 click-plugins==1.1.1
@@ -89,6 +90,8 @@ starlette==0.27.0
     # via fastapi
 stevedore==5.1.0
     # via dogpile-cache
+typer==0.9.0
+    # via full (pyproject.toml)
 typing-extensions==4.8.0
     # via
     #   alembic
@@ -96,6 +99,7 @@ typing-extensions==4.8.0
     #   pydantic
     #   pydantic-core
     #   sqlalchemy
+    #   typer
 tzdata==2023.3
     # via celery
 vine==5.0.0

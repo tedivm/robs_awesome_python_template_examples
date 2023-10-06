@@ -11,7 +11,8 @@ name = "library"
 readme = {file = "README.md", content-type = "text/markdown"}
 dependencies = [
   "pydantic~=2.0",
-  "pydantic-settings"
+  "pydantic-settings",
+  "typer"
 ]
 
 [project.optional-dependencies]
@@ -29,6 +30,9 @@ dev = [
   "ruamel.yaml",
   "toml-sort"
 ]
+
+[project.scripts]
+library = "library.cli:app"
 
 [tool.black]
 exclude = '''

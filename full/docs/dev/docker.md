@@ -4,6 +4,12 @@
 
 
 
+### FastAPI
+
+Images are created using the [Multi-Py Uvicorn Project](https://github.com/multi-py/python-uvicorn).
+
+
+
 
 
 ### Celery

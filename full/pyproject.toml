@@ -21,7 +21,8 @@ dependencies = [
   "pydantic~=2.0",
   "pydantic-settings",
   "SQLAlchemy",
-  "redis"
+  "redis",
+  "typer"
 ]
 
 [project.optional-dependencies]
@@ -39,6 +40,9 @@ dev = [
   "ruamel.yaml",
   "toml-sort"
 ]
+
+[project.scripts]
+full = "full.cli:app"
 
 [tool.black]
 exclude = '''
