@@ -41,7 +41,7 @@ decorator==5.1.1
     # via dogpile-cache
 dogpile-cache==1.2.2
     # via full (pyproject.toml)
-fastapi==0.103.2
+fastapi==0.104.0
     # via full (pyproject.toml)
 greenlet==3.0.0
     # via sqlalchemy
