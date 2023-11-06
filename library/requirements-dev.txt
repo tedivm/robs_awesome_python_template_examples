@@ -10,7 +10,7 @@ attrs==23.1.0
     # via glom
 black==23.10.1
     # via library (pyproject.toml)
-boltons==23.0.0
+boltons==23.1.1
     # via
     #   face
     #   glom
@@ -86,7 +86,7 @@ python-dotenv==1.0.0
     # via pydantic-settings
 rich==13.6.0
     # via pytest-pretty
-ruamel-yaml==0.18.3
+ruamel-yaml==0.18.5
     # via
     #   dapperdata
     #   library (pyproject.toml)
@@ -94,7 +94,7 @@ ruamel-yaml-clib==0.2.8
     # via ruamel-yaml
 toml-sort==0.23.1
     # via library (pyproject.toml)
-tomlkit==0.12.1
+tomlkit==0.12.2
     # via toml-sort
 typer==0.9.0
     # via
