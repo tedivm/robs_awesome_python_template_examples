@@ -36,7 +36,7 @@ build==1.0.3
     # via
     #   full (pyproject.toml)
     #   pip-tools
-celery==5.3.5
+celery==5.3.6
     # via full (pyproject.toml)
 click==8.1.7
     # via
@@ -65,11 +65,11 @@ face==20.1.1
     # via glom
 fastapi==0.104.1
     # via full (pyproject.toml)
-glom==23.4.0
+glom==23.5.0
     # via full (pyproject.toml)
 greenlet==3.0.1
     # via sqlalchemy
-idna==3.4
+idna==3.6
     # via anyio
 iniconfig==2.0.0
     # via pytest
@@ -89,7 +89,7 @@ markupsafe==2.1.3
     #   mako
 mdurl==0.1.2
     # via markdown-it-py
-mypy==1.7.0
+mypy==1.7.1
     # via full (pyproject.toml)
 mypy-extensions==1.0.0
     # via
@@ -114,19 +114,19 @@ prompt-toolkit==3.0.41
     # via click-repl
 psycopg2-binary==2.9.9
     # via full (pyproject.toml)
-pydantic==2.5.1
+pydantic==2.5.2
     # via
     #   dapperdata
     #   fastapi
     #   full (pyproject.toml)
     #   pydantic-settings
-pydantic-core==2.14.3
+pydantic-core==2.14.5
     # via pydantic
 pydantic-settings==2.1.0
     # via
     #   dapperdata
     #   full (pyproject.toml)
-pygments==2.17.1
+pygments==2.17.2
     # via rich
 pyproject-hooks==1.0.0
     # via build
@@ -189,9 +189,9 @@ vine==5.1.0
     #   amqp
     #   celery
     #   kombu
-wcwidth==0.2.10
+wcwidth==0.2.12
     # via prompt-toolkit
-wheel==0.41.3
+wheel==0.42.0
     # via pip-tools
 
 # The following packages are considered to be unsafe in a requirements file:
