@@ -8,11 +8,11 @@ annotated-types==0.6.0
     # via pydantic
 click==8.1.7
     # via typer
-pydantic==2.5.2
+pydantic==2.5.3
     # via
     #   library (pyproject.toml)
     #   pydantic-settings
-pydantic-core==2.14.5
+pydantic-core==2.14.6
     # via pydantic
 pydantic-settings==2.1.0
     # via library (pyproject.toml)
