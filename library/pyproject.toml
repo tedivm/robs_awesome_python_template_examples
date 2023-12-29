@@ -17,49 +17,24 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = [
-  "black",
   "build",
   "dapperdata",
   "glom",
-  "isort",
   "mypy",
   "pip-tools",
   "pytest",
   "pytest-cov",
   "pytest-pretty",
   "ruamel.yaml",
+  "ruff",
   "toml-sort"
 ]
 
 [project.scripts]
 library = "library.cli:app"
 
-[tool.black]
-exclude = '''
-(
-  /(
-      \.eggs         # exclude a few common directories in the
-    | \.git          # root of the project
-    | \.hg
-    | \.mypy_cache
-    | \.tox
-    | \.venv
-    | \.env
-    | _build
-    | buck-out
-    | build
-    | dist
-    | library/_version.py
-  )
-)
-'''
+[tool.ruff]
 line-length = 120
-target-version = ['py38', 'py39', 'py310', 'py311']
-
-[tool.isort]
-profile = "black"
-skip = [".venv"]
-src_paths = ["library", "tests"]
 
 [tool.setuptools.dynamic]
 readme = {file = ["README.md"]}

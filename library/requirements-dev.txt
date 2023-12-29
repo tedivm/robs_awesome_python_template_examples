@@ -8,8 +8,6 @@ annotated-types==0.6.0
     # via pydantic
 attrs==23.1.0
     # via glom
-black==23.12.1
-    # via library (pyproject.toml)
 boltons==23.1.1
     # via
     #   face
@@ -20,10 +18,9 @@ build==1.0.3
     #   pip-tools
 click==8.1.7
     # via
-    #   black
     #   pip-tools
     #   typer
-coverage[toml]==7.3.4
+coverage[toml]==7.4.0
     # via pytest-cov
 dapperdata==0.4.0
     # via library (pyproject.toml)
@@ -33,8 +30,6 @@ glom==23.5.0
     # via library (pyproject.toml)
 iniconfig==2.0.0
     # via pytest
-isort==5.13.2
-    # via library (pyproject.toml)
 markdown-it-py==3.0.0
     # via rich
 mdurl==0.1.2
@@ -42,20 +37,13 @@ mdurl==0.1.2
 mypy==1.8.0
     # via library (pyproject.toml)
 mypy-extensions==1.0.0
-    # via
-    #   black
-    #   mypy
+    # via mypy
 packaging==23.2
     # via
-    #   black
     #   build
     #   pytest
-pathspec==0.12.1
-    # via black
 pip-tools==7.3.0
     # via library (pyproject.toml)
-platformdirs==4.1.0
-    # via black
 pluggy==1.3.0
     # via pytest
 pydantic==2.5.3
@@ -92,6 +80,8 @@ ruamel-yaml==0.18.5
     #   library (pyproject.toml)
 ruamel-yaml-clib==0.2.8
     # via ruamel-yaml
+ruff==0.1.9
+    # via library (pyproject.toml)
 toml-sort==0.23.1
     # via library (pyproject.toml)
 tomlkit==0.12.3

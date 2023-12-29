@@ -1,5 +1,4 @@
 from contextlib import asynccontextmanager
-from urllib.parse import urlparse
 
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.orm import sessionmaker

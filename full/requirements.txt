@@ -12,10 +12,8 @@ amqp==5.2.0
     # via kombu
 annotated-types==0.6.0
     # via pydantic
-anyio==3.7.1
-    # via
-    #   fastapi
-    #   starlette
+anyio==4.2.0
+    # via starlette
 async-timeout==4.0.3
     # via
     #   asyncpg
@@ -43,7 +41,7 @@ decorator==5.1.1
     # via dogpile-cache
 dogpile-cache==1.3.0
     # via full (pyproject.toml)
-fastapi==0.105.0
+fastapi==0.108.0
     # via full (pyproject.toml)
 greenlet==3.0.3
     # via sqlalchemy
@@ -84,11 +82,11 @@ six==1.16.0
     # via python-dateutil
 sniffio==1.3.0
     # via anyio
-sqlalchemy==2.0.23
+sqlalchemy==2.0.24
     # via
     #   alembic
     #   full (pyproject.toml)
-starlette==0.27.0
+starlette==0.32.0.post1
     # via fastapi
 stevedore==5.1.0
     # via dogpile-cache
@@ -102,7 +100,7 @@ typing-extensions==4.9.0
     #   pydantic-core
     #   sqlalchemy
     #   typer
-tzdata==2023.3
+tzdata==2023.4
     # via celery
 vine==5.1.0
     # via

@@ -1,5 +1,5 @@
 from fastapi.templating import Jinja2Templates
-from jinja2 import Environment, PackageLoader, select_autoescape
+from jinja2 import Environment, PackageLoader
 
 env = Environment(
     loader=PackageLoader("full"),
