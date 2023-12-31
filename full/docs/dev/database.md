@@ -28,3 +28,12 @@ make create_migration MESSAGE="migration description"
 ## FastAPI Integration
 
 The function `full.db:get_session_depends` is designed to work with the [FastAPI Dependency system](https://fastapi.tiangolo.com/tutorial/dependencies/), and can be passed directly to [Depends](https://fastapi.tiangolo.com/tutorial/dependencies/dependencies-in-path-operation-decorators/).
+
+## Schema
+
+<!-- BEGIN_SQLALCHEMY_DOCS -->
+```mermaid
+erDiagram
+
+```
+<!-- END_SQLALCHEMY_DOCS -->

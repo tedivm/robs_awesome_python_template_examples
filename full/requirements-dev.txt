@@ -20,7 +20,7 @@ async-timeout==4.0.3
     #   redis
 asyncpg==0.29.0
     # via full (pyproject.toml)
-attrs==23.1.0
+attrs==23.2.0
     # via glom
 billiard==4.2.0
     # via celery
@@ -90,6 +90,8 @@ packaging==23.2
     # via
     #   build
     #   pytest
+paracelsus==0.1.5
+    # via full (pyproject.toml)
 pbr==6.0.0
     # via stevedore
 pip-tools==7.3.0
@@ -112,11 +114,15 @@ pydantic-settings==2.1.0
     # via
     #   dapperdata
     #   full (pyproject.toml)
+pydot==2.0.0
+    # via paracelsus
 pygments==2.17.2
     # via rich
+pyparsing==3.1.1
+    # via pydot
 pyproject-hooks==1.0.0
     # via build
-pytest==7.4.3
+pytest==7.4.4
     # via
     #   full (pyproject.toml)
     #   pytest-cov
@@ -149,6 +155,7 @@ sqlalchemy==2.0.24
     # via
     #   alembic
     #   full (pyproject.toml)
+    #   paracelsus
 starlette==0.32.0.post1
     # via fastapi
 stevedore==5.1.0
@@ -161,6 +168,7 @@ typer==0.9.0
     # via
     #   dapperdata
     #   full (pyproject.toml)
+    #   paracelsus
 typing-extensions==4.9.0
     # via
     #   alembic

@@ -31,6 +31,7 @@ dev = [
   "dapperdata",
   "glom",
   "mypy",
+  "paracelsus",
   "pip-tools",
   "pytest",
   "pytest-cov",
@@ -44,6 +45,7 @@ dev = [
 full = "full.cli:app"
 
 [tool.ruff]
+exclude = [".venv", "./full/_version.py"]
 line-length = 120
 
 [tool.setuptools.dynamic]

@@ -55,9 +55,8 @@ pre-commit:
 #
 # Formatting
 #
-
 .PHONY: chores
-chores: ruff_fixes black_fixes dapperdata_fixes tomlsort_fixes
+chores: ruff_fixes black_fixes dapperdata_fixes tomlsort_fixes document_schema
 
 .PHONY: ruff_fixes
 ruff_fixes:
@@ -78,7 +77,6 @@ tomlsort_fixes:
 #
 # Testing
 #
-
 .PHONY: tests
 tests: install pytest ruff_check black_check mypy_check dapperdata_check tomlsort_check
 
@@ -140,6 +138,14 @@ build: $(PACKAGE_CHECK)
 #
 # Database
 #
+
+.PHONY: document_schema
+document_schema:
+	$(PYTHON) -m paracelsus.cli inject docs/dev/database.md $(PACKAGE_SLUG).models.base:Base --import-module "$(PACKAGE_SLUG).models:*"
+
+.PHONY: paracelsus_check
+paracelsus_check:
+	$(PYTHON) -m paracelsus.cli inject docs/dev/database.md $(PACKAGE_SLUG).models.base:Base --import-module "$(PACKAGE_SLUG).models:*" --check
 
 .PHONY: run_migrations
 run_migrations:

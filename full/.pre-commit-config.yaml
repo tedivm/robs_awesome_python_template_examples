@@ -26,3 +26,8 @@ repos:
         entry: make tomlsort_check
         language: system
         pass_filenames: false
+      - id: paracelsus
+        name: paracelsus
+        entry: make paracelsus_check
+        language: system
+        pass_filenames: false

@@ -6,7 +6,7 @@
 #
 annotated-types==0.6.0
     # via pydantic
-attrs==23.1.0
+attrs==23.2.0
     # via glom
 boltons==23.1.1
     # via
@@ -61,7 +61,7 @@ pygments==2.17.2
     # via rich
 pyproject-hooks==1.0.0
     # via build
-pytest==7.4.3
+pytest==7.4.4
     # via
     #   library (pyproject.toml)
     #   pytest-cov

@@ -34,6 +34,7 @@ dev = [
 library = "library.cli:app"
 
 [tool.ruff]
+exclude = [".venv", "./library/_version.py"]
 line-length = 120
 
 [tool.setuptools.dynamic]

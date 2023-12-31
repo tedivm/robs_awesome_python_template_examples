@@ -30,6 +30,7 @@ dev = [
 ]
 
 [tool.ruff]
+exclude = [".venv", "./bare/_version.py"]
 line-length = 120
 
 [tool.setuptools.dynamic]

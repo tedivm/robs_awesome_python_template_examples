@@ -53,7 +53,6 @@ pre-commit:
 #
 # Formatting
 #
-
 .PHONY: chores
 chores: ruff_fixes black_fixes dapperdata_fixes tomlsort_fixes
 
@@ -76,9 +75,8 @@ tomlsort_fixes:
 #
 # Testing
 #
-
 .PHONY: tests
-tests: install pytest ruff_check black_check mypy_check dapperdata_check tomlsort_check
+tests: install pytest ruff_check black_check mypy_check dapperdata_check tomlsort_check paracelsus_check
 
 .PHONY: pytest
 pytest:
