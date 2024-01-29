@@ -74,7 +74,7 @@ pydantic-settings==2.1.0
     # via full (pyproject.toml)
 python-dateutil==2.8.2
     # via celery
-python-dotenv==1.0.0
+python-dotenv==1.0.1
     # via pydantic-settings
 redis==5.0.1
     # via full (pyproject.toml)
