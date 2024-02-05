@@ -46,12 +46,12 @@ pip-tools==7.3.0
     # via library (pyproject.toml)
 pluggy==1.4.0
     # via pytest
-pydantic==2.5.3
+pydantic==2.6.0
     # via
     #   dapperdata
     #   library (pyproject.toml)
     #   pydantic-settings
-pydantic-core==2.14.6
+pydantic-core==2.16.1
     # via pydantic
 pydantic-settings==2.1.0
     # via
@@ -80,7 +80,7 @@ ruamel-yaml==0.18.5
     #   library (pyproject.toml)
 ruamel-yaml-clib==0.2.8
     # via ruamel-yaml
-ruff==0.1.14
+ruff==0.2.0
     # via library (pyproject.toml)
 toml-sort==0.23.1
     # via library (pyproject.toml)
