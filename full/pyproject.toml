@@ -32,13 +32,13 @@ dev = [
   "glom",
   "mypy",
   "paracelsus",
-  "pip-tools",
   "pytest",
   "pytest-cov",
   "pytest-pretty",
   "ruamel.yaml",
   "ruff",
-  "toml-sort"
+  "toml-sort",
+  "uv"
 ]
 
 [project.scripts]

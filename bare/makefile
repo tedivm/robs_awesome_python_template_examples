@@ -22,7 +22,7 @@ else
 endif
 
 # Used to confirm that pip has run at least once
-PACKAGE_CHECK:=$(PYTHON_PACKAGE_PATH)/piptools
+PACKAGE_CHECK:=$(PYTHON_PACKAGE_PATH)/build
 PYTHON_DEPS := $(PACKAGE_CHECK)
 
 

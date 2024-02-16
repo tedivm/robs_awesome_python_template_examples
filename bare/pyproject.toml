@@ -20,7 +20,6 @@ dev = [
   "dapperdata",
   "glom",
   "mypy",
-  "pip-tools",
   "pytest",
   "pytest-cov",
   "pytest-pretty",
