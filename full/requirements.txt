@@ -51,7 +51,7 @@ pbr==6.0.0
 prompt-toolkit==3.0.43
     # via click-repl
 psycopg2-binary==2.9.9
-pydantic==2.6.3
+pydantic==2.6.4
     # via
     #   fastapi
     #   pydantic-settings

@@ -58,7 +58,7 @@ chores: ruff_fixes black_fixes dapperdata_fixes tomlsort_fixes
 
 .PHONY: ruff_fixes
 ruff_fixes:
-	$(PYTHON) -m ruff . --fix
+	$(PYTHON) -m ruff check . --fix
 
 .PHONY: black_fixes
 black_fixes:
@@ -111,8 +111,8 @@ tomlsort_check:
 
 .PHONY: rebuild_dependencies
 rebuild_dependencies:
-	$(PYTHON) -m uv compile --output-file=requirements.txt pyproject.toml
-	$(PYTHON) -m uv compile --output-file=requirements-dev.txt --extra=dev pyproject.toml
+	$(PYTHON) -m uv pip compile --output-file=requirements.txt pyproject.toml
+	$(PYTHON) -m uv pip compile --output-file=requirements-dev.txt --extra=dev pyproject.toml
 
 .PHONY: dependencies
 dependencies: requirements.txt requirements-dev.txt
