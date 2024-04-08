@@ -20,6 +20,7 @@ jobs:
 
           - worker
 
+
     permissions:
       contents: read
       packages: write
@@ -68,3 +69,4 @@ jobs:
           platforms: linux/amd64,linux/arm64
           build-args: |
             PYTHON_VERSION=${{ steps.python_version.outputs.version }}
+

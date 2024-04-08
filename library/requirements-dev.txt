@@ -10,7 +10,7 @@ boltons==24.0.0
     #   glom
 build==1.2.1
 click==8.1.7
-    # via typer-slim
+    # via typer
 coverage==7.4.4
     # via pytest-cov
 dapperdata==0.4.0
@@ -55,29 +55,23 @@ python-dotenv==1.0.1
 rich==13.7.1
     # via
     #   pytest-pretty
-    #   typer-slim
+    #   typer
 ruamel-yaml==0.18.6
     # via dapperdata
 ruamel-yaml-clib==0.2.8
     # via ruamel-yaml
-ruff==0.3.4
+ruff==0.3.5
 shellingham==1.5.4
-    # via typer-slim
+    # via typer
 toml-sort==0.23.1
 tomlkit==0.12.4
     # via toml-sort
-typer==0.12.0
+typer==0.12.1
     # via dapperdata
-typer-cli==0.12.0
-    # via typer
-typer-slim==0.12.0
-    # via
-    #   typer
-    #   typer-cli
-typing-extensions==4.10.0
+typing-extensions==4.11.0
     # via
     #   mypy
     #   pydantic
     #   pydantic-core
-    #   typer-slim
-uv==0.1.26
+    #   typer
+uv==0.1.29
