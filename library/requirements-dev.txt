@@ -30,7 +30,7 @@ packaging==24.0
     # via
     #   build
     #   pytest
-pluggy==1.4.0
+pluggy==1.5.0
     # via pytest
 pydantic==2.7.0
     # via
@@ -60,7 +60,7 @@ ruamel-yaml==0.18.6
     # via dapperdata
 ruamel-yaml-clib==0.2.8
     # via ruamel-yaml
-ruff==0.3.7
+ruff==0.4.1
 shellingham==1.5.4
     # via typer
 toml-sort==0.23.1
@@ -74,4 +74,4 @@ typing-extensions==4.11.0
     #   pydantic
     #   pydantic-core
     #   typer
-uv==0.1.31
+uv==0.1.35
