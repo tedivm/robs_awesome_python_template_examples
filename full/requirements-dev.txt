@@ -36,7 +36,7 @@ click-plugins==1.1.1
     # via celery
 click-repl==0.3.0
     # via celery
-coverage==7.4.4
+coverage==7.5.0
     # via pytest-cov
 dapperdata==0.4.0
 decorator==5.1.1
@@ -65,7 +65,7 @@ markupsafe==2.1.5
     #   mako
 mdurl==0.1.2
     # via markdown-it-py
-mypy==1.9.0
+mypy==1.10.0
 mypy-extensions==1.0.0
     # via mypy
 packaging==24.0
@@ -80,12 +80,12 @@ pluggy==1.5.0
 prompt-toolkit==3.0.43
     # via click-repl
 psycopg2-binary==2.9.9
-pydantic==2.7.0
+pydantic==2.7.1
     # via
     #   dapperdata
     #   fastapi
     #   pydantic-settings
-pydantic-core==2.18.1
+pydantic-core==2.18.2
     # via pydantic
 pydantic-settings==2.2.1
     # via dapperdata
@@ -95,9 +95,9 @@ pygments==2.17.2
     # via rich
 pyparsing==3.1.2
     # via pydot
-pyproject-hooks==1.0.0
+pyproject-hooks==1.1.0
     # via build
-pytest==8.1.1
+pytest==8.2.0
     # via
     #   pytest-cov
     #   pytest-pretty
@@ -107,7 +107,7 @@ python-dateutil==2.9.0.post0
     # via celery
 python-dotenv==1.0.1
     # via pydantic-settings
-redis==5.0.3
+redis==5.0.4
 rich==13.7.1
     # via
     #   pytest-pretty
@@ -116,7 +116,7 @@ ruamel-yaml==0.18.6
     # via dapperdata
 ruamel-yaml-clib==0.2.8
     # via ruamel-yaml
-ruff==0.4.1
+ruff==0.4.2
 shellingham==1.5.4
     # via typer
 six==1.16.0
@@ -150,7 +150,7 @@ typing-extensions==4.11.0
     #   typer
 tzdata==2024.1
     # via celery
-uv==0.1.35
+uv==0.1.39
 vine==5.1.0
     # via
     #   amqp

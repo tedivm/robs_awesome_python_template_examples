@@ -8,9 +8,9 @@ markdown-it-py==3.0.0
     # via rich
 mdurl==0.1.2
     # via markdown-it-py
-pydantic==2.7.0
+pydantic==2.7.1
     # via pydantic-settings
-pydantic-core==2.18.1
+pydantic-core==2.18.2
     # via pydantic
 pydantic-settings==2.2.1
 pygments==2.17.2

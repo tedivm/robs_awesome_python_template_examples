@@ -11,7 +11,7 @@ boltons==24.0.0
 build==1.2.1
 click==8.1.7
     # via typer
-coverage==7.4.4
+coverage==7.5.0
     # via pytest-cov
 dapperdata==0.4.0
 face==20.1.1
@@ -23,7 +23,7 @@ markdown-it-py==3.0.0
     # via rich
 mdurl==0.1.2
     # via markdown-it-py
-mypy==1.9.0
+mypy==1.10.0
 mypy-extensions==1.0.0
     # via mypy
 packaging==24.0
@@ -32,19 +32,19 @@ packaging==24.0
     #   pytest
 pluggy==1.5.0
     # via pytest
-pydantic==2.7.0
+pydantic==2.7.1
     # via
     #   dapperdata
     #   pydantic-settings
-pydantic-core==2.18.1
+pydantic-core==2.18.2
     # via pydantic
 pydantic-settings==2.2.1
     # via dapperdata
 pygments==2.17.2
     # via rich
-pyproject-hooks==1.0.0
+pyproject-hooks==1.1.0
     # via build
-pytest==8.1.1
+pytest==8.2.0
     # via
     #   pytest-cov
     #   pytest-pretty
@@ -60,7 +60,7 @@ ruamel-yaml==0.18.6
     # via dapperdata
 ruamel-yaml-clib==0.2.8
     # via ruamel-yaml
-ruff==0.4.1
+ruff==0.4.2
 shellingham==1.5.4
     # via typer
 toml-sort==0.23.1
@@ -74,4 +74,4 @@ typing-extensions==4.11.0
     #   pydantic
     #   pydantic-core
     #   typer
-uv==0.1.35
+uv==0.1.39
