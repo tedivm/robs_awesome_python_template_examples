@@ -7,7 +7,10 @@ amqp==5.2.0
 annotated-types==0.6.0
     # via pydantic
 anyio==4.3.0
-    # via starlette
+    # via
+    #   httpx
+    #   starlette
+    #   watchfiles
 async-timeout==4.0.3
     # via
     #   asyncpg
@@ -16,6 +19,10 @@ asyncpg==0.29.0
 billiard==4.2.0
     # via celery
 celery==5.4.0
+certifi==2024.2.2
+    # via
+    #   httpcore
+    #   httpx
 click==8.1.7
     # via
     #   celery
@@ -23,6 +30,7 @@ click==8.1.7
     #   click-plugins
     #   click-repl
     #   typer
+    #   uvicorn
 click-didyoumean==0.3.1
     # via celery
 click-plugins==1.1.1
@@ -31,13 +39,34 @@ click-repl==0.3.0
     # via celery
 decorator==5.1.1
     # via dogpile-cache
-dogpile-cache==1.3.2
-fastapi==0.110.2
+dnspython==2.6.1
+    # via email-validator
+dogpile-cache==1.3.3
+email-validator==2.1.1
+    # via fastapi
+fastapi==0.111.0
+    # via fastapi-cli
+fastapi-cli==0.0.2
+    # via fastapi
 greenlet==3.0.3
     # via sqlalchemy
+h11==0.14.0
+    # via
+    #   httpcore
+    #   uvicorn
+httpcore==1.0.5
+    # via httpx
+httptools==0.6.1
+    # via uvicorn
+httpx==0.27.0
+    # via fastapi
 idna==3.7
-    # via anyio
-jinja2==3.1.3
+    # via
+    #   anyio
+    #   email-validator
+    #   httpx
+jinja2==3.1.4
+    # via fastapi
 kombu==5.3.7
     # via celery
 mako==1.3.3
@@ -50,6 +79,8 @@ markupsafe==2.1.5
     #   mako
 mdurl==0.1.2
     # via markdown-it-py
+orjson==3.10.3
+    # via fastapi
 pbr==6.0.0
     # via stevedore
 prompt-toolkit==3.0.43
@@ -62,12 +93,18 @@ pydantic==2.7.1
 pydantic-core==2.18.2
     # via pydantic
 pydantic-settings==2.2.1
-pygments==2.17.2
+pygments==2.18.0
     # via rich
 python-dateutil==2.9.0.post0
     # via celery
 python-dotenv==1.0.1
-    # via pydantic-settings
+    # via
+    #   pydantic-settings
+    #   uvicorn
+python-multipart==0.0.9
+    # via fastapi
+pyyaml==6.0.1
+    # via uvicorn
 redis==5.0.4
 rich==13.7.1
     # via typer
@@ -76,14 +113,17 @@ shellingham==1.5.4
 six==1.16.0
     # via python-dateutil
 sniffio==1.3.1
-    # via anyio
-sqlalchemy==2.0.29
+    # via
+    #   anyio
+    #   httpx
+sqlalchemy==2.0.30
     # via alembic
 starlette==0.37.2
     # via fastapi
 stevedore==5.2.0
     # via dogpile-cache
 typer==0.12.3
+    # via fastapi-cli
 typing-extensions==4.11.0
     # via
     #   aiosqlite
@@ -95,10 +135,22 @@ typing-extensions==4.11.0
     #   typer
 tzdata==2024.1
     # via celery
+ujson==5.9.0
+    # via fastapi
+uvicorn==0.29.0
+    # via
+    #   fastapi
+    #   fastapi-cli
+uvloop==0.19.0
+    # via uvicorn
 vine==5.1.0
     # via
     #   amqp
     #   celery
     #   kombu
+watchfiles==0.21.0
+    # via uvicorn
 wcwidth==0.2.13
     # via prompt-toolkit
+websockets==12.0
+    # via uvicorn
