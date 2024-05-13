@@ -46,7 +46,7 @@ email-validator==2.1.1
     # via fastapi
 fastapi==0.111.0
     # via fastapi-cli
-fastapi-cli==0.0.2
+fastapi-cli==0.0.3
     # via fastapi
 greenlet==3.0.3
     # via sqlalchemy
