@@ -23,7 +23,7 @@ billiard==4.2.0
     # via celery
 celery==5.4.0
     # via full (pyproject.toml)
-certifi==2024.2.2
+certifi==2024.6.2
     # via
     #   httpcore
     #   httpx
@@ -90,16 +90,16 @@ orjson==3.10.3
     # via fastapi
 pbr==6.0.0
     # via stevedore
-prompt-toolkit==3.0.43
+prompt-toolkit==3.0.45
     # via click-repl
 psycopg2-binary==2.9.9
     # via full (pyproject.toml)
-pydantic==2.7.1
+pydantic==2.7.2
     # via
     #   full (pyproject.toml)
     #   fastapi
     #   pydantic-settings
-pydantic-core==2.18.2
+pydantic-core==2.18.3
     # via pydantic
 pydantic-settings==2.2.1
     # via full (pyproject.toml)
@@ -139,7 +139,7 @@ typer==0.12.3
     # via
     #   full (pyproject.toml)
     #   fastapi-cli
-typing-extensions==4.12.0
+typing-extensions==4.12.1
     # via
     #   aiosqlite
     #   alembic
@@ -152,7 +152,7 @@ tzdata==2024.1
     # via celery
 ujson==5.10.0
     # via fastapi
-uvicorn==0.29.0
+uvicorn==0.30.1
     # via fastapi
 uvloop==0.19.0
     # via uvicorn
@@ -161,7 +161,7 @@ vine==5.1.0
     #   amqp
     #   celery
     #   kombu
-watchfiles==0.21.0
+watchfiles==0.22.0
     # via uvicorn
 wcwidth==0.2.13
     # via prompt-toolkit

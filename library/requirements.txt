@@ -8,11 +8,11 @@ markdown-it-py==3.0.0
     # via rich
 mdurl==0.1.2
     # via markdown-it-py
-pydantic==2.7.1
+pydantic==2.7.2
     # via
     #   library (pyproject.toml)
     #   pydantic-settings
-pydantic-core==2.18.2
+pydantic-core==2.18.3
     # via pydantic
 pydantic-settings==2.2.1
     # via library (pyproject.toml)
@@ -26,7 +26,7 @@ shellingham==1.5.4
     # via typer
 typer==0.12.3
     # via library (pyproject.toml)
-typing-extensions==4.12.0
+typing-extensions==4.12.1
     # via
     #   pydantic
     #   pydantic-core
