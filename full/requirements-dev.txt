@@ -114,7 +114,7 @@ packaging==24.0
     # via
     #   build
     #   pytest
-paracelsus==0.6.0
+paracelsus==0.6.1
     # via full (pyproject.toml)
 pbr==6.0.0
     # via stevedore
