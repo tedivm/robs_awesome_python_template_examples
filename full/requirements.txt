@@ -90,18 +90,18 @@ orjson==3.10.3
     # via fastapi
 pbr==6.0.0
     # via stevedore
-prompt-toolkit==3.0.45
+prompt-toolkit==3.0.47
     # via click-repl
 psycopg2-binary==2.9.9
     # via full (pyproject.toml)
-pydantic==2.7.2
+pydantic==2.7.3
     # via
     #   full (pyproject.toml)
     #   fastapi
     #   pydantic-settings
-pydantic-core==2.18.3
+pydantic-core==2.18.4
     # via pydantic
-pydantic-settings==2.2.1
+pydantic-settings==2.3.1
     # via full (pyproject.toml)
 pygments==2.18.0
     # via rich
@@ -115,7 +115,7 @@ python-multipart==0.0.9
     # via fastapi
 pyyaml==6.0.1
     # via uvicorn
-redis==5.0.4
+redis==5.0.5
     # via full (pyproject.toml)
 rich==13.7.1
     # via typer
@@ -139,7 +139,7 @@ typer==0.12.3
     # via
     #   full (pyproject.toml)
     #   fastapi-cli
-typing-extensions==4.12.1
+typing-extensions==4.12.2
     # via
     #   aiosqlite
     #   alembic
