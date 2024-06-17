@@ -36,14 +36,14 @@ packaging==24.1
     #   pytest
 pluggy==1.5.0
     # via pytest
-pydantic==2.7.3
+pydantic==2.7.4
     # via
     #   library (pyproject.toml)
     #   dapperdata
     #   pydantic-settings
 pydantic-core==2.18.4
     # via pydantic
-pydantic-settings==2.3.1
+pydantic-settings==2.3.3
     # via
     #   library (pyproject.toml)
     #   dapperdata
@@ -72,7 +72,7 @@ ruamel-yaml==0.18.6
     #   dapperdata
 ruamel-yaml-clib==0.2.8
     # via ruamel-yaml
-ruff==0.4.8
+ruff==0.4.9
     # via library (pyproject.toml)
 shellingham==1.5.4
     # via typer
@@ -90,5 +90,5 @@ typing-extensions==4.12.2
     #   pydantic
     #   pydantic-core
     #   typer
-uv==0.2.9
+uv==0.2.11
     # via library (pyproject.toml)
