@@ -7,6 +7,7 @@ default_context:
   include_cli: "y"
   include_fastapi: "y"
   include_sqlalchemy: "y"
+  include_quasiqueue: "y"
   include_jinja2: "y"
   include_dogpile: "y"
   include_celery: "y"
