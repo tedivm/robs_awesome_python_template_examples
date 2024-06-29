@@ -26,7 +26,7 @@ markdown-it-py==3.0.0
     # via rich
 mdurl==0.1.2
     # via markdown-it-py
-mypy==1.10.0
+mypy==1.10.1
     # via library (pyproject.toml)
 mypy-extensions==1.0.0
     # via mypy
@@ -43,7 +43,7 @@ pydantic==2.7.4
     #   pydantic-settings
 pydantic-core==2.18.4
     # via pydantic
-pydantic-settings==2.3.3
+pydantic-settings==2.3.4
     # via
     #   library (pyproject.toml)
     #   dapperdata
@@ -72,7 +72,7 @@ ruamel-yaml==0.18.6
     #   dapperdata
 ruamel-yaml-clib==0.2.8
     # via ruamel-yaml
-ruff==0.4.10
+ruff==0.5.0
     # via library (pyproject.toml)
 shellingham==1.5.4
     # via typer
@@ -90,5 +90,5 @@ typing-extensions==4.12.2
     #   pydantic
     #   pydantic-core
     #   typer
-uv==0.2.13
+uv==0.2.17
     # via library (pyproject.toml)
