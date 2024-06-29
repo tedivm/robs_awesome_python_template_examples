@@ -122,6 +122,8 @@ pluggy==1.5.0
     # via pytest
 prompt-toolkit==3.0.47
     # via click-repl
+psutil==6.0.0
+    # via quasiqueue
 psycopg2-binary==2.9.9
     # via full (pyproject.toml)
 pydantic==2.7.4
@@ -130,12 +132,14 @@ pydantic==2.7.4
     #   dapperdata
     #   fastapi
     #   pydantic-settings
+    #   quasiqueue
 pydantic-core==2.18.4
     # via pydantic
 pydantic-settings==2.3.4
     # via
     #   full (pyproject.toml)
     #   dapperdata
+    #   quasiqueue
 pydot==2.0.0
     # via paracelsus
 pygments==2.18.0
@@ -163,6 +167,8 @@ python-multipart==0.0.9
     # via fastapi
 pyyaml==6.0.1
     # via uvicorn
+quasiqueue==0.4.2
+    # via full (pyproject.toml)
 redis==5.0.7
     # via full (pyproject.toml)
 rich==13.7.1
@@ -204,6 +210,7 @@ typer==0.12.3
     #   dapperdata
     #   fastapi-cli
     #   paracelsus
+    #   quasiqueue
 typing-extensions==4.12.2
     # via
     #   aiosqlite

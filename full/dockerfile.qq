@@ -1,0 +1,9 @@
+ARG PYTHON_VERSION=3.11
+FROM ghcr.io/multi-py/python-quasiqueue:py${PYTHON_VERSION}-slim-LATEST
+
+ENV MODULE_NAME=full.qq
+
+COPY requirements.txt /requirements.txt
+RUN pip install --no-cache-dir -r /requirements.txt
+
+COPY ./ /app

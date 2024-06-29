@@ -20,6 +20,7 @@ dependencies = [
   "psycopg2-binary",
   "pydantic~=2.0",
   "pydantic-settings",
+  "QuasiQueue",
   "SQLAlchemy",
   "redis",
   "typer"

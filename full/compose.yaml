@@ -47,6 +47,19 @@ services:
       - db
       - redis
 
+  qq:
+    build:
+      dockerfile: ./dockerfile.qq
+    volumes:
+      - "./full:/app/full"
+    environment:
+      IS_DEV: true
+      DATABASE_URL: postgresql://main:main12345@db/main
+      CELERY_BROKER: redis://redis:6379/0
+    depends_on:
+      - db
+      - redis
+
   redis:
     image: redis
 

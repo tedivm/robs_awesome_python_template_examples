@@ -6,4 +6,4 @@ Static files can be added to `full/static` and will be passed through the `/stat
 
 ## Docker
 
-The Celery images are based off of the [Multi-Py CelUvicornery Project](https://github.com/multi-py/python-uvicorn) and work for ARM and AMD out of the box.
+The FastAPI images are based off of the [Multi-Py Uvicorn Project](https://github.com/multi-py/python-uvicorn) and work for ARM and AMD out of the box.

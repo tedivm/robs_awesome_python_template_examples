@@ -25,11 +25,15 @@ Migrations can be using `make`. This method uses SQLite.
 make create_migration MESSAGE="migration description"
 ```
 
+To check if a migration is available run `make check_ungenerated_migrations`.
+
 ## FastAPI Integration
 
 The function `full.db:get_session_depends` is designed to work with the [FastAPI Dependency system](https://fastapi.tiangolo.com/tutorial/dependencies/), and can be passed directly to [Depends](https://fastapi.tiangolo.com/tutorial/dependencies/dependencies-in-path-operation-decorators/).
 
 ## Schema
+
+This schema is generated with Paracelsus. To update run `make document_schema`.
 
 <!-- BEGIN_SQLALCHEMY_DOCS -->
 ```mermaid
