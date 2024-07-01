@@ -225,7 +225,7 @@ tzdata==2024.1
     # via celery
 ujson==5.10.0
     # via fastapi
-uv==0.2.17
+uv==0.2.18
     # via full (pyproject.toml)
 uvicorn==0.30.1
     # via fastapi

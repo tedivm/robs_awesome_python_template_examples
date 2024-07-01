@@ -90,5 +90,5 @@ typing-extensions==4.12.2
     #   pydantic
     #   pydantic-core
     #   typer
-uv==0.2.17
+uv==0.2.18
     # via library (pyproject.toml)
