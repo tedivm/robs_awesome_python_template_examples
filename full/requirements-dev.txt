@@ -31,7 +31,7 @@ build==1.2.1
     # via full (pyproject.toml)
 celery==5.4.0
     # via full (pyproject.toml)
-certifi==2024.6.2
+certifi==2024.7.4
     # via
     #   httpcore
     #   httpx
@@ -108,7 +108,7 @@ mypy==1.10.1
     # via full (pyproject.toml)
 mypy-extensions==1.0.0
     # via mypy
-orjson==3.10.5
+orjson==3.10.6
     # via fastapi
 packaging==24.1
     # via
@@ -126,14 +126,14 @@ psutil==6.0.0
     # via quasiqueue
 psycopg2-binary==2.9.9
     # via full (pyproject.toml)
-pydantic==2.7.4
+pydantic==2.8.2
     # via
     #   full (pyproject.toml)
     #   dapperdata
     #   fastapi
     #   pydantic-settings
     #   quasiqueue
-pydantic-core==2.18.4
+pydantic-core==2.20.1
     # via pydantic
 pydantic-settings==2.3.4
     # via
@@ -181,7 +181,7 @@ ruamel-yaml==0.18.6
     #   dapperdata
 ruamel-yaml-clib==0.2.8
     # via ruamel-yaml
-ruff==0.5.0
+ruff==0.5.1
     # via full (pyproject.toml)
 shellingham==1.5.4
     # via typer
@@ -225,7 +225,7 @@ tzdata==2024.1
     # via celery
 ujson==5.10.0
     # via fastapi
-uv==0.2.18
+uv==0.2.22
     # via full (pyproject.toml)
 uvicorn==0.30.1
     # via fastapi

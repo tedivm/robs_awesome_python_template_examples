@@ -23,7 +23,7 @@ billiard==4.2.0
     # via celery
 celery==5.4.0
     # via full (pyproject.toml)
-certifi==2024.6.2
+certifi==2024.7.4
     # via
     #   httpcore
     #   httpx
@@ -86,7 +86,7 @@ markupsafe==2.1.5
     #   mako
 mdurl==0.1.2
     # via markdown-it-py
-orjson==3.10.5
+orjson==3.10.6
     # via fastapi
 pbr==6.0.0
     # via stevedore
@@ -96,13 +96,13 @@ psutil==6.0.0
     # via quasiqueue
 psycopg2-binary==2.9.9
     # via full (pyproject.toml)
-pydantic==2.7.4
+pydantic==2.8.2
     # via
     #   full (pyproject.toml)
     #   fastapi
     #   pydantic-settings
     #   quasiqueue
-pydantic-core==2.18.4
+pydantic-core==2.20.1
     # via pydantic
 pydantic-settings==2.3.4
     # via
