@@ -146,7 +146,7 @@ pyparsing==3.1.2
     # via pydot
 pyproject-hooks==1.1.0
     # via build
-pytest==8.3.1
+pytest==8.3.2
     # via
     #   full (pyproject.toml)
     #   pytest-cov
@@ -179,7 +179,7 @@ ruamel-yaml==0.18.6
     #   dapperdata
 ruamel-yaml-clib==0.2.8
     # via ruamel-yaml
-ruff==0.5.4
+ruff==0.5.5
     # via full (pyproject.toml)
 shellingham==1.5.4
     # via typer
@@ -221,7 +221,7 @@ typing-extensions==4.12.2
     #   typer
 tzdata==2024.1
     # via celery
-uv==0.2.27
+uv==0.2.30
     # via full (pyproject.toml)
 uvicorn==0.30.3
     # via fastapi

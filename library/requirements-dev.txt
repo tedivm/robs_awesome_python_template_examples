@@ -51,7 +51,7 @@ pygments==2.18.0
     # via rich
 pyproject-hooks==1.1.0
     # via build
-pytest==8.3.1
+pytest==8.3.2
     # via
     #   library (pyproject.toml)
     #   pytest-cov
@@ -72,7 +72,7 @@ ruamel-yaml==0.18.6
     #   dapperdata
 ruamel-yaml-clib==0.2.8
     # via ruamel-yaml
-ruff==0.5.4
+ruff==0.5.5
     # via library (pyproject.toml)
 shellingham==1.5.4
     # via typer
@@ -90,5 +90,5 @@ typing-extensions==4.12.2
     #   pydantic
     #   pydantic-core
     #   typer
-uv==0.2.27
+uv==0.2.30
     # via library (pyproject.toml)
