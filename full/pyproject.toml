@@ -45,6 +45,12 @@ dev = [
 [project.scripts]
 full = "full.cli:app"
 
+[tool.coverage.run]
+omit = [
+  "./full/_version.py",
+  "./full/__init__.py"
+]
+
 [tool.ruff]
 exclude = [".venv", "./full/_version.py"]
 line-length = 120

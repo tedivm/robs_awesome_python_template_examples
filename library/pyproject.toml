@@ -33,6 +33,12 @@ dev = [
 [project.scripts]
 library = "library.cli:app"
 
+[tool.coverage.run]
+omit = [
+  "./library/_version.py",
+  "./library/__init__.py"
+]
+
 [tool.ruff]
 exclude = [".venv", "./library/_version.py"]
 line-length = 120

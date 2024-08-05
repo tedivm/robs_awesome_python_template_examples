@@ -28,6 +28,12 @@ dev = [
   "toml-sort"
 ]
 
+[tool.coverage.run]
+omit = [
+  "./bare/_version.py",
+  "./bare/__init__.py"
+]
+
 [tool.ruff]
 exclude = [".venv", "./bare/_version.py"]
 line-length = 120
