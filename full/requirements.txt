@@ -57,7 +57,7 @@ markupsafe==2.1.5
     #   mako
 mdurl==0.1.2
     # via markdown-it-py
-pbr==6.0.0
+pbr==6.1.0
     # via stevedore
 prompt-toolkit==3.0.47
     # via click-repl
@@ -87,7 +87,7 @@ quasiqueue==0.4.2
     # via full (pyproject.toml)
 redis==5.0.8
     # via full (pyproject.toml)
-rich==13.7.1
+rich==13.8.0
     # via typer
 shellingham==1.5.4
     # via typer
@@ -99,7 +99,7 @@ sqlalchemy==2.0.32
     # via
     #   full (pyproject.toml)
     #   alembic
-starlette==0.38.2
+starlette==0.38.4
     # via fastapi
 stevedore==5.3.0
     # via dogpile-cache

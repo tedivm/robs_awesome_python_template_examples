@@ -20,7 +20,7 @@ pygments==2.18.0
     # via rich
 python-dotenv==1.0.1
     # via pydantic-settings
-rich==13.7.1
+rich==13.8.0
     # via typer
 shellingham==1.5.4
     # via typer
