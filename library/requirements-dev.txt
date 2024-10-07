@@ -8,7 +8,7 @@ boltons==24.0.0
     # via
     #   face
     #   glom
-build==1.2.2
+build==1.2.2.post1
     # via library (pyproject.toml)
 click==8.1.7
     # via typer
@@ -49,7 +49,7 @@ pydantic-settings==2.5.2
     #   dapperdata
 pygments==2.18.0
     # via rich
-pyproject-hooks==1.1.0
+pyproject-hooks==1.2.0
     # via build
 pytest==8.3.3
     # via
@@ -62,7 +62,7 @@ pytest-pretty==1.2.0
     # via library (pyproject.toml)
 python-dotenv==1.0.1
     # via pydantic-settings
-rich==13.8.1
+rich==13.9.2
     # via
     #   pytest-pretty
     #   typer
@@ -72,7 +72,7 @@ ruamel-yaml==0.18.6
     #   dapperdata
 ruamel-yaml-clib==0.2.8
     # via ruamel-yaml
-ruff==0.6.7
+ruff==0.6.9
     # via library (pyproject.toml)
 shellingham==1.5.4
     # via typer
@@ -90,5 +90,5 @@ typing-extensions==4.12.2
     #   pydantic
     #   pydantic-core
     #   typer
-uv==0.4.15
+uv==0.4.18
     # via library (pyproject.toml)
