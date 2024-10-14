@@ -12,7 +12,7 @@ build==1.2.2.post1
     # via library (pyproject.toml)
 click==8.1.7
     # via typer
-coverage==7.6.1
+coverage==7.6.3
     # via pytest-cov
 dapperdata==0.4.0
     # via library (pyproject.toml)
@@ -90,5 +90,5 @@ typing-extensions==4.12.2
     #   pydantic
     #   pydantic-core
     #   typer
-uv==0.4.18
+uv==0.4.20
     # via library (pyproject.toml)
