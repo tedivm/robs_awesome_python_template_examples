@@ -14,7 +14,7 @@ pydantic==2.9.2
     #   pydantic-settings
 pydantic-core==2.23.4
     # via pydantic
-pydantic-settings==2.5.2
+pydantic-settings==2.6.0
     # via library (pyproject.toml)
 pygments==2.18.0
     # via rich
