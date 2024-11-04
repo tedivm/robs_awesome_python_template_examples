@@ -10,7 +10,7 @@ annotated-types==0.7.0
     # via pydantic
 anyio==4.6.2.post1
     # via starlette
-async-timeout==4.0.3
+async-timeout==5.0.0
     # via redis
 asyncpg==0.30.0
     # via full (pyproject.toml)
@@ -71,7 +71,7 @@ pydantic==2.9.2
     #   quasiqueue
 pydantic-core==2.23.4
     # via pydantic
-pydantic-settings==2.6.0
+pydantic-settings==2.6.1
     # via
     #   full (pyproject.toml)
     #   quasiqueue
@@ -85,7 +85,7 @@ quasiqueue==0.4.2
     # via full (pyproject.toml)
 redis==5.2.0
     # via full (pyproject.toml)
-rich==13.9.3
+rich==13.9.4
     # via typer
 shellingham==1.5.4
     # via typer

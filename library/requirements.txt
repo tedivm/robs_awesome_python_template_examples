@@ -14,13 +14,13 @@ pydantic==2.9.2
     #   pydantic-settings
 pydantic-core==2.23.4
     # via pydantic
-pydantic-settings==2.6.0
+pydantic-settings==2.6.1
     # via library (pyproject.toml)
 pygments==2.18.0
     # via rich
 python-dotenv==1.0.1
     # via pydantic-settings
-rich==13.9.3
+rich==13.9.4
     # via typer
 shellingham==1.5.4
     # via typer
