@@ -2,7 +2,7 @@
 #    uv pip compile --output-file=requirements-dev.txt --extra=dev pyproject.toml
 aiosqlite==0.20.0
     # via full (pyproject.toml)
-alembic==1.13.3
+alembic==1.14.0
     # via full (pyproject.toml)
 amqp==5.2.0
     # via kombu
@@ -10,7 +10,7 @@ annotated-types==0.7.0
     # via pydantic
 anyio==4.6.2.post1
     # via starlette
-async-timeout==5.0.0
+async-timeout==5.0.1
     # via redis
 asyncpg==0.30.0
     # via full (pyproject.toml)
@@ -77,7 +77,7 @@ mypy==1.13.0
     # via full (pyproject.toml)
 mypy-extensions==1.0.0
     # via mypy
-packaging==24.1
+packaging==24.2
     # via
     #   build
     #   pytest
@@ -142,7 +142,7 @@ ruamel-yaml==0.18.6
     #   dapperdata
 ruamel-yaml-clib==0.2.12
     # via ruamel-yaml
-ruff==0.7.2
+ruff==0.7.3
     # via full (pyproject.toml)
 shellingham==1.5.4
     # via typer
@@ -163,7 +163,7 @@ toml-sort==0.23.1
     # via full (pyproject.toml)
 tomlkit==0.13.2
     # via toml-sort
-typer==0.12.5
+typer==0.13.0
     # via
     #   full (pyproject.toml)
     #   dapperdata
@@ -183,7 +183,7 @@ tzdata==2024.2
     # via
     #   celery
     #   kombu
-uv==0.4.29
+uv==0.5.1
     # via full (pyproject.toml)
 vine==5.1.0
     # via
