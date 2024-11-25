@@ -63,13 +63,13 @@ psutil==6.1.0
     # via quasiqueue
 psycopg2-binary==2.9.10
     # via full (pyproject.toml)
-pydantic==2.9.2
+pydantic==2.10.1
     # via
     #   full (pyproject.toml)
     #   fastapi
     #   pydantic-settings
     #   quasiqueue
-pydantic-core==2.23.4
+pydantic-core==2.27.1
     # via pydantic
 pydantic-settings==2.6.1
     # via
@@ -97,11 +97,11 @@ sqlalchemy==2.0.36
     # via
     #   full (pyproject.toml)
     #   alembic
-starlette==0.41.2
+starlette==0.41.3
     # via fastapi
-stevedore==5.3.0
+stevedore==5.4.0
     # via dogpile-cache
-typer==0.13.0
+typer==0.13.1
     # via
     #   full (pyproject.toml)
     #   quasiqueue
