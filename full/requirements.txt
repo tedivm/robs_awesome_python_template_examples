@@ -63,7 +63,7 @@ psutil==6.1.0
     # via quasiqueue
 psycopg2-binary==2.9.10
     # via full (pyproject.toml)
-pydantic==2.10.1
+pydantic==2.10.2
     # via
     #   full (pyproject.toml)
     #   fastapi
@@ -101,7 +101,7 @@ starlette==0.41.3
     # via fastapi
 stevedore==5.4.0
     # via dogpile-cache
-typer==0.13.1
+typer==0.14.0
     # via
     #   full (pyproject.toml)
     #   quasiqueue

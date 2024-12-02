@@ -1,6 +1,3 @@
-from pydantic_settings import BaseSettings
-
-
-class Settings(BaseSettings):
+class Settings:
     project_name: str = "bare"
     debug: bool = False

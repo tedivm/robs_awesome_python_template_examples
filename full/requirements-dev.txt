@@ -93,7 +93,7 @@ psutil==6.1.0
     # via quasiqueue
 psycopg2-binary==2.9.10
     # via full (pyproject.toml)
-pydantic==2.10.1
+pydantic==2.10.2
     # via
     #   full (pyproject.toml)
     #   dapperdata
@@ -107,7 +107,7 @@ pydantic-settings==2.6.1
     #   full (pyproject.toml)
     #   dapperdata
     #   quasiqueue
-pydot==3.0.2
+pydot==3.0.3
     # via paracelsus
 pygments==2.18.0
     # via rich
@@ -115,7 +115,7 @@ pyparsing==3.2.0
     # via pydot
 pyproject-hooks==1.2.0
     # via build
-pytest==8.3.3
+pytest==8.3.4
     # via
     #   full (pyproject.toml)
     #   pytest-cov
@@ -142,7 +142,7 @@ ruamel-yaml==0.18.6
     #   dapperdata
 ruamel-yaml-clib==0.2.12
     # via ruamel-yaml
-ruff==0.8.0
+ruff==0.8.1
     # via full (pyproject.toml)
 shellingham==1.5.4
     # via typer
@@ -163,7 +163,7 @@ toml-sort==0.24.2
     # via full (pyproject.toml)
 tomlkit==0.13.2
     # via toml-sort
-typer==0.13.1
+typer==0.14.0
     # via
     #   full (pyproject.toml)
     #   dapperdata
@@ -183,7 +183,7 @@ tzdata==2024.2
     # via
     #   celery
     #   kombu
-uv==0.5.4
+uv==0.5.5
     # via full (pyproject.toml)
 vine==5.1.0
     # via
