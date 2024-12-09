@@ -21,6 +21,7 @@ dev = [
   "glom",
   "mypy",
   "pytest",
+  "pytest-asyncio",
   "pytest-cov",
   "pytest-pretty",
   "ruamel.yaml",
@@ -31,8 +32,12 @@ dev = [
 [tool.coverage.run]
 omit = [
   "./bare/_version.py",
-  "./bare/__init__.py"
+  "./bare/__init__.py",
+  "./tests/*"
 ]
+
+[tool.pytest.ini_options]
+asyncio_default_fixture_loop_scope = "function"
 
 [tool.ruff]
 exclude = [".venv", "./bare/_version.py"]

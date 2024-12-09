@@ -34,6 +34,7 @@ dev = [
   "mypy",
   "paracelsus",
   "pytest",
+  "pytest-asyncio",
   "pytest-cov",
   "pytest-pretty",
   "ruamel.yaml",
@@ -48,8 +49,12 @@ full = "full.cli:app"
 [tool.coverage.run]
 omit = [
   "./full/_version.py",
-  "./full/__init__.py"
+  "./full/__init__.py",
+  "./tests/*"
 ]
+
+[tool.pytest.ini_options]
+asyncio_default_fixture_loop_scope = "function"
 
 [tool.ruff]
 exclude = [".venv", "./full/_version.py"]
