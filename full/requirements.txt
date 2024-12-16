@@ -71,7 +71,7 @@ pydantic==2.10.3
     #   quasiqueue
 pydantic-core==2.27.1
     # via pydantic
-pydantic-settings==2.6.1
+pydantic-settings==2.7.0
     # via
     #   full (pyproject.toml)
     #   quasiqueue
