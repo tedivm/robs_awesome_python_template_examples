@@ -26,7 +26,7 @@ build==1.2.2.post1
     # via full (pyproject.toml)
 celery==5.4.0
     # via full (pyproject.toml)
-click==8.1.7
+click==8.1.8
     # via
     #   celery
     #   click-didyoumean
@@ -59,7 +59,7 @@ idna==3.10
     # via anyio
 iniconfig==2.0.0
     # via pytest
-jinja2==3.1.4
+jinja2==3.1.5
     # via full (pyproject.toml)
 kombu==5.4.2
     # via celery
@@ -73,7 +73,7 @@ markupsafe==3.0.2
     #   mako
 mdurl==0.1.2
     # via markdown-it-py
-mypy==1.13.0
+mypy==1.14.0
     # via full (pyproject.toml)
 mypy-extensions==1.0.0
     # via mypy
@@ -89,18 +89,18 @@ pluggy==1.5.0
     # via pytest
 prompt-toolkit==3.0.48
     # via click-repl
-psutil==6.1.0
+psutil==6.1.1
     # via quasiqueue
 psycopg2-binary==2.9.10
     # via full (pyproject.toml)
-pydantic==2.10.3
+pydantic==2.10.4
     # via
     #   full (pyproject.toml)
     #   dapperdata
     #   fastapi
     #   pydantic-settings
     #   quasiqueue
-pydantic-core==2.27.1
+pydantic-core==2.27.2
     # via pydantic
 pydantic-settings==2.7.0
     # via
@@ -145,7 +145,7 @@ ruamel-yaml==0.18.6
     #   dapperdata
 ruamel-yaml-clib==0.2.12
     # via ruamel-yaml
-ruff==0.8.3
+ruff==0.8.4
     # via full (pyproject.toml)
 shellingham==1.5.4
     # via typer
@@ -187,7 +187,7 @@ tzdata==2024.2
     # via
     #   celery
     #   kombu
-uv==0.5.9
+uv==0.5.11
     # via full (pyproject.toml)
 vine==5.1.0
     # via
