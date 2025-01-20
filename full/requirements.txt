@@ -2,7 +2,7 @@
 #    uv pip compile --output-file=requirements.txt pyproject.toml
 aiosqlite==0.20.0
     # via full (pyproject.toml)
-alembic==1.14.0
+alembic==1.14.1
     # via full (pyproject.toml)
 amqp==5.3.1
     # via kombu
@@ -57,7 +57,7 @@ mdurl==0.1.2
     # via markdown-it-py
 pbr==6.1.0
     # via stevedore
-prompt-toolkit==3.0.48
+prompt-toolkit==3.0.49
     # via click-repl
 psutil==6.1.1
     # via quasiqueue
