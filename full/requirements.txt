@@ -45,7 +45,7 @@ jinja2==3.1.5
     # via full (pyproject.toml)
 kombu==5.4.2
     # via celery
-mako==1.3.8
+mako==1.3.9
     # via alembic
 markdown-it-py==3.0.0
     # via rich
@@ -55,7 +55,7 @@ markupsafe==3.0.2
     #   mako
 mdurl==0.1.2
     # via markdown-it-py
-pbr==6.1.0
+pbr==6.1.1
     # via stevedore
 prompt-toolkit==3.0.50
     # via click-repl
@@ -87,13 +87,15 @@ redis==5.2.1
     # via full (pyproject.toml)
 rich==13.9.4
     # via typer
+setuptools==75.8.0
+    # via pbr
 shellingham==1.5.4
     # via typer
 six==1.17.0
     # via python-dateutil
 sniffio==1.3.1
     # via anyio
-sqlalchemy==2.0.37
+sqlalchemy==2.0.38
     # via
     #   full (pyproject.toml)
     #   alembic
