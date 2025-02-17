@@ -59,7 +59,7 @@ pbr==6.1.1
     # via stevedore
 prompt-toolkit==3.0.50
     # via click-repl
-psutil==6.1.1
+psutil==7.0.0
     # via quasiqueue
 psycopg2-binary==2.9.10
     # via full (pyproject.toml)

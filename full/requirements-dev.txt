@@ -39,7 +39,7 @@ click-plugins==1.1.1
     # via celery
 click-repl==0.3.0
     # via celery
-coverage==7.6.11
+coverage==7.6.12
     # via pytest-cov
 dapperdata==0.4.0
     # via full (pyproject.toml)
@@ -89,7 +89,7 @@ pluggy==1.5.0
     # via pytest
 prompt-toolkit==3.0.50
     # via click-repl
-psutil==6.1.1
+psutil==7.0.0
     # via quasiqueue
 psycopg2-binary==2.9.10
     # via full (pyproject.toml)
@@ -145,7 +145,7 @@ ruamel-yaml==0.18.10
     #   dapperdata
 ruamel-yaml-clib==0.2.12
     # via ruamel-yaml
-ruff==0.9.5
+ruff==0.9.6
     # via full (pyproject.toml)
 setuptools==75.8.0
     # via pbr
@@ -189,7 +189,7 @@ tzdata==2025.1
     # via
     #   celery
     #   kombu
-uv==0.5.29
+uv==0.6.0
     # via full (pyproject.toml)
 vine==5.1.0
     # via
