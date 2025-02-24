@@ -43,7 +43,7 @@ pydantic==2.10.6
     #   pydantic-settings
 pydantic-core==2.27.2
     # via pydantic
-pydantic-settings==2.7.1
+pydantic-settings==2.8.0
     # via
     #   library (pyproject.toml)
     #   dapperdata
@@ -75,7 +75,7 @@ ruamel-yaml==0.18.10
     #   dapperdata
 ruamel-yaml-clib==0.2.12
     # via ruamel-yaml
-ruff==0.9.6
+ruff==0.9.7
     # via library (pyproject.toml)
 shellingham==1.5.4
     # via typer
@@ -93,5 +93,5 @@ typing-extensions==4.12.2
     #   pydantic
     #   pydantic-core
     #   typer
-uv==0.6.0
+uv==0.6.2
     # via library (pyproject.toml)
