@@ -14,7 +14,7 @@ pydantic==2.10.6
     #   pydantic-settings
 pydantic-core==2.27.2
     # via pydantic
-pydantic-settings==2.8.0
+pydantic-settings==2.8.1
     # via library (pyproject.toml)
 pygments==2.19.1
     # via rich
@@ -24,7 +24,7 @@ rich==13.9.4
     # via typer
 shellingham==1.5.4
     # via typer
-typer==0.15.1
+typer==0.15.2
     # via library (pyproject.toml)
 typing-extensions==4.12.2
     # via

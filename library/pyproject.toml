@@ -41,6 +41,9 @@ omit = [
   "./tests/*"
 ]
 
+[tool.mypy]
+plugins = ["pydantic.mypy"]
+
 [tool.pytest.ini_options]
 asyncio_default_fixture_loop_scope = "function"
 
