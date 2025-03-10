@@ -2,7 +2,7 @@
 #    uv pip compile --output-file=requirements.txt pyproject.toml
 aiosqlite==0.21.0
     # via full (pyproject.toml)
-alembic==1.14.1
+alembic==1.15.1
     # via full (pyproject.toml)
 amqp==5.3.1
     # via kombu
@@ -41,7 +41,7 @@ greenlet==3.1.1
     # via sqlalchemy
 idna==3.10
     # via anyio
-jinja2==3.1.5
+jinja2==3.1.6
     # via full (pyproject.toml)
 kombu==5.4.2
     # via celery
@@ -87,7 +87,7 @@ redis==5.2.1
     # via full (pyproject.toml)
 rich==13.9.4
     # via typer
-setuptools==75.8.2
+setuptools==76.0.0
     # via pbr
 shellingham==1.5.4
     # via typer
@@ -99,7 +99,7 @@ sqlalchemy==2.0.38
     # via
     #   full (pyproject.toml)
     #   alembic
-starlette==0.46.0
+starlette==0.46.1
     # via fastapi
 stevedore==5.4.1
     # via dogpile-cache
