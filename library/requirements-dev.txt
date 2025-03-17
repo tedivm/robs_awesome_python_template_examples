@@ -2,7 +2,7 @@
 #    uv pip compile --output-file=requirements-dev.txt --extra=dev pyproject.toml
 annotated-types==0.7.0
     # via pydantic
-attrs==25.1.0
+attrs==25.3.0
     # via glom
 boltons==25.0.0
     # via
@@ -12,7 +12,7 @@ build==1.2.2.post1
     # via library (pyproject.toml)
 click==8.1.8
     # via typer
-coverage==7.6.12
+coverage==7.7.0
     # via pytest-cov
 dapperdata==0.4.0
     # via library (pyproject.toml)
@@ -75,7 +75,7 @@ ruamel-yaml==0.18.10
     #   dapperdata
 ruamel-yaml-clib==0.2.12
     # via ruamel-yaml
-ruff==0.9.10
+ruff==0.11.0
     # via library (pyproject.toml)
 shellingham==1.5.4
     # via typer
@@ -93,5 +93,5 @@ typing-extensions==4.12.2
     #   pydantic
     #   pydantic-core
     #   typer
-uv==0.6.5
+uv==0.6.6
     # via library (pyproject.toml)
