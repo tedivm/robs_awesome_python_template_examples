@@ -12,7 +12,7 @@ build==1.2.2.post1
     # via library (pyproject.toml)
 click==8.1.8
     # via typer
-coverage==7.7.1
+coverage==7.8.0
     # via pytest-cov
 dapperdata==0.4.0
     # via library (pyproject.toml)
@@ -36,12 +36,12 @@ packaging==24.2
     #   pytest
 pluggy==1.5.0
     # via pytest
-pydantic==2.10.6
+pydantic==2.11.1
     # via
     #   library (pyproject.toml)
     #   dapperdata
     #   pydantic-settings
-pydantic-core==2.27.2
+pydantic-core==2.33.0
     # via pydantic
 pydantic-settings==2.8.1
     # via
@@ -57,15 +57,15 @@ pytest==8.3.5
     #   pytest-asyncio
     #   pytest-cov
     #   pytest-pretty
-pytest-asyncio==0.25.3
+pytest-asyncio==0.26.0
     # via library (pyproject.toml)
 pytest-cov==6.0.0
     # via library (pyproject.toml)
 pytest-pretty==1.2.0
     # via library (pyproject.toml)
-python-dotenv==1.0.1
+python-dotenv==1.1.0
     # via pydantic-settings
-rich==13.9.4
+rich==14.0.0
     # via
     #   pytest-pretty
     #   typer
@@ -87,11 +87,14 @@ typer==0.15.2
     # via
     #   library (pyproject.toml)
     #   dapperdata
-typing-extensions==4.12.2
+typing-extensions==4.13.0
     # via
     #   mypy
     #   pydantic
     #   pydantic-core
     #   typer
-uv==0.6.9
+    #   typing-inspection
+typing-inspection==0.4.0
+    # via pydantic
+uv==0.6.11
     # via library (pyproject.toml)
