@@ -28,7 +28,7 @@ mdurl==0.1.2
     # via markdown-it-py
 mypy==1.15.0
     # via library (pyproject.toml)
-mypy-extensions==1.0.0
+mypy-extensions==1.1.0
     # via mypy
 packaging==25.0
     # via
@@ -75,7 +75,7 @@ ruamel-yaml==0.18.10
     #   dapperdata
 ruamel-yaml-clib==0.2.12
     # via ruamel-yaml
-ruff==0.11.6
+ruff==0.11.7
     # via library (pyproject.toml)
 shellingham==1.5.4
     # via typer
@@ -98,5 +98,5 @@ typing-inspection==0.4.0
     # via
     #   pydantic
     #   pydantic-settings
-uv==0.6.14
+uv==0.6.17
     # via library (pyproject.toml)
