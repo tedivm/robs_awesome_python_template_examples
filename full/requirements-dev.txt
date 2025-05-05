@@ -93,21 +93,21 @@ psutil==7.0.0
     # via quasiqueue
 psycopg2-binary==2.9.10
     # via full (pyproject.toml)
-pydantic==2.11.3
+pydantic==2.11.4
     # via
     #   full (pyproject.toml)
     #   dapperdata
     #   fastapi
     #   pydantic-settings
     #   quasiqueue
-pydantic-core==2.33.1
+pydantic-core==2.33.2
     # via pydantic
 pydantic-settings==2.9.1
     # via
     #   full (pyproject.toml)
     #   dapperdata
     #   quasiqueue
-pydot==3.0.4
+pydot==4.0.0
     # via paracelsus
 pygments==2.19.1
     # via rich
@@ -133,7 +133,7 @@ python-dotenv==1.1.0
     # via pydantic-settings
 quasiqueue==0.5.0
     # via full (pyproject.toml)
-redis==5.2.1
+redis==6.0.0
     # via full (pyproject.toml)
 rich==14.0.0
     # via
@@ -145,9 +145,9 @@ ruamel-yaml==0.18.10
     #   dapperdata
 ruamel-yaml-clib==0.2.12
     # via ruamel-yaml
-ruff==0.11.7
+ruff==0.11.8
     # via full (pyproject.toml)
-setuptools==80.0.0
+setuptools==80.3.1
     # via pbr
 shellingham==1.5.4
     # via typer
@@ -168,7 +168,7 @@ toml-sort==0.24.2
     # via full (pyproject.toml)
 tomlkit==0.13.2
     # via toml-sort
-typer==0.15.2
+typer==0.15.3
     # via
     #   full (pyproject.toml)
     #   dapperdata
@@ -192,7 +192,7 @@ typing-inspection==0.4.0
     #   pydantic-settings
 tzdata==2025.2
     # via kombu
-uv==0.6.17
+uv==0.7.2
     # via full (pyproject.toml)
 vine==5.1.0
     # via
