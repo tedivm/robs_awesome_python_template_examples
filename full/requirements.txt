@@ -18,7 +18,7 @@ billiard==4.2.1
     # via celery
 celery==5.5.2
     # via full (pyproject.toml)
-click==8.1.8
+click==8.2.0
     # via
     #   celery
     #   click-didyoumean
@@ -37,7 +37,7 @@ dogpile-cache==1.4.0
     # via full (pyproject.toml)
 fastapi==0.115.12
     # via full (pyproject.toml)
-greenlet==3.2.1
+greenlet==3.2.2
     # via sqlalchemy
 idna==3.10
     # via anyio
@@ -87,7 +87,7 @@ redis==6.0.0
     # via full (pyproject.toml)
 rich==14.0.0
     # via typer
-setuptools==80.3.1
+setuptools==80.4.0
     # via pbr
 shellingham==1.5.4
     # via typer

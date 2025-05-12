@@ -26,7 +26,7 @@ build==1.2.2.post1
     # via full (pyproject.toml)
 celery==5.5.2
     # via full (pyproject.toml)
-click==8.1.8
+click==8.2.0
     # via
     #   celery
     #   click-didyoumean
@@ -53,7 +53,7 @@ fastapi==0.115.12
     # via full (pyproject.toml)
 glom==24.11.0
     # via full (pyproject.toml)
-greenlet==3.2.1
+greenlet==3.2.2
     # via sqlalchemy
 idna==3.10
     # via anyio
@@ -145,9 +145,9 @@ ruamel-yaml==0.18.10
     #   dapperdata
 ruamel-yaml-clib==0.2.12
     # via ruamel-yaml
-ruff==0.11.8
+ruff==0.11.9
     # via full (pyproject.toml)
-setuptools==80.3.1
+setuptools==80.4.0
     # via pbr
 shellingham==1.5.4
     # via typer
@@ -192,7 +192,7 @@ typing-inspection==0.4.0
     #   pydantic-settings
 tzdata==2025.2
     # via kombu
-uv==0.7.2
+uv==0.7.3
     # via full (pyproject.toml)
 vine==5.1.0
     # via
