@@ -10,7 +10,7 @@ boltons==25.0.0
     #   glom
 build==1.2.2.post1
     # via library (pyproject.toml)
-click==8.2.0
+click==8.1.8
     # via typer
 coverage==7.8.0
     # via pytest-cov
@@ -34,7 +34,7 @@ packaging==25.0
     # via
     #   build
     #   pytest
-pluggy==1.5.0
+pluggy==1.6.0
     # via pytest
 pydantic==2.11.4
     # via
@@ -75,7 +75,7 @@ ruamel-yaml==0.18.10
     #   dapperdata
 ruamel-yaml-clib==0.2.12
     # via ruamel-yaml
-ruff==0.11.9
+ruff==0.11.10
     # via library (pyproject.toml)
 shellingham==1.5.4
     # via typer
@@ -83,7 +83,7 @@ toml-sort==0.24.2
     # via library (pyproject.toml)
 tomlkit==0.13.2
     # via toml-sort
-typer==0.15.3
+typer==0.15.4
     # via
     #   library (pyproject.toml)
     #   dapperdata
@@ -98,5 +98,5 @@ typing-inspection==0.4.0
     # via
     #   pydantic
     #   pydantic-settings
-uv==0.7.3
+uv==0.7.5
     # via library (pyproject.toml)
