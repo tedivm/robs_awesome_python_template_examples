@@ -12,7 +12,7 @@ build==1.2.2.post1
     # via library (pyproject.toml)
 click==8.1.8
     # via typer
-coverage==7.8.0
+coverage==7.8.2
     # via pytest-cov
 dapperdata==0.4.0
     # via library (pyproject.toml)
@@ -36,7 +36,7 @@ packaging==25.0
     #   pytest
 pluggy==1.6.0
     # via pytest
-pydantic==2.11.4
+pydantic==2.11.5
     # via
     #   library (pyproject.toml)
     #   dapperdata
@@ -57,7 +57,7 @@ pytest==8.3.5
     #   pytest-asyncio
     #   pytest-cov
     #   pytest-pretty
-pytest-asyncio==0.26.0
+pytest-asyncio==1.0.0
     # via library (pyproject.toml)
 pytest-cov==6.1.1
     # via library (pyproject.toml)
@@ -69,13 +69,13 @@ rich==14.0.0
     # via
     #   pytest-pretty
     #   typer
-ruamel-yaml==0.18.10
+ruamel-yaml==0.18.11
     # via
     #   library (pyproject.toml)
     #   dapperdata
 ruamel-yaml-clib==0.2.12
     # via ruamel-yaml
-ruff==0.11.10
+ruff==0.11.11
     # via library (pyproject.toml)
 shellingham==1.5.4
     # via typer
@@ -94,9 +94,9 @@ typing-extensions==4.13.2
     #   pydantic-core
     #   typer
     #   typing-inspection
-typing-inspection==0.4.0
+typing-inspection==0.4.1
     # via
     #   pydantic
     #   pydantic-settings
-uv==0.7.5
+uv==0.7.8
     # via library (pyproject.toml)
