@@ -37,7 +37,7 @@ dogpile-cache==1.4.0
     # via full (pyproject.toml)
 fastapi==0.115.12
     # via full (pyproject.toml)
-greenlet==3.2.2
+greenlet==3.2.3
     # via sqlalchemy
 idna==3.10
     # via anyio
@@ -109,7 +109,7 @@ typer==0.16.0
     # via
     #   full (pyproject.toml)
     #   quasiqueue
-typing-extensions==4.13.2
+typing-extensions==4.14.0
     # via
     #   aiosqlite
     #   alembic

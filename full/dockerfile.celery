@@ -5,7 +5,7 @@ ENV APP_MODULE=full.celery:celery
 
 COPY requirements.txt /requirements.txt
 RUN pip install --no-cache-dir -r /requirements.txt
-RUN apt-get update && apt-get install -y netcat && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y netcat-traditional && rm -rf /var/lib/apt/lists/*
 
 COPY ./docker/celery/prestart.sh /app/prestart.sh
 COPY ./ /app
