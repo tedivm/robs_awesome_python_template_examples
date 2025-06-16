@@ -65,7 +65,7 @@ psutil==7.0.0
     # via quasiqueue
 psycopg2-binary==2.9.10
     # via full (pyproject.toml)
-pydantic==2.11.5
+pydantic==2.11.7
     # via
     #   full (pyproject.toml)
     #   fastapi
