@@ -47,7 +47,7 @@ pydantic==2.11.7
     #   pydantic-settings
 pydantic-core==2.33.2
     # via pydantic
-pydantic-settings==2.10.0
+pydantic-settings==2.10.1
     # via
     #   library (pyproject.toml)
     #   dapperdata
@@ -69,7 +69,7 @@ pytest-cov==6.2.1
     # via library (pyproject.toml)
 pytest-pretty==1.3.0
     # via library (pyproject.toml)
-python-dotenv==1.1.0
+python-dotenv==1.1.1
     # via pydantic-settings
 rich==14.0.0
     # via
@@ -81,7 +81,7 @@ ruamel-yaml==0.18.14
     #   dapperdata
 ruamel-yaml-clib==0.2.12
     # via ruamel-yaml
-ruff==0.12.0
+ruff==0.12.1
     # via library (pyproject.toml)
 shellingham==1.5.4
     # via typer
@@ -104,5 +104,5 @@ typing-inspection==0.4.1
     # via
     #   pydantic
     #   pydantic-settings
-uv==0.7.13
+uv==0.7.17
     # via library (pyproject.toml)

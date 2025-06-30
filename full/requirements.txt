@@ -27,7 +27,7 @@ click==8.2.1
     #   typer
 click-didyoumean==0.3.1
     # via celery
-click-plugins==1.1.1
+click-plugins==1.1.1.2
     # via celery
 click-repl==0.3.0
     # via celery
@@ -35,7 +35,7 @@ decorator==5.2.1
     # via dogpile-cache
 dogpile-cache==1.4.0
     # via full (pyproject.toml)
-fastapi==0.115.13
+fastapi==0.115.14
     # via full (pyproject.toml)
 greenlet==3.2.3
     # via sqlalchemy
@@ -73,7 +73,7 @@ pydantic==2.11.7
     #   quasiqueue
 pydantic-core==2.33.2
     # via pydantic
-pydantic-settings==2.10.0
+pydantic-settings==2.10.1
     # via
     #   full (pyproject.toml)
     #   quasiqueue
@@ -81,7 +81,7 @@ pygments==2.19.2
     # via rich
 python-dateutil==2.9.0.post0
     # via celery
-python-dotenv==1.1.0
+python-dotenv==1.1.1
     # via pydantic-settings
 quasiqueue==0.5.0
     # via full (pyproject.toml)
