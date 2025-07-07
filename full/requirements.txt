@@ -109,7 +109,7 @@ typer==0.16.0
     # via
     #   full (pyproject.toml)
     #   quasiqueue
-typing-extensions==4.14.0
+typing-extensions==4.14.1
     # via
     #   aiosqlite
     #   alembic

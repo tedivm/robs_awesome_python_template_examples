@@ -39,7 +39,7 @@ click-plugins==1.1.1.2
     # via celery
 click-repl==0.3.0
     # via celery
-coverage==7.9.1
+coverage==7.9.2
     # via pytest-cov
 dapperdata==0.4.0
     # via full (pyproject.toml)
@@ -152,7 +152,7 @@ ruamel-yaml==0.18.14
     #   dapperdata
 ruamel-yaml-clib==0.2.12
     # via ruamel-yaml
-ruff==0.12.1
+ruff==0.12.2
     # via full (pyproject.toml)
 setuptools==80.9.0
     # via pbr
@@ -181,7 +181,7 @@ typer==0.16.0
     #   dapperdata
     #   paracelsus
     #   quasiqueue
-typing-extensions==4.14.0
+typing-extensions==4.14.1
     # via
     #   aiosqlite
     #   alembic
@@ -199,7 +199,7 @@ typing-inspection==0.4.1
     #   pydantic-settings
 tzdata==2025.2
     # via kombu
-uv==0.7.17
+uv==0.7.19
     # via full (pyproject.toml)
 vine==5.1.0
     # via

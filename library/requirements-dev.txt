@@ -12,7 +12,7 @@ build==1.2.2.post1
     # via library (pyproject.toml)
 click==8.2.1
     # via typer
-coverage==7.9.1
+coverage==7.9.2
     # via pytest-cov
 dapperdata==0.4.0
     # via library (pyproject.toml)
@@ -81,7 +81,7 @@ ruamel-yaml==0.18.14
     #   dapperdata
 ruamel-yaml-clib==0.2.12
     # via ruamel-yaml
-ruff==0.12.1
+ruff==0.12.2
     # via library (pyproject.toml)
 shellingham==1.5.4
     # via typer
@@ -93,7 +93,7 @@ typer==0.16.0
     # via
     #   library (pyproject.toml)
     #   dapperdata
-typing-extensions==4.14.0
+typing-extensions==4.14.1
     # via
     #   mypy
     #   pydantic
@@ -104,5 +104,5 @@ typing-inspection==0.4.1
     # via
     #   pydantic
     #   pydantic-settings
-uv==0.7.17
+uv==0.7.19
     # via library (pyproject.toml)
