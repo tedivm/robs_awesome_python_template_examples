@@ -2,7 +2,7 @@
 #    uv pip compile --output-file=requirements-dev.txt --extra=dev pyproject.toml
 aiosqlite==0.21.0
     # via full (pyproject.toml)
-alembic==1.16.2
+alembic==1.16.4
     # via full (pyproject.toml)
 amqp==5.3.1
     # via kombu
@@ -49,7 +49,7 @@ dogpile-cache==1.4.0
     # via full (pyproject.toml)
 face==24.0.0
     # via glom
-fastapi==0.115.14
+fastapi==0.116.1
     # via full (pyproject.toml)
 glom==24.11.0
     # via full (pyproject.toml)
@@ -152,7 +152,7 @@ ruamel-yaml==0.18.14
     #   dapperdata
 ruamel-yaml-clib==0.2.12
     # via ruamel-yaml
-ruff==0.12.2
+ruff==0.12.3
     # via full (pyproject.toml)
 setuptools==80.9.0
     # via pbr
@@ -167,7 +167,7 @@ sqlalchemy==2.0.41
     #   full (pyproject.toml)
     #   alembic
     #   paracelsus
-starlette==0.46.2
+starlette==0.47.1
     # via fastapi
 stevedore==5.4.1
     # via dogpile-cache
@@ -191,6 +191,7 @@ typing-extensions==4.14.1
     #   pydantic
     #   pydantic-core
     #   sqlalchemy
+    #   starlette
     #   typer
     #   typing-inspection
 typing-inspection==0.4.1
@@ -199,7 +200,7 @@ typing-inspection==0.4.1
     #   pydantic-settings
 tzdata==2025.2
     # via kombu
-uv==0.7.19
+uv==0.7.20
     # via full (pyproject.toml)
 vine==5.1.0
     # via
