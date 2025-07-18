@@ -35,6 +35,7 @@ omit = [
   "./bare/__init__.py",
   "./tests/*"
 ]
+concurrency = ["thread", "greenlet"]
 
 [tool.mypy]
 plugins = ["pydantic.mypy"]
