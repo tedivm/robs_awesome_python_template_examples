@@ -17,3 +17,9 @@ fi
 echo "Run Database Migrations"
 python -m alembic upgrade head
 
+
+if [ ! -z "$CREATE_TEST_DATA" ]; then
+  echo "Creating test data..."
+  python -m full.cli test-data
+fi
+

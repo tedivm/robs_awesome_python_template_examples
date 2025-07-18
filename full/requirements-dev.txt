@@ -73,7 +73,7 @@ markupsafe==3.0.2
     #   mako
 mdurl==0.1.2
     # via markdown-it-py
-mypy==1.16.1
+mypy==1.17.0
     # via full (pyproject.toml)
 mypy-extensions==1.1.0
     # via mypy
@@ -128,7 +128,7 @@ pytest==8.4.1
     #   pytest-asyncio
     #   pytest-cov
     #   pytest-pretty
-pytest-asyncio==1.0.0
+pytest-asyncio==1.1.0
     # via full (pyproject.toml)
 pytest-cov==6.2.1
     # via full (pyproject.toml)
@@ -152,7 +152,7 @@ ruamel-yaml==0.18.14
     #   dapperdata
 ruamel-yaml-clib==0.2.12
     # via ruamel-yaml
-ruff==0.12.3
+ruff==0.12.4
     # via full (pyproject.toml)
 setuptools==80.9.0
     # via pbr
@@ -200,7 +200,7 @@ typing-inspection==0.4.1
     #   pydantic-settings
 tzdata==2025.2
     # via kombu
-uv==0.7.20
+uv==0.8.0
     # via full (pyproject.toml)
 vine==5.1.0
     # via

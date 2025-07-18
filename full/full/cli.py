@@ -20,6 +20,20 @@ def syncify(f):
     return wrapper
 
 
+@app.command(help="Install testing data for local development.")
+@syncify
+async def test_data():
+    from . import _version
+    from .services.db import get_session, test_data
+
+    typer.echo(f"{settings.project_name} - {_version.version}")
+
+    async with get_session() as session:
+        await test_data(session)
+
+    typer.echo("Development data installed successfully.")
+
+
 @app.command(help=f"Display the current installed version of {settings.project_name}.")
 def version():
     from . import _version
