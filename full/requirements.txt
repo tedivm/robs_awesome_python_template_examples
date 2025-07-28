@@ -87,7 +87,7 @@ quasiqueue==0.5.0
     # via full (pyproject.toml)
 redis==6.2.0
     # via full (pyproject.toml)
-rich==14.0.0
+rich==14.1.0
     # via typer
 setuptools==80.9.0
     # via pbr

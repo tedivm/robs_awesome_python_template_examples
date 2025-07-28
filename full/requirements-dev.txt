@@ -39,7 +39,7 @@ click-plugins==1.1.1.2
     # via celery
 click-repl==0.3.0
     # via celery
-coverage==7.9.2
+coverage==7.10.1
     # via pytest-cov
 dapperdata==0.4.0
     # via full (pyproject.toml)
@@ -142,7 +142,7 @@ quasiqueue==0.5.0
     # via full (pyproject.toml)
 redis==6.2.0
     # via full (pyproject.toml)
-rich==14.0.0
+rich==14.1.0
     # via
     #   pytest-pretty
     #   typer
@@ -152,7 +152,7 @@ ruamel-yaml==0.18.14
     #   dapperdata
 ruamel-yaml-clib==0.2.12
     # via ruamel-yaml
-ruff==0.12.4
+ruff==0.12.5
     # via full (pyproject.toml)
 setuptools==80.9.0
     # via pbr
@@ -200,7 +200,7 @@ typing-inspection==0.4.1
     #   pydantic-settings
 tzdata==2025.2
     # via kombu
-uv==0.8.0
+uv==0.8.3
     # via full (pyproject.toml)
 vine==5.1.0
     # via
