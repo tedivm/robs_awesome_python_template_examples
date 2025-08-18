@@ -4,7 +4,7 @@ annotated-types==0.7.0
     # via pydantic
 click==8.2.1
     # via typer
-markdown-it-py==3.0.0
+markdown-it-py==4.0.0
     # via rich
 mdurl==0.1.2
     # via markdown-it-py
