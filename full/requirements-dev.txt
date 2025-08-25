@@ -39,7 +39,7 @@ click-plugins==1.1.1.2
     # via celery
 click-repl==0.3.0
     # via celery
-coverage==7.10.4
+coverage==7.10.5
     # via pytest-cov
 dapperdata==0.4.0
     # via full (pyproject.toml)
@@ -82,11 +82,11 @@ packaging==25.0
     #   build
     #   kombu
     #   pytest
-paracelsus==0.9.0
+paracelsus==0.9.2
     # via full (pyproject.toml)
 pathspec==0.12.1
     # via mypy
-pbr==7.0.0
+pbr==7.0.1
     # via stevedore
 pluggy==1.6.0
     # via
@@ -112,7 +112,7 @@ pydantic-settings==2.10.1
     #   full (pyproject.toml)
     #   dapperdata
     #   quasiqueue
-pydot==4.0.1
+pydot==3.0.4
     # via paracelsus
 pygments==2.19.2
     # via
@@ -146,13 +146,13 @@ rich==14.1.0
     # via
     #   pytest-pretty
     #   typer
-ruamel-yaml==0.18.14
+ruamel-yaml==0.18.15
     # via
     #   full (pyproject.toml)
     #   dapperdata
 ruamel-yaml-clib==0.2.12
     # via ruamel-yaml
-ruff==0.12.9
+ruff==0.12.10
     # via full (pyproject.toml)
 setuptools==80.9.0
     # via pbr
@@ -167,7 +167,7 @@ sqlalchemy==2.0.43
     #   full (pyproject.toml)
     #   alembic
     #   paracelsus
-starlette==0.47.2
+starlette==0.47.3
     # via fastapi
 stevedore==5.4.1
     # via dogpile-cache
@@ -175,7 +175,7 @@ toml-sort==0.24.2
     # via full (pyproject.toml)
 tomlkit==0.13.3
     # via toml-sort
-typer==0.16.0
+typer==0.16.1
     # via
     #   full (pyproject.toml)
     #   dapperdata
@@ -200,7 +200,7 @@ typing-inspection==0.4.1
     #   pydantic-settings
 tzdata==2025.2
     # via kombu
-uv==0.8.11
+uv==0.8.13
     # via full (pyproject.toml)
 vine==5.1.0
     # via
