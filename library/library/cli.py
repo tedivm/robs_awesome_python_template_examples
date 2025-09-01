@@ -22,9 +22,9 @@ def syncify(f):
 
 @app.command(help=f"Display the current installed version of {settings.project_name}.")
 def version():
-    from . import _version
+    from . import __version__
 
-    typer.echo(f"{settings.project_name} - {_version.version}")
+    typer.echo(f"{settings.project_name} - {__version__}")
 
 
 if __name__ == "__main__":

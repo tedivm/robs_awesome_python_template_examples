@@ -2,7 +2,7 @@
 #    uv pip compile --output-file=requirements-dev.txt --extra=dev pyproject.toml
 aiosqlite==0.21.0
     # via full (pyproject.toml)
-alembic==1.16.4
+alembic==1.16.5
     # via full (pyproject.toml)
 amqp==5.3.1
     # via kombu
@@ -39,7 +39,7 @@ click-plugins==1.1.1.2
     # via celery
 click-repl==0.3.0
     # via celery
-coverage==7.10.5
+coverage==7.10.6
     # via pytest-cov
 dapperdata==0.4.0
     # via full (pyproject.toml)
@@ -86,13 +86,11 @@ paracelsus==0.9.2
     # via full (pyproject.toml)
 pathspec==0.12.1
     # via mypy
-pbr==7.0.1
-    # via stevedore
 pluggy==1.6.0
     # via
     #   pytest
     #   pytest-cov
-prompt-toolkit==3.0.51
+prompt-toolkit==3.0.52
     # via click-repl
 psutil==7.0.0
     # via quasiqueue
@@ -152,10 +150,8 @@ ruamel-yaml==0.18.15
     #   dapperdata
 ruamel-yaml-clib==0.2.12
     # via ruamel-yaml
-ruff==0.12.10
+ruff==0.12.11
     # via full (pyproject.toml)
-setuptools==80.9.0
-    # via pbr
 shellingham==1.5.4
     # via typer
 six==1.17.0
@@ -169,19 +165,19 @@ sqlalchemy==2.0.43
     #   paracelsus
 starlette==0.47.3
     # via fastapi
-stevedore==5.4.1
+stevedore==5.5.0
     # via dogpile-cache
 toml-sort==0.24.2
     # via full (pyproject.toml)
 tomlkit==0.13.3
     # via toml-sort
-typer==0.16.1
+typer==0.17.3
     # via
     #   full (pyproject.toml)
     #   dapperdata
     #   paracelsus
     #   quasiqueue
-typing-extensions==4.14.1
+typing-extensions==4.15.0
     # via
     #   aiosqlite
     #   alembic
@@ -200,7 +196,7 @@ typing-inspection==0.4.1
     #   pydantic-settings
 tzdata==2025.2
     # via kombu
-uv==0.8.13
+uv==0.8.14
     # via full (pyproject.toml)
 vine==5.1.0
     # via

@@ -2,7 +2,7 @@
 #    uv pip compile --output-file=requirements.txt pyproject.toml
 aiosqlite==0.21.0
     # via full (pyproject.toml)
-alembic==1.16.4
+alembic==1.16.5
     # via full (pyproject.toml)
 amqp==5.3.1
     # via kombu
@@ -57,9 +57,7 @@ mdurl==0.1.2
     # via markdown-it-py
 packaging==25.0
     # via kombu
-pbr==7.0.1
-    # via stevedore
-prompt-toolkit==3.0.51
+prompt-toolkit==3.0.52
     # via click-repl
 psutil==7.0.0
     # via quasiqueue
@@ -89,8 +87,6 @@ redis==6.4.0
     # via full (pyproject.toml)
 rich==14.1.0
     # via typer
-setuptools==80.9.0
-    # via pbr
 shellingham==1.5.4
     # via typer
 six==1.17.0
@@ -103,13 +99,13 @@ sqlalchemy==2.0.43
     #   alembic
 starlette==0.47.3
     # via fastapi
-stevedore==5.4.1
+stevedore==5.5.0
     # via dogpile-cache
-typer==0.16.1
+typer==0.17.3
     # via
     #   full (pyproject.toml)
     #   quasiqueue
-typing-extensions==4.14.1
+typing-extensions==4.15.0
     # via
     #   aiosqlite
     #   alembic
