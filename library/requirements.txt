@@ -24,7 +24,7 @@ rich==14.1.0
     # via typer
 shellingham==1.5.4
     # via typer
-typer==0.17.3
+typer==0.17.4
     # via library (pyproject.toml)
 typing-extensions==4.15.0
     # via

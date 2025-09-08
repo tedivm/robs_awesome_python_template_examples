@@ -101,7 +101,7 @@ starlette==0.47.3
     # via fastapi
 stevedore==5.5.0
     # via dogpile-cache
-typer==0.17.3
+typer==0.17.4
     # via
     #   full (pyproject.toml)
     #   quasiqueue
