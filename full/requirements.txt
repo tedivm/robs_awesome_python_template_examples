@@ -33,7 +33,7 @@ click-repl==0.3.0
     # via celery
 decorator==5.2.1
     # via dogpile-cache
-dogpile-cache==1.4.0
+dogpile-cache==1.4.1
     # via full (pyproject.toml)
 fastapi==0.116.1
     # via full (pyproject.toml)
@@ -63,7 +63,7 @@ psutil==7.0.0
     # via quasiqueue
 psycopg2-binary==2.9.10
     # via full (pyproject.toml)
-pydantic==2.11.7
+pydantic==2.11.9
     # via
     #   full (pyproject.toml)
     #   fastapi
