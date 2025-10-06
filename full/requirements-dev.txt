@@ -96,7 +96,7 @@ psutil==7.1.0
     # via quasiqueue
 psycopg2-binary==2.9.10
     # via full (pyproject.toml)
-pydantic==2.11.9
+pydantic==2.11.10
     # via
     #   full (pyproject.toml)
     #   dapperdata
@@ -150,7 +150,7 @@ ruamel-yaml==0.18.15
     #   dapperdata
 ruamel-yaml-clib==0.2.14
     # via ruamel-yaml
-ruff==0.13.2
+ruff==0.13.3
     # via full (pyproject.toml)
 shellingham==1.5.4
     # via typer
@@ -191,13 +191,13 @@ typing-extensions==4.15.0
     #   starlette
     #   typer
     #   typing-inspection
-typing-inspection==0.4.1
+typing-inspection==0.4.2
     # via
     #   pydantic
     #   pydantic-settings
 tzdata==2025.2
     # via kombu
-uv==0.8.22
+uv==0.8.23
     # via full (pyproject.toml)
 vine==5.1.0
     # via

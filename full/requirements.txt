@@ -63,7 +63,7 @@ psutil==7.1.0
     # via quasiqueue
 psycopg2-binary==2.9.10
     # via full (pyproject.toml)
-pydantic==2.11.9
+pydantic==2.11.10
     # via
     #   full (pyproject.toml)
     #   fastapi
@@ -117,7 +117,7 @@ typing-extensions==4.15.0
     #   starlette
     #   typer
     #   typing-inspection
-typing-inspection==0.4.1
+typing-inspection==0.4.2
     # via
     #   pydantic
     #   pydantic-settings
