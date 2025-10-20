@@ -59,17 +59,17 @@ packaging==25.0
     # via kombu
 prompt-toolkit==3.0.52
     # via click-repl
-psutil==7.1.0
+psutil==7.1.1
     # via quasiqueue
 psycopg2-binary==2.9.11
     # via full (pyproject.toml)
-pydantic==2.12.0
+pydantic==2.12.3
     # via
     #   full (pyproject.toml)
     #   fastapi
     #   pydantic-settings
     #   quasiqueue
-pydantic-core==2.41.1
+pydantic-core==2.41.4
     # via pydantic
 pydantic-settings==2.11.0
     # via
