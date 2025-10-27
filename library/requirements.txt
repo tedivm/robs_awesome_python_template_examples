@@ -18,13 +18,13 @@ pydantic-settings==2.11.0
     # via library (pyproject.toml)
 pygments==2.19.2
     # via rich
-python-dotenv==1.1.1
+python-dotenv==1.2.1
     # via pydantic-settings
 rich==14.2.0
     # via typer
 shellingham==1.5.4
     # via typer
-typer==0.19.2
+typer==0.20.0
     # via library (pyproject.toml)
 typing-extensions==4.15.0
     # via
