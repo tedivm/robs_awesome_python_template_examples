@@ -81,7 +81,7 @@ ruamel-yaml==0.18.16
     #   dapperdata
 ruamel-yaml-clib==0.2.14
     # via ruamel-yaml
-ruff==0.14.2
+ruff==0.14.3
     # via library (pyproject.toml)
 shellingham==1.5.4
     # via typer
@@ -105,5 +105,5 @@ typing-inspection==0.4.2
     # via
     #   pydantic
     #   pydantic-settings
-uv==0.9.5
+uv==0.9.7
     # via library (pyproject.toml)
