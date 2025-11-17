@@ -20,6 +20,7 @@ dev = [
   "build",
   "dapperdata",
   "glom",
+  "greenlet",
   "mypy",
   "pytest",
   "pytest-asyncio",

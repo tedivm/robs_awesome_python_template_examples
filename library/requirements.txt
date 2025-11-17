@@ -2,7 +2,7 @@
 #    uv pip compile --output-file=requirements.txt pyproject.toml
 annotated-types==0.7.0
     # via pydantic
-click==8.3.0
+click==8.3.1
     # via typer
 markdown-it-py==4.0.0
     # via rich
@@ -14,7 +14,7 @@ pydantic==2.12.4
     #   pydantic-settings
 pydantic-core==2.41.5
     # via pydantic
-pydantic-settings==2.11.0
+pydantic-settings==2.12.0
     # via library (pyproject.toml)
 pygments==2.19.2
     # via rich

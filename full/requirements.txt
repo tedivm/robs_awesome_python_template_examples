@@ -2,11 +2,11 @@
 #    uv pip compile --output-file=requirements.txt pyproject.toml
 aiosqlite==0.21.0
     # via full (pyproject.toml)
-alembic==1.17.1
+alembic==1.17.2
     # via full (pyproject.toml)
 amqp==5.3.1
     # via kombu
-annotated-doc==0.0.3
+annotated-doc==0.0.4
     # via fastapi
 annotated-types==0.7.0
     # via pydantic
@@ -16,11 +16,11 @@ async-timeout==5.0.1
     # via redis
 asyncpg==0.30.0
     # via full (pyproject.toml)
-billiard==4.2.2
+billiard==4.2.3
     # via celery
 celery==5.5.3
     # via full (pyproject.toml)
-click==8.3.0
+click==8.3.1
     # via
     #   celery
     #   click-didyoumean
@@ -37,7 +37,7 @@ decorator==5.2.1
     # via dogpile-cache
 dogpile-cache==1.5.0
     # via full (pyproject.toml)
-fastapi==0.121.1
+fastapi==0.121.2
     # via full (pyproject.toml)
 greenlet==3.2.4
     # via sqlalchemy
@@ -73,7 +73,7 @@ pydantic==2.12.4
     #   quasiqueue
 pydantic-core==2.41.5
     # via pydantic
-pydantic-settings==2.11.0
+pydantic-settings==2.12.0
     # via
     #   full (pyproject.toml)
     #   quasiqueue
