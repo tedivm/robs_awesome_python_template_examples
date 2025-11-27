@@ -1,17 +1,89 @@
-# Developer Readme
+# Developer Documentation
 
-1. [Rest API](./api.md)
-1. [Caching](./cache.md)
-1. [Celery](./celery.md)
-1. [CLI](./cli.md)
-1. [Database](./database.md)
+Welcome to the developer documentation! This directory contains comprehensive guides for working with this project's features, tools, and workflows.
 
-1. [Dependencies](./dependencies.md)
+## Getting Started
 
-1. [Docker](./docker.md)
-1. [Github Actions](./github.md)
-1. [PyPI](./pypi.md)
+New to this project? Start here:
 
-1. [Settings](./settings.md)
+1. **[Makefile](./makefile.md)** - Essential commands for development, testing, and building
+2. **[Dependencies](./dependencies.md)** - Managing project dependencies, virtual environments, and package installation
+3. **[Settings](./settings.md)** - Environment configuration and settings management
+4. **[Docker](./docker.md)** - Containerization, deployment, and local development with Docker
 
-1. [Templates](./template.md)
+## Core Features
+
+### [Database](./database.md)
+
+SQLAlchemy ORM integration, models, migrations with Alembic, and database patterns.
+
+### [REST API](./api.md)
+
+FastAPI web framework, endpoints, middleware, and API development.
+
+### [CLI](./cli.md)
+
+Command-line interface built with Typer for management and automation tasks.
+
+### [Celery](./celery.md)
+
+Distributed task queue for background processing and asynchronous jobs.
+
+### [QuasiQueue](./quasiqueue.md)
+
+Lightweight message queue for simpler asynchronous task handling.
+
+### [Templates](./templates.md)
+
+Jinja2 templating for HTML rendering and template-based content generation.
+
+## Development Practices
+
+### [Testing](./testing.md)
+
+Comprehensive testing guide covering pytest, fixtures, async testing, mocking, and code coverage.
+
+### [Documentation](./documentation.md)
+
+Standards and best practices for writing and maintaining project documentation.
+
+### [GitHub Actions](./github.md)
+
+CI/CD workflows for testing, linting, building, and deployment automation.
+
+### [PyPI](./pypi.md)
+
+Publishing packages to the Python Package Index.
+
+## Project-Specific Documentation
+
+As your project grows, add documentation for:
+
+- **Architecture** - System design, component interactions, and architectural decisions
+- **API Reference** - Detailed API endpoints, request/response formats, and authentication
+- **Deployment** - Production deployment procedures, monitoring, and operations
+- **Troubleshooting** - Common issues, debugging techniques, and solutions
+- **Contributing** - Guidelines for contributors and development workflows
+
+## Documentation Standards
+
+All documentation in this project follows the standards outlined in [documentation.md](./documentation.md). When adding new documentation:
+
+- Use real, working code examples from this project
+- Include practical usage patterns
+- Test all code examples before publishing
+- Keep documentation updated as code changes
+- Follow the established structure and style
+
+## Quick Reference
+
+- **Setup**: Run `make install` to set up your development environment
+- **Testing**: Run `make tests` for full test suite, see [testing.md](./testing.md) for details
+- **Formatting**: Run `make chores` before committing to fix formatting issues
+- **Configuration**: See [settings.md](./settings.md) for environment variables and settings
+- **Local Development**: Use `docker compose up` for local services, see [docker.md](./docker.md)
+- **All Make Commands**: See [makefile.md](./makefile.md) for complete reference
+
+---
+
+*This documentation is maintained by the development team. If you find issues or have suggestions, please contribute improvements!*

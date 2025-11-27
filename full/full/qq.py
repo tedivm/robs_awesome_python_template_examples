@@ -1,17 +1,18 @@
 import asyncio
+from collections.abc import AsyncGenerator
 
 from quasiqueue import QuasiQueue
 
 from .settings import settings
 
 
-async def writer(desired: int):
+async def writer(desired: int) -> AsyncGenerator[int, None]:
     """Feeds data to the Queue when it is low."""
     for x in range(0, desired):
         yield x
 
 
-async def reader(identifier: int | str):
+async def reader(identifier: int | str) -> None:
     """Receives individual items from the queue.
 
     Args:
@@ -20,7 +21,12 @@ async def reader(identifier: int | str):
     print(f"{identifier}")
 
 
-runner = QuasiQueue(settings.project_name, reader=reader, writer=writer, settings=settings)
+runner = QuasiQueue(
+    settings.project_name,
+    reader=reader,  # type: ignore[arg-type]
+    writer=writer,  # type: ignore[arg-type]
+    settings=settings,
+)
 
 if __name__ == "__main__":
     asyncio.run(runner.main())

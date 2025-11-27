@@ -1,5 +1,4 @@
 from quasiqueue import Settings as QuasiQueueSettings
-
 from .db import DatabaseSettings
 
 

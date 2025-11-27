@@ -42,7 +42,7 @@ pluggy==1.6.0
     # via
     #   pytest
     #   pytest-cov
-pydantic==2.12.4
+pydantic==2.12.5
     # via
     #   library (pyproject.toml)
     #   dapperdata
@@ -107,5 +107,5 @@ typing-inspection==0.4.2
     # via
     #   pydantic
     #   pydantic-settings
-uv==0.9.11
+uv==0.9.13
     # via library (pyproject.toml)

@@ -31,15 +31,23 @@ dev = [
 ]
 
 [tool.coverage.run]
+concurrency = ["thread", "greenlet"]
 omit = [
   "./bare/_version.py",
   "./bare/__init__.py",
   "./tests/*"
 ]
-concurrency = ["thread", "greenlet"]
 
 [tool.mypy]
+check_untyped_defs = true
+disallow_incomplete_defs = true
+disallow_untyped_calls = false
+disallow_untyped_defs = true
+no_implicit_optional = true
 plugins = ["pydantic.mypy"]
+strict_optional = true
+warn_return_any = true
+warn_unused_ignores = true
 
 [tool.pytest.ini_options]
 asyncio_default_fixture_loop_scope = "function"
@@ -54,8 +62,8 @@ readme = {file = ["README.md"]}
 [tool.setuptools.package-data]
 bare = ["py.typed"]
 
-[tool.setuptools.packages]
-find = {}
+[tool.setuptools.packages.find]
+exclude = ["tests*", "docs*"]
 
 [tool.setuptools_scm]
 fallback_version = "0.0.0-dev"
