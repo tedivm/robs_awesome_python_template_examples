@@ -20,11 +20,11 @@ face==24.0.0
     # via glom
 glom==24.11.0
     # via library (pyproject.toml)
-greenlet==3.2.4
+greenlet==3.3.0
     # via library (pyproject.toml)
 iniconfig==2.3.0
     # via pytest
-librt==0.6.3
+librt==0.7.3
     # via mypy
 markdown-it-py==4.0.0
     # via rich
@@ -61,7 +61,7 @@ pygments==2.19.2
     #   rich
 pyproject-hooks==1.2.0
     # via build
-pytest==9.0.1
+pytest==9.0.2
     # via
     #   library (pyproject.toml)
     #   pytest-asyncio
@@ -85,7 +85,7 @@ ruamel-yaml==0.18.16
     #   dapperdata
 ruamel-yaml-clib==0.2.15
     # via ruamel-yaml
-ruff==0.14.7
+ruff==0.14.8
     # via library (pyproject.toml)
 shellingham==1.5.4
     # via typer
@@ -109,5 +109,5 @@ typing-inspection==0.4.2
     # via
     #   pydantic
     #   pydantic-settings
-uv==0.9.13
+uv==0.9.16
     # via library (pyproject.toml)
