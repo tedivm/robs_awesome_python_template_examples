@@ -64,14 +64,6 @@ The project includes the following GitHub Actions workflows in `.github/workflow
 - **Purpose**: Validates database schema documentation is up-to-date
 - **Command**: `make paracelsus_check`
 
-### Dependency Workflows
-
-**lockfiles.yaml** - Requirements File Validation
-
-- **Trigger**: Every push and pull request
-- **Purpose**: Ensures requirements.txt files are synchronized with pyproject.toml
-- **Command**: `make dependencies`
-
 ### Build and Deployment Workflows
 
 **docker.yaml** - Container Image Publishing

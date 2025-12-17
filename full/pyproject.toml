@@ -2,30 +2,7 @@
 build-backend = "setuptools.build_meta"
 requires = ["setuptools>=67.0", "setuptools_scm[toml]>=7.1"]
 
-[project]
-authors = [{"name" = "Robert Hafner"}]
-description = "A full application to demonstrate the Awesome Template."
-dynamic = ["version"]
-license = {"file" = "LICENSE"}
-name = "full"
-readme = {file = "README.md", content-type = "text/markdown"}
-dependencies = [
-  "aiosqlite",
-  "alembic",
-  "asyncpg",
-  "celery",
-  "fastapi",
-  "jinja2",
-  "psycopg2-binary",
-  "pydantic~=2.0",
-  "pydantic-settings",
-  "QuasiQueue",
-  "SQLAlchemy",
-  "redis",
-  "typer"
-]
-
-[project.optional-dependencies]
+[dependency-groups]
 dev = [
   "build",
   "dapperdata",
@@ -42,6 +19,31 @@ dev = [
   "ruff",
   "toml-sort",
   "uv"
+]
+
+[project]
+authors = [{"name" = "Robert Hafner"}]
+description = "A full application to demonstrate the Awesome Template."
+dynamic = ["version"]
+license = {"file" = "LICENSE"}
+name = "full"
+readme = {file = "README.md", content-type = "text/markdown"}
+requires-python = ">=3.10"
+dependencies = [
+  "aiosqlite",
+  "alembic",
+  "asyncpg",
+  "celery",
+  "fastapi",
+  "uvicorn[standard]",
+  "jinja2",
+  "psycopg2-binary",
+  "pydantic~=2.0",
+  "pydantic-settings",
+  "QuasiQueue",
+  "SQLAlchemy",
+  "redis",
+  "typer"
 ]
 
 [project.scripts]

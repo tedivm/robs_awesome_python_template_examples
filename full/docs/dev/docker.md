@@ -26,11 +26,19 @@ FROM ghcr.io/multi-py/python-uvicorn:py${PYTHON_VERSION}-slim-LATEST
 
 ENV APP_MODULE=full.www:app
 
-COPY requirements.txt /requirements.txt
-RUN pip install --no-cache-dir -r /requirements.txt
+# Install uv for fast package installation
+RUN pip install --no-cache-dir uv
 
+# Copy dependency files
+COPY pyproject.toml uv.lock /app/
+WORKDIR /app
+
+# Install dependencies from lockfile (no dev dependencies)
+RUN uv sync --frozen --no-dev
+
+# Copy application code
 COPY ./docker/www/prestart.sh /app/prestart.sh
-COPY ./ /app
+COPY . /app/
 ```
 
 **Key Features**:
@@ -60,11 +68,19 @@ FROM ghcr.io/multi-py/python-celery:py${PYTHON_VERSION}-slim-LATEST
 
 ENV APP_MODULE=full.celery:celery
 
-COPY requirements.txt /requirements.txt
-RUN pip install --no-cache-dir -r /requirements.txt
+# Install uv for fast package installation
+RUN pip install --no-cache-dir uv
 
+# Copy dependency files
+COPY pyproject.toml uv.lock /app/
+WORKDIR /app
+
+# Install dependencies from lockfile (no dev dependencies)
+RUN uv sync --frozen --no-dev
+
+# Copy application code
 COPY ./docker/celery/prestart.sh /app/prestart.sh
-COPY ./ /app
+COPY . /app/
 ```
 
 **Key Features**:
@@ -86,11 +102,18 @@ The QuasiQueue image provides a containerized environment for running multiproce
 ARG PYTHON_VERSION=3.11
 FROM python:${PYTHON_VERSION}-slim
 
-COPY requirements.txt /requirements.txt
-RUN pip install --no-cache-dir -r /requirements.txt
+# Install uv for fast package installation
+RUN pip install --no-cache-dir uv
 
-COPY ./ /app
+# Copy dependency files
+COPY pyproject.toml uv.lock /app/
 WORKDIR /app
+
+# Install dependencies from lockfile (no dev dependencies)
+RUN uv sync --frozen --no-dev
+
+# Copy application code
+COPY . /app/
 
 CMD ["python", "-m", "full.qq"]
 ```
@@ -381,9 +404,11 @@ FROM ghcr.io/multi-py/python-uvicorn:py3.11-slim-LATEST AS builder
 # Install build dependencies
 RUN apt-get update && apt-get install -y gcc g++ make
 
-# Install Python packages
-COPY requirements.txt /requirements.txt
-RUN pip install --no-cache-dir -r /requirements.txt
+# Install uv and Python packages
+RUN pip install --no-cache-dir uv
+COPY pyproject.toml uv.lock /app/
+WORKDIR /app
+RUN uv sync --frozen --no-dev
 
 # Final stage - copy only what's needed
 FROM ghcr.io/multi-py/python-uvicorn:py3.11-slim-LATEST
@@ -711,9 +736,14 @@ docker system prune -a --volumes
 2. **Layer caching**: Order Dockerfile commands from least to most frequently changed
 
    ```dockerfile
-   COPY requirements.txt /requirements.txt
-   RUN pip install -r /requirements.txt
-   COPY ./ /app  # Do this last
+   # Install uv first (changes rarely)
+   RUN pip install --no-cache-dir uv
+   # Install dependencies (changes when pyproject.toml or lockfile changes)
+   COPY pyproject.toml uv.lock /app/
+   WORKDIR /app
+   RUN uv sync --frozen --no-dev
+   # Copy code (changes frequently)
+   COPY . /app/
    ```
 
 3. **Don't run as root**: Use non-root users in production (Multi-Py images handle this)

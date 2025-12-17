@@ -49,14 +49,6 @@ The project includes the following GitHub Actions workflows in `.github/workflow
 - **Purpose**: Ensures TOML files (like pyproject.toml) are properly sorted
 - **Command**: `make tomlsort_check`
 
-### Dependency Workflows
-
-**lockfiles.yaml** - Requirements File Validation
-
-- **Trigger**: Every push and pull request
-- **Purpose**: Ensures requirements.txt files are synchronized with pyproject.toml
-- **Command**: `make dependencies`
-
 **pypi.yaml** - PyPI Package Publishing
 
 - **Trigger**:
