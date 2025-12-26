@@ -87,3 +87,6 @@ exclude = ["tests*", "docs*"]
 [tool.setuptools_scm]
 fallback_version = "0.0.0-dev"
 write_to = "full/_version.py"
+
+[tool.uv]
+exclude-newer = "1 week"
