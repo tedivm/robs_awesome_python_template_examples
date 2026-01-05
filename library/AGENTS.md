@@ -4,110 +4,67 @@ You should always follow the best practices outlined in this document. If there 
 
 Before beginning any task, make sure you review the documentation (`docs/dev/` and `README.md`), the existing tests to understand the project, and the task runner (Makefile) to understand what dev tools are available and how to use them. You should review code related to your request to understand preferred style: for example, you should review other tests before writing a new test suite, or review existing routers before creating a new one.
 
-## Common Commands
+## Important Commands
 
-### Development Setup
+### Development Environment Setup
 
 ```bash
-# Create virtual environment and install dependencies
-make install
-
-# Update lockfile with latest compatible versions
-make lock
-
-# Install updated dependencies
-make sync
+make install # Install dependencies and set up virtual environment
+make sync # Sync dependencies with uv.lock
+make pre-commit # Install pre-commit hooks
 ```
 
-### Testing & Quality
+### File Operations
 
 ```bash
-# Run test suite with coverage
-make pytest
-
-# Run all quality checks (tests, type checking, linting, formatting)
-make tests
-
-# Type checking with mypy
-make mypy_check
-
-# Linting with ruff (check only)
-make ruff_check
-
-# Format checking with ruff
-make black_check
-
-# Auto-fix linting and formatting issues
-make chores
+git mv old_path new_path # ALWAYS use git mv for moving or renaming files, never use mv or file manipulation tools
 ```
 
-### Code Formatting
+**CRITICAL**: When moving or renaming files in a git repository, you MUST use `git mv` instead of regular `mv` or file manipulation tools. This ensures git properly tracks the file history and prevents issues with version control.
+
+### Testing and Validation
 
 ```bash
-# Run all formatting fixes (ruff, dapperdata, toml-sort)
-make chores
+make tests # Run all tests and checks (pytest, ruff, black, mypy, dapperdata, tomlsort)
+make pytest # Run pytest with coverage report
+make pytest_loud # Run pytest with debug logging enabled
+uv run pytest # Run pytest directly with uv, adding any arguments and options needed
+```
 
-# Fix ruff linting issues
-make ruff_fixes
+### Code Quality Checks
 
-# Format code with ruff
-make black_fixes
+```bash
+make ruff_check # Check code with ruff linter
+make black_check # Check code formatting with ruff format using the black format
+make mypy_check # Run type checking with mypy
+make dapperdata_check # Check data file formatting
+make tomlsort_check # Check TOML file linting and formatting
+```
 
-# Fix YAML/JSON formatting with dapperdata
-make dapperdata_fixes
+### Code Formatting (Auto-fix)
 
-# Sort TOML files
-make tomlsort_fixes
+```bash
+make chores # Run all formatting fixes (ruff, black, dapperdata, tomlsort)
+make ruff_fixes # Auto-fix ruff issues
+make black_fixes # Auto-format code with ruff using the black format
+make dapperdata_fixes # Auto-format data files
+make tomlsort_fixes # Auto-format TOML files
 ```
 
 ### Dependency Management
 
 ```bash
-# Add a new dependency (edit pyproject.toml, then run)
-make lock
-make sync
-
-# Add a dev dependency (add to [dependency-groups] dev in pyproject.toml, then run)
-make lock
-make sync
-
-# Check if lockfile is up to date
-make lock-check
+make lock # Update and lock dependencies
+make lock-check # Check if lock file is up to date
+uv add package_name # Add a new package dependency
+uv add --group dev package_name # Add a dev dependency
+uv remove package_name # Remove a package dependency
 ```
 
-### Building & Packaging
+### Packaging
 
 ```bash
-# Build package
-make build
-```
-
-### Using UV Directly
-
-```bash
-# Run Python module
-uv run python -m module_name
-
-# Run script
-uv run python script.py
-
-# Run pytest
-uv run pytest
-
-# Add package to project dependencies
-uv add package_name
-
-# Remove package
-uv remove package_name
-
-# Update all dependencies
-uv lock --upgrade
-
-# Sync dependencies from lockfile
-uv sync
-
-# Sync with dev dependencies
-uv sync --group dev
+make build # Build package distribution
 ```
 
 ## Best Practices
@@ -144,6 +101,22 @@ uv sync --group dev
 * Use logging levels to allow developers to enable richer logging while testing than in production.
 * Most caught exceptions should be logged with `logger.exception`.
 
+```python
+from logging import getLogger
+from typing import Dict
+
+logger = getLogger(__name__)
+
+def process_data(data: Dict[str, str]) -> None:
+    logger.debug("Starting data processing")
+    try:
+        result = transform_data(data)
+        logger.info("Data processed successfully")
+    except ValueError as e:
+        logger.exception("Failed to process data")
+        raise
+```
+
 ### Commenting
 
 * Comments should improve code readability and understandability.
@@ -156,6 +129,24 @@ uv sync --group dev
 * Do not suppress exceptions unless expected, and handle them properly when suppressing.
 * When suppressing exceptions, log them using `logger.exception`.
 
+```python
+# Bad: Suppressing without handling
+try:
+    risky_operation()
+except Exception:
+    pass  # Never do this
+
+# Good: Proper handling with logging
+try:
+    risky_operation()
+except ValueError as e:
+    logger.exception("Operation failed with invalid value")
+    raise
+except FileNotFoundError:
+    logger.warning("File not found, using defaults")
+    use_defaults()
+```
+
 ### Typing
 
 * Everything should be typed: function signatures (including return values), variables, and anything else.
@@ -165,17 +156,106 @@ uv sync --group dev
 * Avoid using `Any` unless absolutely necessary.
 * If the schema is defined, use a `dataclass` with properly typed parameters instead of a `dict`.
 
+```python
+from dataclasses import dataclass
+from typing import Dict, List
+
+# Good: Proper typing
+@dataclass
+class User:
+    name: str
+    email: str
+    age: int | None = None
+
+def process_users(users: List[User], tags: Dict[str, str]) -> List[str]:
+    results: List[str] = []
+    for user in users:
+        results.append(user.name)
+    return results
+
+# Bad: Using dict instead of dataclass (and using native types)
+def process_users_bad(users: list[dict], config: dict) -> list:
+    pass  # Avoid this
+```
+
 ### Settings
 
 * Manage application settings with the `pydantic-settings` library.
+* The main Settings class is located in `PACKAGE_NAME/conf/settings.py` - update this existing class rather than creating new ones.
 * Sensitive configuration data should always use Pydantic `SecretStr` or `SecretBytes` types.
 * Settings that are allowed to be unset should default to `None` instead of empty strings.
 * Define settings with the Pydantic `Field` function and include descriptions for users.
+
+```python
+# File: library/conf/settings.py
+from pydantic import Field, SecretStr
+from pydantic_settings import BaseSettings, SettingsConfigDict
+
+class Settings(BaseSettings):
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        env_file_encoding="utf-8",
+        extra="ignore",
+    )
+
+    project_name: str = Field(default="MyProject", description="Project name")
+
+    # Good: Using SecretStr for sensitive data
+    database_password: SecretStr = Field(
+        description="Database password"
+    )
+
+    # Good: Optional field defaults to None
+    api_key: str | None = Field(
+        default=None,
+        description="Optional API key for external service"
+    )
+
+    # Good: Using Field with description
+    max_connections: int = Field(
+        default=10,
+        description="Maximum number of database connections"
+    )
+```
 
 ### Typer
 
 * Any CLI command or script that should be accessible to users should be exposed via the Typer library.
 * The main CLI entrypoint should be `PACKAGE_NAME/cli.py`.
+* For async commands, use the `@syncify` decorator provided in `cli.py` to convert async functions to sync for Typer compatibility.
+
+```python
+import typer
+from typing import Annotated
+
+from library.cli import syncify
+
+app = typer.Typer()
+
+@app.command()
+def process(
+    input_file: Annotated[str, typer.Argument(help="Path to input file")],
+    output_file: Annotated[str | None, typer.Option(help="Path to output file")] = None,
+    verbose: Annotated[bool, typer.Option("--verbose", "-v", help="Enable verbose output")] = False,
+) -> None:
+    """Process the input file and generate output."""
+    if verbose:
+        typer.echo(f"Processing {input_file}...")
+    # Processing logic here
+    typer.echo("Done!")
+
+@app.command()
+@syncify
+async def fetch(
+    url: Annotated[str, typer.Argument(help="URL to fetch data from")],
+) -> None:
+    """Fetch data from a URL asynchronously."""
+    # Async operations here (database queries, HTTP requests, etc.)
+    typer.echo(f"Fetching from {url}")
+
+if __name__ == "__main__":
+    app()
+```
 
 ### Testing
 

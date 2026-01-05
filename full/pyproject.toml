@@ -1,6 +1,44 @@
 [build-system]
-build-backend = "setuptools.build_meta"
 requires = ["setuptools>=67.0", "setuptools_scm[toml]>=7.1"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.dynamic]
+readme = { file = ["README.md"] }
+
+[tool.setuptools.package-data]
+full = ["py.typed"]
+
+[tool.setuptools_scm]
+fallback_version = "0.0.0-dev"
+write_to = "full/_version.py"
+
+[tool.setuptools.packages.find]
+exclude = ["tests*", "docs*"]
+
+[project]
+name = "full"
+description = "A full application to demonstrate the Awesome Template."
+readme = { file = "README.md", content-type = "text/markdown" }
+requires-python = ">=3.10"
+license = { "file" = "LICENSE" }
+authors = [{ "name" = "Robert Hafner" }]
+dependencies = [
+  "QuasiQueue",
+  "SQLAlchemy",
+  "aiosqlite",
+  "alembic",
+  "asyncpg",
+  "celery",
+  "fastapi",
+  "jinja2",
+  "psycopg2-binary",
+  "pydantic~=2.0",
+  "pydantic-settings",
+  "redis",
+  "typer",
+  "uvicorn[standard]",
+]
+dynamic = ["version"]
 
 [dependency-groups]
 dev = [
@@ -17,45 +55,27 @@ dev = [
   "pytest-pretty",
   "ruamel.yaml",
   "ruff",
-  "toml-sort",
+  "tombi",
   "uv"
-]
-
-[project]
-authors = [{"name" = "Robert Hafner"}]
-description = "A full application to demonstrate the Awesome Template."
-dynamic = ["version"]
-license = {"file" = "LICENSE"}
-name = "full"
-readme = {file = "README.md", content-type = "text/markdown"}
-requires-python = ">=3.10"
-dependencies = [
-  "aiosqlite",
-  "alembic",
-  "asyncpg",
-  "celery",
-  "fastapi",
-  "uvicorn[standard]",
-  "jinja2",
-  "psycopg2-binary",
-  "pydantic~=2.0",
-  "pydantic-settings",
-  "QuasiQueue",
-  "SQLAlchemy",
-  "redis",
-  "typer"
 ]
 
 [project.scripts]
 full = "full.cli:app"
+
+[tool.ruff]
+exclude = [".venv", "./full/_version.py"]
+line-length = 120
 
 [tool.coverage.run]
 concurrency = ["thread", "greenlet"]
 omit = [
   "./full/_version.py",
   "./full/__init__.py",
-  "./tests/*"
+  "./tests/*",
 ]
+
+[tool.pytest.ini_options]
+asyncio_default_fixture_loop_scope = "function"
 
 [tool.mypy]
 check_untyped_defs = true
@@ -67,26 +87,6 @@ plugins = ["pydantic.mypy"]
 strict_optional = true
 warn_return_any = true
 warn_unused_ignores = true
-
-[tool.pytest.ini_options]
-asyncio_default_fixture_loop_scope = "function"
-
-[tool.ruff]
-exclude = [".venv", "./full/_version.py"]
-line-length = 120
-
-[tool.setuptools.dynamic]
-readme = {file = ["README.md"]}
-
-[tool.setuptools.package-data]
-full = ["py.typed"]
-
-[tool.setuptools.packages.find]
-exclude = ["tests*", "docs*"]
-
-[tool.setuptools_scm]
-fallback_version = "0.0.0-dev"
-write_to = "full/_version.py"
 
 [tool.uv]
 exclude-newer = "1 week"
