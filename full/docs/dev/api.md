@@ -26,6 +26,8 @@ FastAPI-specific settings can be configured through environment variables in the
 
 The application automatically initializes required services on startup:
 
+- **Cache initialization**: If aiocache is enabled, caches are configured and ready
+
 Note: Database connections are NOT initialized at startup. Instead, they are established lazily when first accessed via dependency injection (see Database Integration section below).
 
 ## Adding Routes

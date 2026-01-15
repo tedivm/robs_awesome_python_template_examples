@@ -212,6 +212,11 @@ Environment variables are configured in `compose.yaml` for development:
 - **CELERY_BROKER**: `redis://redis:6379/0`
   - Points to the Redis service for task queue
 
+### Cache Configuration
+
+- **CACHE_REDIS_HOST**: `redis`
+- **CACHE_REDIS_PORT**: `6379`
+
 ### Override Environment Variables
 
 Create a `.env` file in the project root to override default values:

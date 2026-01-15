@@ -4,6 +4,7 @@ from collections.abc import AsyncGenerator
 from quasiqueue import QuasiQueue
 
 from .settings import settings
+from full.services.cache import configure_caches
 
 
 async def writer(desired: int) -> AsyncGenerator[int, None]:
@@ -29,4 +30,6 @@ runner = QuasiQueue(
 )
 
 if __name__ == "__main__":
+    # Initialize caches before running QuasiQueue
+    configure_caches()
     asyncio.run(runner.main())

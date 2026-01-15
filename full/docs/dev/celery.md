@@ -333,6 +333,23 @@ celery -A full.celery inspect stats
 celery -A full.celery inspect ping
 ```
 
+## Cache Integration
+
+If aiocache is enabled, the cache setup handler runs automatically:
+
+```python
+from full.celery import celery
+
+@celery.task
+def task_using_cache():
+    """Task that uses caching."""
+    from full.services.cache import cache
+
+    # Use cache in tasks
+    cache.set("key", "value", ttl=300)
+    return cache.get("key")
+```
+
 ## Testing Celery Tasks
 
 ### Testing Task Registration

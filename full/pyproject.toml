@@ -25,6 +25,7 @@ authors = [{ "name" = "Robert Hafner" }]
 dependencies = [
   "QuasiQueue",
   "SQLAlchemy",
+  "aiocache",
   "aiosqlite",
   "alembic",
   "asyncpg",

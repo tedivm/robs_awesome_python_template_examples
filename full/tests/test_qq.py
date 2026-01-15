@@ -113,6 +113,15 @@ def test_runner_configured_correctly():
     assert runner.writer == writer
 
 
+def test_cache_configuration_imported():
+    """Test that cache configuration can be imported."""
+    from full.services.cache import configure_caches
+    from full.settings import settings
+
+    assert configure_caches is not None
+    assert settings is not None
+
+
 def test_settings_has_project_name():
     """Test that settings has project_name for QuasiQueue."""
     from full.settings import settings

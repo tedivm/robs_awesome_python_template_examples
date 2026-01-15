@@ -17,6 +17,10 @@ New to this project? Start here:
 
 SQLAlchemy ORM integration, models, migrations with Alembic, and database patterns.
 
+### [Caching](./cache.md)
+
+Redis-backed caching with aiocache for performance optimization.
+
 ### [REST API](./api.md)
 
 FastAPI web framework, endpoints, middleware, and API development.

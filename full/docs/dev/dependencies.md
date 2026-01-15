@@ -61,6 +61,11 @@ All projects include these essential dependencies:
 - **celery**: Distributed task queue for asynchronous job processing
 - **redis**: Redis client library for Celery broker and result backend
 
+### Caching
+
+- **aiocache**: Async caching library supporting multiple backends (Redis, in-memory)
+- **redis**: Redis client for cache persistence
+
 ### Templating
 
 - **jinja2**: Powerful template engine for generating HTML, configuration files, etc.

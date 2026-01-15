@@ -422,6 +422,47 @@ def test_cli_help():
     assert "Usage:" in result.stdout
 ```
 
+### Testing Cache Operations
+
+```python
+@pytest.mark.asyncio
+async def test_cache_set_and_get():
+    """Test setting and getting cached values."""
+    from full.services.cache import set_cached, get_cached
+
+    await set_cached("test_key", "test_value")
+    result = await get_cached("test_key")
+    assert result == "test_value"
+
+@pytest.mark.asyncio
+async def test_cache_with_ttl():
+    """Test cache with TTL."""
+    import asyncio
+    from full.services.cache import set_cached, get_cached
+
+    await set_cached("ttl_key", "ttl_value", ttl=1)
+    result = await get_cached("ttl_key")
+    assert result == "ttl_value"
+
+    # Wait for expiration
+    await asyncio.sleep(2)
+    result = await get_cached("ttl_key")
+    assert result is None
+
+@pytest.mark.asyncio
+async def test_cache_disabled():
+    """Test cache operations when caching is disabled."""
+    import os
+    from unittest.mock import patch
+    from full.services.cache import set_cached, get_cached
+
+    with patch.dict(os.environ, {"CACHE_ENABLED": "False"}):
+        await set_cached("disabled_key", "disabled_value")
+        result = await get_cached("disabled_key")
+        # When caching is disabled, get returns None
+        assert result is None
+```
+
 ### Testing Celery Tasks
 
 ```python
@@ -537,6 +578,24 @@ This ensures:
 - Tests can run in parallel safely
 
 ### Cache Test Isolation
+
+When testing cache functionality, ensure caches are cleared between tests:
+
+```python
+@pytest.mark.asyncio
+async def test_with_clean_cache():
+    """Test with a clean cache."""
+    from full.services.cache import clear_cache
+
+    # Clear all caches before test
+    await clear_cache("memory")
+    await clear_cache("persistent")
+
+    # Your test here
+    await set_cached("key", "value")
+    result = await get_cached("key")
+    assert result == "value"
+```
 
 ## Coverage Requirements and Best Practices
 

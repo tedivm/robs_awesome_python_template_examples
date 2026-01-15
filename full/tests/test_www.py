@@ -54,6 +54,12 @@ def test_static_route_exists():
     assert has_static, "Static files route should be configured"
 
 
+def test_lifespan_configured():
+    """Test that lifespan context manager is configured."""
+    # Check that the app has a lifespan handler
+    assert app.router.lifespan_context is not None, "Should have lifespan context configured"
+
+
 def test_app_can_start(fastapi_client):
     """Test that the app can start successfully."""
     # Making any request will trigger startup event

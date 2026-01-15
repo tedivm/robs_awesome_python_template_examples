@@ -1,8 +1,15 @@
 from typing import Any
 
 from celery import Celery  # type: ignore[import-untyped]
+from full.services.cache import configure_caches
 
 celery = Celery("full")
+
+
+@celery.on_after_configure.connect
+def setup_caches(sender: Any, **kwargs: Any) -> None:
+    """Initialize caches when Celery worker starts."""
+    configure_caches()
 
 
 @celery.task

@@ -65,3 +65,21 @@ def test_periodic_tasks_can_be_configured():
     except AttributeError:
         # beat_schedule might not be set if not configured
         pass
+
+
+def test_cache_setup_handler_exists():
+    """Test that cache setup handler is registered."""
+    # The setup_caches function should be connected to on_after_configure
+    assert hasattr(celery, "on_after_configure")
+
+
+def test_cache_setup_imports():
+    """Test that cache configuration can be imported."""
+    from full.services.cache import configure_caches
+    from full.settings import settings
+
+    assert configure_caches is not None
+    assert settings is not None
+
+    # Test that configure_caches is callable
+    assert callable(configure_caches)

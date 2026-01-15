@@ -13,6 +13,8 @@ services:
       RELOAD: true
       DATABASE_URL: postgresql://main:main12345@db/main
       CELERY_BROKER: redis://redis:6379/0
+      CACHE_REDIS_HOST: redis
+      CACHE_REDIS_PORT: 6379
     depends_on:
       - db
       - redis
@@ -28,6 +30,8 @@ services:
       IS_DEV: true
       DATABASE_URL: postgresql://main:main12345@db/main
       CELERY_BROKER: redis://redis:6379/0
+      CACHE_REDIS_HOST: redis
+      CACHE_REDIS_PORT: 6379
     depends_on:
       - db
       - redis
@@ -43,6 +47,8 @@ services:
       IS_DEV: true
       DATABASE_URL: postgresql://main:main12345@db/main
       CELERY_BROKER: redis://redis:6379/0
+      CACHE_REDIS_HOST: redis
+      CACHE_REDIS_PORT: 6379
     depends_on:
       - db
       - redis
@@ -56,6 +62,8 @@ services:
       IS_DEV: true
       DATABASE_URL: postgresql://main:main12345@db/main
       CELERY_BROKER: redis://redis:6379/0
+      CACHE_REDIS_HOST: redis
+      CACHE_REDIS_PORT: 6379
     depends_on:
       - db
       - redis

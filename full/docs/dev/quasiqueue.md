@@ -235,6 +235,28 @@ When you run QuasiQueue:
 5. Processes are restarted after `max_jobs_per_process` jobs
 6. Handles SIGTERM/SIGINT for graceful shutdown
 
+## Cache Integration
+
+If using aiocache, caches are automatically initialized before the QuasiQueue runner starts and are available in your reader functions:
+
+```python
+from full.services.cache import cache
+
+async def reader(item: int | str):
+    """Reader can access initialized caches."""
+    # Check cache first
+    cached_result = await cache.get(f'result_{item}')
+    if cached_result:
+        return cached_result
+
+    # Process and cache result
+    result = await process_item(item)
+    await cache.set(f'result_{item}', result, ttl=3600)
+    return result
+```
+
+Cache initialization is handled automatically by the application startup, so you don't need to worry about it in your QuasiQueue functions.
+
 ## Testing
 
 ### Component Tests

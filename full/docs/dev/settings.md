@@ -7,6 +7,7 @@ This project uses [Pydantic Settings](https://docs.pydantic.dev/latest/concepts/
 The settings system is organized into multiple modules:
 
 - **`full/conf/settings.py`**: Main Settings class
+- **`full/conf/cache.py`**: Cache-specific settings
 - **`full/conf/db.py`**: Database settings
 - **`full/settings.py`**: Global settings instance
 
@@ -135,6 +136,10 @@ class Settings(BaseSettings):
 
     # Database
     database_url: str = "postgresql+asyncpg://user:pass@localhost/db"
+
+    # Cache
+    cache_backend: str = "memory"
+    redis_url: str = "redis://localhost:6379/0"
 
     # QuasiQueue settings come from QuasiQueueSettings base class
 ```
