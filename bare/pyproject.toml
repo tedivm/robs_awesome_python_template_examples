@@ -16,17 +16,17 @@ write_to = "bare/_version.py"
 exclude = ["tests*", "docs*"]
 
 [project]
-name = "bare"
+authors = [{ "name" = "Robert Hafner" }]
 description = "A very simple python library to demonstrate the Awesome Template."
+dynamic = ["version"]
+license = { "file" = "LICENSE" }
+name = "bare"
 readme = { file = "README.md", content-type = "text/markdown" }
 requires-python = ">=3.10"
-license = { "file" = "LICENSE" }
-authors = [{ "name" = "Robert Hafner" }]
 dependencies = [
   "pydantic~=2.0",
   "pydantic-settings",
 ]
-dynamic = ["version"]
 
 [dependency-groups]
 dev = [

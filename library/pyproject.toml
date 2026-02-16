@@ -16,18 +16,18 @@ write_to = "library/_version.py"
 exclude = ["tests*", "docs*"]
 
 [project]
-name = "library"
+authors = [{ "name" = "Robert Hafner" }]
 description = "A Python Library, CLI, and support systems to demonstrate the Awesome Template."
+dynamic = ["version"]
+license = { "file" = "LICENSE" }
+name = "library"
 readme = { file = "README.md", content-type = "text/markdown" }
 requires-python = ">=3.10"
-license = { "file" = "LICENSE" }
-authors = [{ "name" = "Robert Hafner" }]
 dependencies = [
   "pydantic~=2.0",
   "pydantic-settings",
   "typer",
 ]
-dynamic = ["version"]
 
 [dependency-groups]
 dev = [

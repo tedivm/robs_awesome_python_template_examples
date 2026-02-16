@@ -16,12 +16,13 @@ write_to = "full/_version.py"
 exclude = ["tests*", "docs*"]
 
 [project]
-name = "full"
+authors = [{ "name" = "Robert Hafner" }]
 description = "A full application to demonstrate the Awesome Template."
+dynamic = ["version"]
+license = { "file" = "LICENSE" }
+name = "full"
 readme = { file = "README.md", content-type = "text/markdown" }
 requires-python = ">=3.10"
-license = { "file" = "LICENSE" }
-authors = [{ "name" = "Robert Hafner" }]
 dependencies = [
   "QuasiQueue",
   "SQLAlchemy",
@@ -39,7 +40,6 @@ dependencies = [
   "typer",
   "uvicorn[standard]",
 ]
-dynamic = ["version"]
 
 [dependency-groups]
 dev = [
