@@ -23,6 +23,7 @@ license = { "file" = "LICENSE" }
 name = "library"
 readme = { file = "README.md", content-type = "text/markdown" }
 requires-python = ">=3.10"
+
 dependencies = [
   "pydantic~=2.0",
   "pydantic-settings",
