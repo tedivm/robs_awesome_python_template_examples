@@ -165,6 +165,9 @@ create_migration:
 
 .PHONY: check_ungenerated_migrations
 check_ungenerated_migrations:
-	$(UV) run alembic check
+	rm -f $(MIGRATION_DATABASE)
+	DATABASE_URL=sqlite:///$(MIGRATION_DATABASE) $(UV) run alembic upgrade head
+	DATABASE_URL=sqlite:///$(MIGRATION_DATABASE) $(UV) run alembic check
+	rm -f $(MIGRATION_DATABASE)
 
 
