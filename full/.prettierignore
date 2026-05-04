@@ -1,0 +1,5 @@
+.venv/
+full.egg-info/
+tmp/
+.*/**/*.md
+docs/dev/database.md

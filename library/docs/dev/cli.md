@@ -185,7 +185,7 @@ async def list_users():
 
 Organize related commands into groups:
 
-```python
+````python
 import typer
 
 app = typer.Typer()
@@ -197,7 +197,7 @@ library db migrate
 library db seed
 library user create john john@example.com
 library user list
-```
+````
 
 ### Separate Command Modules
 

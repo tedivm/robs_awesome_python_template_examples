@@ -1,0 +1,4 @@
+.venv/
+bare.egg-info/
+tmp/
+.*/**/*.md

@@ -55,7 +55,7 @@ pre-commit:
 # Formatting
 #
 .PHONY: chores
-chores: ruff_fixes black_fixes dapperdata_fixes tomlsort_fixes document_schema
+chores: ruff_fixes black_fixes prettier_fixes tomlsort_fixes document_schema
 
 .PHONY: ruff_fixes
 ruff_fixes:
@@ -65,9 +65,10 @@ ruff_fixes:
 black_fixes:
 	$(UV) run ruff format .
 
-.PHONY: dapperdata_fixes
-dapperdata_fixes:
-	$(UV) run python -m dapperdata.cli pretty . --no-dry-run
+.PHONY: prettier_fixes
+prettier_fixes:
+	@command -v npx >/dev/null 2>&1 || { echo >&2 "Error: npx is not installed. Please install Node.js (https://nodejs.org/) to use prettier."; exit 1; }
+	npx --yes prettier --write . --log-level warn
 
 .PHONY: tomlsort_fixes
 tomlsort_fixes:
@@ -77,7 +78,7 @@ tomlsort_fixes:
 # Testing
 #
 .PHONY: tests
-tests: install pytest ruff_check black_check mypy_check dapperdata_check tomlsort_check paracelsus_check
+tests: install pytest ruff_check black_check mypy_check prettier_check tomlsort_check paracelsus_check
 
 .PHONY: pytest
 pytest:
@@ -99,9 +100,10 @@ black_check:
 mypy_check:
 	$(UV) run mypy ${PACKAGE_SLUG}
 
-.PHONY: dapperdata_check
-dapperdata_check:
-	$(UV) run python -m dapperdata.cli pretty .
+.PHONY: prettier_check
+prettier_check:
+	@command -v npx >/dev/null 2>&1 || { echo >&2 "Error: npx is not installed. Please install Node.js (https://nodejs.org/) to use prettier."; exit 1; }
+	npx --yes prettier --check . --log-level warn
 
 .PHONY: tomlsort_check
 tomlsort_check:

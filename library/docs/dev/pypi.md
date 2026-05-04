@@ -152,18 +152,18 @@ on:
   pull_request:
 
 env:
-  PUBLISH_TO_PYPI: true  # Set during project generation
+  PUBLISH_TO_PYPI: true # Set during project generation
 
 jobs:
   pypi:
     runs-on: ubuntu-latest
     permissions:
-      id-token: write  # Required for OIDC
+      id-token: write # Required for OIDC
     steps:
       - uses: actions/checkout@v5
         with:
-          fetch-depth: 0    # Full history for setuptools_scm
-          fetch-tags: true  # Ensure tags are fetched
+          fetch-depth: 0 # Full history for setuptools_scm
+          fetch-tags: true # Ensure tags are fetched
 
       - uses: actions/setup-python@v6
         with:
@@ -379,7 +379,7 @@ After tagging:
 
 ## Troubleshooting
 
-### Build Fails: "No module named '_version'"
+### Build Fails: "No module named '\_version'"
 
 **Problem**: Version file not generated.
 

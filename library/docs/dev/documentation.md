@@ -206,12 +206,19 @@ Create a structure:
 
 ```markdown
 # Feature Name
+
 ## Overview
+
 ## Configuration
+
 ## Basic Usage
+
 ## Common Patterns
+
 ## Testing
+
 ## Best Practices
+
 ## References
 ```
 
@@ -252,7 +259,7 @@ This project uses [Library Name](url) for [purpose], providing [key capabilities
 
 Numbered list of recommendations:
 
-```markdown
+````markdown
 1. **Practice Name**: Brief explanation
 
    ```python
@@ -262,8 +269,9 @@ Numbered list of recommendations:
    # Bad
    wrong_code()
    ```
+````
 
-```
+````
 
 ### 4. Review Phase
 
@@ -295,7 +303,7 @@ When documenting version-specific behavior:
 
 ```markdown
 **Note**: This feature requires Python 3.11+
-```
+````
 
 ### Deprecation Notices
 
@@ -312,7 +320,7 @@ See [link to new docs] for the recommended pattern.
 
 Show commands with explanations:
 
-```markdown
+````markdown
 ```bash
 # Run tests with coverage
 make pytest
@@ -323,8 +331,9 @@ pytest tests/test_api.py
 # Run with verbose output
 pytest -v
 ```
+````
 
-```
+````
 
 ### Configuration Tables
 
@@ -333,7 +342,7 @@ Use lists for configuration options:
 ```markdown
 - **SETTING_NAME**: Description (default: `value`)
   - Additional details or notes
-```
+````
 
 ### Code Annotations
 
@@ -351,8 +360,6 @@ async def example_function():
     # Step 3: Return formatted output
     return format_output(processed)
 ```
-
-
 
 ## Testing Documentation
 

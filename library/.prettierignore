@@ -1,0 +1,4 @@
+.venv/
+library.egg-info/
+tmp/
+.*/**/*.md

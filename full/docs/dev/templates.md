@@ -74,13 +74,13 @@ Create a basic template (`templates/hello.html`):
 ```html
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>{{ title }}</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Hello, {{ name }}!</h1>
     <p>Welcome to {{ project_name }}</p>
-</body>
+  </body>
 </html>
 ```
 
@@ -105,22 +105,22 @@ async def hello(request: Request, name: str):
 Use double curly braces for variable interpolation:
 
 ```html
-{{ variable }}                    <!-- Simple variable -->
-{{ user.name }}                   <!-- Object attribute -->
-{{ items[0] }}                    <!-- List/dict access -->
-{{ data['key'] }}                 <!-- Dictionary access -->
-{{ function() }}                  <!-- Function call -->
+{{ variable }}
+<!-- Simple variable -->
+{{ user.name }}
+<!-- Object attribute -->
+{{ items[0] }}
+<!-- List/dict access -->
+{{ data['key'] }}
+<!-- Dictionary access -->
+{{ function() }}
+<!-- Function call -->
 ```
 
 ### Comments
 
 ```html
-{# This is a comment and won't appear in output #}
-
-{#
-Multi-line
-comment
-#}
+{# This is a comment and won't appear in output #} {# Multi-line comment #}
 ```
 
 ## Template Inheritance
@@ -132,32 +132,28 @@ Create a base layout (`templates/base.html`):
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}Default Title{% endblock %}</title>
 
-    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/style.css" />
 
     {% block extra_head %}{% endblock %}
-</head>
-<body>
-    <header>
-        {% include 'components/header.html' %}
-    </header>
+  </head>
+  <body>
+    <header>{% include 'components/header.html' %}</header>
 
     <main>
-        {% block content %}
-        <p>Default content</p>
-        {% endblock %}
+      {% block content %}
+      <p>Default content</p>
+      {% endblock %}
     </main>
 
-    <footer>
-        {% include 'components/footer.html' %}
-    </footer>
+    <footer>{% include 'components/footer.html' %}</footer>
 
     {% block extra_scripts %}{% endblock %}
-</body>
+  </body>
 </html>
 ```
 
@@ -166,20 +162,13 @@ Create a base layout (`templates/base.html`):
 Extend the base template (`templates/page.html`):
 
 ```html
-{% extends "base.html" %}
-
-{% block title %}My Page Title{% endblock %}
-
-{% block extra_head %}
-<link rel="stylesheet" href="/static/css/page-specific.css">
-{% endblock %}
-
-{% block content %}
+{% extends "base.html" %} {% block title %}My Page Title{% endblock %} {% block
+extra_head %}
+<link rel="stylesheet" href="/static/css/page-specific.css" />
+{% endblock %} {% block content %}
 <h1>Welcome to My Page</h1>
 <p>This content replaces the default content block.</p>
-{% endblock %}
-
-{% block extra_scripts %}
+{% endblock %} {% block extra_scripts %}
 <script src="/static/js/page-specific.js"></script>
 {% endblock %}
 ```
@@ -190,11 +179,11 @@ Extend the base template (`templates/page.html`):
 
 ```html
 {% if user.is_authenticated %}
-    <p>Welcome back, {{ user.name }}!</p>
+<p>Welcome back, {{ user.name }}!</p>
 {% elif user.is_guest %}
-    <p>Welcome, guest!</p>
+<p>Welcome, guest!</p>
 {% else %}
-    <p>Please log in.</p>
+<p>Please log in.</p>
 {% endif %}
 ```
 
@@ -202,27 +191,31 @@ Extend the base template (`templates/page.html`):
 
 ```html
 <ul>
-{% for item in items %}
-    <li>{{ loop.index }}: {{ item.name }}</li>
-{% endfor %}
+  {% for item in items %}
+  <li>{{ loop.index }}: {{ item.name }}</li>
+  {% endfor %}
 </ul>
 
 <!-- Loop with else (when list is empty) -->
 <ul>
-{% for user in users %}
-    <li>{{ user.name }}</li>
-{% else %}
-    <li>No users found.</li>
-{% endfor %}
+  {% for user in users %}
+  <li>{{ user.name }}</li>
+  {% else %}
+  <li>No users found.</li>
+  {% endfor %}
 </ul>
 
 <!-- Loop variables -->
-{% for item in items %}
-    {{ loop.index }}      <!-- 1, 2, 3, ... -->
-    {{ loop.index0 }}     <!-- 0, 1, 2, ... -->
-    {{ loop.first }}      <!-- True on first iteration -->
-    {{ loop.last }}       <!-- True on last iteration -->
-    {{ loop.length }}     <!-- Total number of items -->
+{% for item in items %} {{ loop.index }}
+<!-- 1, 2, 3, ... -->
+{{ loop.index0 }}
+<!-- 0, 1, 2, ... -->
+{{ loop.first }}
+<!-- True on first iteration -->
+{{ loop.last }}
+<!-- True on last iteration -->
+{{ loop.length }}
+<!-- Total number of items -->
 {% endfor %}
 ```
 
@@ -231,16 +224,26 @@ Extend the base template (`templates/page.html`):
 Transform variables with filters:
 
 ```html
-{{ name|upper }}                  <!-- Convert to uppercase -->
-{{ text|lower }}                  <!-- Convert to lowercase -->
-{{ number|abs }}                  <!-- Absolute value -->
-{{ items|length }}                <!-- Get length -->
-{{ price|round(2) }}              <!-- Round to 2 decimals -->
-{{ html_content|safe }}           <!-- Mark as safe (no escaping) -->
-{{ description|truncate(100) }}   <!-- Truncate to 100 chars -->
-{{ date|default("N/A") }}         <!-- Default if undefined -->
-{{ items|join(", ") }}            <!-- Join list with separator -->
-{{ text|replace("old", "new") }}  <!-- Replace text -->
+{{ name|upper }}
+<!-- Convert to uppercase -->
+{{ text|lower }}
+<!-- Convert to lowercase -->
+{{ number|abs }}
+<!-- Absolute value -->
+{{ items|length }}
+<!-- Get length -->
+{{ price|round(2) }}
+<!-- Round to 2 decimals -->
+{{ html_content|safe }}
+<!-- Mark as safe (no escaping) -->
+{{ description|truncate(100) }}
+<!-- Truncate to 100 chars -->
+{{ date|default("N/A") }}
+<!-- Default if undefined -->
+{{ items|join(", ") }}
+<!-- Join list with separator -->
+{{ text|replace("old", "new") }}
+<!-- Replace text -->
 ```
 
 ## Custom Filters
@@ -331,7 +334,7 @@ Usage in templates:
 
 ```html
 <a href="{{ url_for('users', id=123) }}">User Profile</a>
-<img src="{{ asset_url('images/logo.png') }}" alt="Logo">
+<img src="{{ asset_url('images/logo.png') }}" alt="Logo" />
 <p>App Name: {{ settings.project_name }}</p>
 ```
 
@@ -344,16 +347,16 @@ Reuse template fragments with `include`:
 ```html
 <!-- templates/components/header.html -->
 <header>
-    <nav>
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-    </nav>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+  </nav>
 </header>
 
 <!-- templates/page.html -->
 {% include 'components/header.html' %}
 <main>
-    <p>Page content here</p>
+  <p>Page content here</p>
 </main>
 ```
 
@@ -365,28 +368,29 @@ Create reusable template functions with macros:
 <!-- templates/macros/forms.html -->
 {% macro input(name, type="text", placeholder="", required=false) %}
 <div class="form-group">
-    <input
-        type="{{ type }}"
-        name="{{ name }}"
-        placeholder="{{ placeholder }}"
-        {% if required %}required{% endif %}
-    >
+  <input
+    type="{{ type }}"
+    name="{{ name }}"
+    placeholder="{{ placeholder }}"
+    {%
+    if
+    required
+    %}required{%
+    endif
+    %}
+  />
 </div>
-{% endmacro %}
-
-{% macro button(text, type="submit", classes="btn-primary") %}
-<button type="{{ type }}" class="btn {{ classes }}">
-    {{ text }}
-</button>
+{% endmacro %} {% macro button(text, type="submit", classes="btn-primary") %}
+<button type="{{ type }}" class="btn {{ classes }}">{{ text }}</button>
 {% endmacro %}
 
 <!-- templates/form.html -->
 {% from 'macros/forms.html' import input, button %}
 
 <form method="post">
-    {{ input('username', placeholder='Enter username', required=true) }}
-    {{ input('password', type='password', placeholder='Enter password', required=true) }}
-    {{ button('Login') }}
+  {{ input('username', placeholder='Enter username', required=true) }} {{
+  input('password', type='password', placeholder='Enter password',
+  required=true) }} {{ button('Login') }}
 </form>
 ```
 
@@ -446,7 +450,8 @@ def generate_report(report_id: int):
 By default, variables are HTML-escaped for security:
 
 ```html
-{{ user_input }}  <!-- Automatically escaped -->
+{{ user_input }}
+<!-- Automatically escaped -->
 
 <!-- If user_input is "<script>alert('xss')</script>" -->
 <!-- Output: &lt;script&gt;alert(&#39;xss&#39;)&lt;/script&gt; -->
@@ -471,7 +476,8 @@ async def page(request: Request):
 Or in the template:
 
 ```html
-{{ content|safe }}  <!-- Disable escaping with safe filter -->
+{{ content|safe }}
+<!-- Disable escaping with safe filter -->
 ```
 
 ## Error Handling

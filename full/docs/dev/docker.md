@@ -236,9 +236,9 @@ The compose file mounts source code as volumes for live development:
 
 ```yaml
 volumes:
-  - "./full:/app/full"  # Source code
-  - "./db:/app/db"                                                             # Migration scripts
-  - "./docker/www/prestart.sh:/app/prestart.sh"                               # Startup script
+  - "./full:/app/full" # Source code
+  - "./db:/app/db" # Migration scripts
+  - "./docker/www/prestart.sh:/app/prestart.sh" # Startup script
 ```
 
 **Benefits**:
@@ -499,20 +499,20 @@ services:
     restart: always
     # NO volume mounts - code is in image
     ports:
-      - "8000:80"  # Don't expose on port 80 directly
+      - "8000:80" # Don't expose on port 80 directly
     environment:
       IS_DEV: false
       RELOAD: false
-      DATABASE_URL: ${DATABASE_URL}  # Load from secure secrets
+      DATABASE_URL: ${DATABASE_URL} # Load from secure secrets
       SECRET_KEY: ${SECRET_KEY}
     deploy:
       replicas: 3
       resources:
         limits:
-          cpus: '1'
+          cpus: "1"
           memory: 512M
         reservations:
-          cpus: '0.5'
+          cpus: "0.5"
           memory: 256M
 ```
 
@@ -574,7 +574,7 @@ services:
   www:
     ports:
       - "80:80"
-      - "5678:5678"  # Debugger port
+      - "5678:5678" # Debugger port
 ```
 
 ## Health Checks
@@ -593,12 +593,12 @@ services:
 ```
 
 ```yaml
-  db:
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U main"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
+db:
+  healthcheck:
+    test: ["CMD-SHELL", "pg_isready -U main"]
+    interval: 10s
+    timeout: 5s
+    retries: 5
 ```
 
 ## Resource Limits
@@ -611,11 +611,11 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '2'      # Maximum 2 CPU cores
-          memory: 1G     # Maximum 1GB RAM
+          cpus: "2" # Maximum 2 CPU cores
+          memory: 1G # Maximum 1GB RAM
         reservations:
-          cpus: '0.5'    # Guaranteed 0.5 CPU cores
-          memory: 512M   # Guaranteed 512MB RAM
+          cpus: "0.5" # Guaranteed 0.5 CPU cores
+          memory: 512M # Guaranteed 512MB RAM
 ```
 
 ## Container Registry
@@ -678,7 +678,7 @@ networks:
     driver: bridge
   backend:
     driver: bridge
-    internal: true  # No external access
+    internal: true # No external access
 ```
 
 ## Troubleshooting
@@ -721,7 +721,7 @@ If port 80 is already in use, modify the port mapping in `compose.yaml`:
 services:
   www:
     ports:
-      - "8080:80"  # Use port 8080 on host instead
+      - "8080:80" # Use port 8080 on host instead
 ```
 
 ### Out of Disk Space

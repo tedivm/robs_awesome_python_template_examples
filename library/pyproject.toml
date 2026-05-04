@@ -33,7 +33,6 @@ dependencies = [
 [dependency-groups]
 dev = [
   "build",
-  "dapperdata",
   "glom",
   "greenlet",
   "mypy",

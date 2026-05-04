@@ -90,4 +90,4 @@ All documentation in this project follows the standards outlined in [documentati
 
 ---
 
-*This documentation is maintained by the development team. If you find issues or have suggestions, please contribute improvements!*
+_This documentation is maintained by the development team. If you find issues or have suggestions, please contribute improvements!_
