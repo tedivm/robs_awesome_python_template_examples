@@ -1,7 +1,10 @@
+from logging import getLogger
 from typing import Any
 
 from celery import Celery  # type: ignore[import-untyped]
 from full.services.cache import configure_caches
+
+logger = getLogger(__name__)
 
 celery = Celery("full")
 
@@ -14,10 +17,10 @@ def setup_caches(sender: Any, **kwargs: Any) -> None:
 
 @celery.task
 def hello_world() -> None:
-    print("Hello World!")
+    logger.info("Hello World!")
 
 
 @celery.on_after_finalize.connect
 def setup_periodic_tasks(sender: Any, **kwargs: Any) -> None:
-    print("Enabling Test Task")
+    logger.info("Enabling Test Task")
     sender.add_periodic_task(15.0, hello_world.s(), name="Test Task")

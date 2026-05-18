@@ -1,7 +1,15 @@
 from fastapi.templating import Jinja2Templates
 from jinja2 import Environment, PackageLoader
+from jinja2.sandbox import SandboxedEnvironment
 
 env = Environment(
+    loader=PackageLoader("full"),
+    autoescape=True,
+)
+
+# Sandboxed environment for untrusted templates (user content, third-party systems).
+# Prevents access to Python internals, attribute traversal, and dangerous operations.
+sandbox_env = SandboxedEnvironment(
     loader=PackageLoader("full"),
     autoescape=True,
 )

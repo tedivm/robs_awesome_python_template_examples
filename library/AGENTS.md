@@ -20,7 +20,7 @@ make pre-commit # Install pre-commit hooks
 git mv old_path new_path # ALWAYS use git mv for moving or renaming files, never use mv or file manipulation tools
 ```
 
-**CRITICAL**: When moving or renaming files in a git repository, you MUST use `git mv` instead of regular `mv` or file manipulation tools. This ensures git properly tracks the file history and prevents issues with version control. The only exception to this is if you are moving files which are not tracked in git, as in that case `git mv` will have no effect.
+**CRITICAL**: When moving or renaming files in a git repository, you MUST use `git mv` instead of regular `mv` or file manipulation tools. This ensures git properly tracks file history and prevents issues with version control. The only exception to this is if you are moving files which are not tracked in git, as in that case `git mv` will have no effect.
 
 ### Testing and Validation
 
@@ -30,6 +30,8 @@ make pytest # Run pytest with coverage report
 make pytest_loud # Run pytest with debug logging enabled
 uv run pytest # Run pytest directly with uv, adding any arguments and options needed
 ```
+
+For full testing conventions, fixture patterns, and database test strategies, see the `python-testing` skill.
 
 ### Code Quality Checks
 
@@ -180,92 +182,21 @@ def process_users_bad(users: list[dict], config: dict) -> list:
 
 ### Settings
 
-- Manage application settings with the `pydantic-settings` library.
-- The main Settings class is located in `PACKAGE_NAME/conf/settings.py` - update this existing class rather than creating new ones.
-- Sensitive configuration data must always use Pydantic `SecretStr` or `SecretBytes` types.
-- Settings that are allowed to be unset must default to `None` instead of empty strings.
-- Define settings with the Pydantic `Field` function and include descriptions for users.
+Manage application settings with `pydantic-settings` in `library/conf/settings.py` — update the existing class, never create a new one. Use `SecretStr` / `SecretBytes` for sensitive data. Optional settings default to `None`, never `""`. All fields use `Field(description=...)`.
 
-```python
-# File: library/conf/settings.py
-from pydantic import Field, SecretStr
-from pydantic_settings import BaseSettings, SettingsConfigDict
-
-class Settings(BaseSettings):
-    model_config = SettingsConfigDict(
-        env_file=".env",
-        env_file_encoding="utf-8",
-        extra="ignore",
-    )
-
-    project_name: str = Field(default="MyProject", description="Project name")
-
-    # Good: Using SecretStr for sensitive data
-    database_password: SecretStr = Field(
-        description="Database password"
-    )
-
-    # Good: Optional field defaults to None
-    api_key: str | None = Field(
-        default=None,
-        description="Optional API key for external service"
-    )
-
-    # Good: Using Field with description
-    max_connections: int = Field(
-        default=10,
-        description="Maximum number of database connections"
-    )
-```
+See the `pydantic-settings` skill for full conventions and examples.
 
 ### Typer
 
-- Any CLI command or script that must be accessible to users must be exposed via the Typer library.
-- The main CLI entrypoint must be `PACKAGE_NAME/cli.py`.
-- For async commands, use the `@syncify` decorator provided in `cli.py` to convert async functions to sync for Typer compatibility.
+Expose user-facing commands via Typer. The main CLI entrypoint is `library/cli.py`. Use the `@syncify` decorator (from `library/cli.py`) for async commands — never use `asyncio.run()` directly. Use `Annotated[]` for all arguments and options.
 
-```python
-import typer
-from typing import Annotated
-
-from library.cli import syncify
-
-app = typer.Typer()
-
-@app.command()
-def process(
-    input_file: Annotated[str, typer.Argument(help="Path to input file")],
-    output_file: Annotated[str | None, typer.Option(help="Path to output file")] = None,
-    verbose: Annotated[bool, typer.Option("--verbose", "-v", help="Enable verbose output")] = False,
-) -> None:
-    """Process the input file and generate output."""
-    if verbose:
-        typer.echo(f"Processing {input_file}...")
-    # Processing logic here
-    typer.echo("Done!")
-
-@app.command()
-@syncify
-async def fetch(
-    url: Annotated[str, typer.Argument(help="URL to fetch data from")],
-) -> None:
-    """Fetch data from a URL asynchronously."""
-    # Async operations here (database queries, HTTP requests, etc.)
-    typer.echo(f"Fetching from {url}")
-
-if __name__ == "__main__":
-    app()
-```
+See the `typer-cli` skill for full patterns and examples.
 
 ### Testing
 
-- Do not wrap test functions in classes unless there is a specific technical reason: instead prefer single functions.
-- All fixtures must be defined or imported in `conftest.py` so they are available to all tests.
-- Do not use mocks to replace simple dataclasses or Pydantic models unless absolutely necessary: instead create an instance of the appropriate class with desired parameters.
-- Use the FastAPI Test Client (preferably with a fixture) rather than calling FastAPI router classes directly.
-- Use a test database fixture with memory-backed SQLite for tests requiring a database. Including a dependency override for this test database as part of the FastAPI App fixture is extremely useful.
-- When adding new code, you must also add appropriate tests to cover that new code.
-- The test suite file structure must mirror the main code file structure.
+Prefer standalone test functions over test classes. All fixtures must be in `conftest.py`. Test file structure mirrors the main code structure. Do not mock simple dataclasses or Pydantic models — construct real instances. When adding new code, add tests to cover it.
+
+See the `python-testing` skill for FastAPI test client patterns, memory SQLite database fixtures, and testing conventions.
 
 ### Files
 
@@ -274,12 +205,12 @@ if __name__ == "__main__":
 - Developer documentation must live in `docs/dev`.
 - New developer documents must be added to the table of contents in `docs/dev/README.md`.
 - Files only meant for building containers must live in the `docker/` folder.
-- Database models must live in `PACKAGE_NAME/models/`.
-- The primary settings file must live in `PACKAGE_NAME/conf/settings.py`.
+- Database models must live in `library/models/`.
+- The primary settings file must live in `library/conf/settings.py`.
 
 ### Developer Environments
 
-- Common developer tasks must be defined in the `makefile` to easy reuse.
+- Common developer tasks must be defined in the `makefile` to ease reuse.
 - Developers must always be able to start a fully functional developer instance with `docker compose up`.
 - Developer environments must be initialized with fake data for easy use.
 - Developer settings must live in the `.env` file, which must be in `.gitignore`.

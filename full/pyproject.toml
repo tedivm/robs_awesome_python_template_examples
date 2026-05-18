@@ -1,20 +1,3 @@
-[build-system]
-requires = ["setuptools>=67.0", "setuptools_scm[toml]>=7.1"]
-build-backend = "setuptools.build_meta"
-
-[tool.setuptools.dynamic]
-readme = { file = ["README.md"] }
-
-[tool.setuptools.package-data]
-full = ["py.typed"]
-
-[tool.setuptools_scm]
-fallback_version = "0.0.0-dev"
-write_to = "full/_version.py"
-
-[tool.setuptools.packages.find]
-exclude = ["tests*", "docs*"]
-
 [project]
 authors = [{ "name" = "Robert Hafner" }]
 description = "A full application to demonstrate the Awesome Template."
@@ -42,6 +25,9 @@ dependencies = [
   "uvicorn[standard]",
 ]
 
+[project.scripts]
+full = "full.cli:app"
+
 [dependency-groups]
 dev = [
   "build",
@@ -60,12 +46,9 @@ dev = [
   "uv"
 ]
 
-[project.scripts]
-full = "full.cli:app"
-
-[tool.ruff]
-exclude = [".venv", "./full/_version.py"]
-line-length = 120
+[build-system]
+requires = ["setuptools>=67.0", "setuptools_scm[toml]>=7.1"]
+build-backend = "setuptools.build_meta"
 
 [tool.coverage.run]
 concurrency = ["thread", "greenlet"]
@@ -74,9 +57,6 @@ omit = [
   "./full/__init__.py",
   "./tests/*",
 ]
-
-[tool.pytest.ini_options]
-asyncio_default_fixture_loop_scope = "function"
 
 [tool.mypy]
 check_untyped_defs = true
@@ -88,6 +68,26 @@ plugins = ["pydantic.mypy"]
 strict_optional = true
 warn_return_any = true
 warn_unused_ignores = true
+
+[tool.pytest.ini_options]
+asyncio_default_fixture_loop_scope = "function"
+
+[tool.ruff]
+exclude = [".venv", "./full/_version.py"]
+line-length = 120
+
+[tool.setuptools.dynamic]
+readme = { file = ["README.md"] }
+
+[tool.setuptools.package-data]
+full = ["py.typed"]
+
+[tool.setuptools.packages.find]
+exclude = ["tests*", "docs*"]
+
+[tool.setuptools_scm]
+fallback_version = "0.0.0-dev"
+write_to = "full/_version.py"
 
 [tool.uv]
 exclude-newer = "1 week"

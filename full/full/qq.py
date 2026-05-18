@@ -1,10 +1,13 @@
 import asyncio
 from collections.abc import AsyncGenerator
+from logging import getLogger
 
 from quasiqueue import QuasiQueue
 
 from .settings import settings
 from full.services.cache import configure_caches
+
+logger = getLogger(__name__)
 
 
 async def writer(desired: int) -> AsyncGenerator[int, None]:
@@ -19,7 +22,7 @@ async def reader(identifier: int | str) -> None:
     Args:
         identifier (int | str): Comes from the output of the Writer function
     """
-    print(f"{identifier}")
+    logger.info(f"{identifier}")
 
 
 runner = QuasiQueue(

@@ -1,8 +1,10 @@
 """Tests for Jinja2 template service."""
 
+import pytest
 from jinja2 import Environment
+from jinja2.sandbox import SandboxedEnvironment, SecurityError
 from fastapi.templating import Jinja2Templates
-from full.services.jinja import env, response_templates
+from full.services.jinja import env, sandbox_env, response_templates
 
 
 class TestJinja2Environment:
@@ -146,3 +148,57 @@ class TestTemplateIntegration:
         assert hasattr(response_templates, "env")
         # The loader should have the templates configured
         assert response_templates.env.loader is not None
+
+
+class TestSandboxedEnvironment:
+    """Test sandboxed environment for untrusted templates."""
+
+    def test_sandbox_env_exists(self):
+        """Test that sandbox_env is properly instantiated."""
+        assert sandbox_env is not None
+        assert isinstance(sandbox_env, SandboxedEnvironment)
+
+    def test_sandbox_env_has_loader(self):
+        """Test that sandbox_env has a loader configured."""
+        assert sandbox_env.loader is not None
+
+    def test_sandbox_env_autoescape_enabled(self):
+        """Test that autoescape is enabled on sandbox_env."""
+        assert sandbox_env.autoescape is True or callable(sandbox_env.autoescape)
+
+    def test_sandbox_blocks_class_subclasses_chain(self):
+        """Test that the sandbox blocks __class__.__subclasses__ chain attacks."""
+        template = sandbox_env.from_string("{{ func.__class__.__subclasses__ }}")
+        with pytest.raises(SecurityError):
+            template.render(func=lambda: None)
+
+    def test_sandbox_blocks_list_class_mro_chain(self):
+        """Test that the sandbox blocks __class__.__mro__ chain attacks."""
+        template = sandbox_env.from_string("{{ items.__class__.__mro__ }}")
+        with pytest.raises(SecurityError):
+            template.render(items=[1, 2, 3])
+
+    def test_sandbox_allows_safe_rendering(self):
+        """Test that the sandbox allows normal variable interpolation."""
+        template = sandbox_env.from_string("Hello {{ name }}!")
+        result = template.render(name="World")
+        assert result == "Hello World!"
+
+    def test_sandbox_allows_control_structures(self):
+        """Test that the sandbox allows conditionals and loops."""
+        template = sandbox_env.from_string("{% if show %}yes{% else %}no{% endif %}")
+        assert template.render(show=True) == "yes"
+        assert template.render(show=False) == "no"
+
+    def test_sandbox_allows_function_calls(self):
+        """Test that the sandbox allows calling functions passed to render."""
+        template = sandbox_env.from_string("{{ greet(name) }}")
+        result = template.render(greet=lambda n: f"Hello, {n}!", name="World")
+        assert result == "Hello, World!"
+
+    def test_sandbox_silently_blocks_dunder_access(self):
+        """Test that the sandbox silently blocks single-level dunder access."""
+        template = sandbox_env.from_string("{{ func.__class__ }}")
+        result = template.render(func=lambda: None)
+        # Single-level dunder access returns empty string (safe default)
+        assert result == ""
