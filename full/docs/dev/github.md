@@ -71,7 +71,7 @@ The project includes the following GitHub Actions workflows in `.github/workflow
 - **Trigger**:
   - Pull requests (build only, no push)
   - Pushes to `main` branch
-  - Version tags (v*.*.\*)
+  - Version tags (v*._._)
 - **Purpose**: Builds and publishes Docker images to GitHub Container Registry
 - **Images**:
   - `ghcr.io/EXAMPLE/full.www` - FastAPI web server

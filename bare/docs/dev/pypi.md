@@ -379,7 +379,7 @@ After tagging:
 
 ## Troubleshooting
 
-### Build Fails: "No module named '\_version'"
+### Build Fails: "No module named '_version'"
 
 **Problem**: Version file not generated.
 
