@@ -73,6 +73,7 @@ Links to official documentation and related resources.
 # Don't do this - generic example not specific to the project
 from some_library import cache
 
+
 @cache.cached()
 def get_data():
     return "data"
@@ -83,6 +84,7 @@ def get_data():
 ```python
 # Do this - uses actual project structure
 from library.services.cache import get_cached, set_cached
+
 
 async def get_user_profile(user_id: int):
     """Get user profile with caching."""

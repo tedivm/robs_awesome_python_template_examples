@@ -32,6 +32,7 @@ print(settings.database_url)
 from library.conf import settings
 from library.cli import app
 
+
 @app.command()
 def show_config():
     """Display current configuration."""
@@ -65,6 +66,7 @@ The settings system automatically loads from `.env` files in the project root:
 # library/conf/settings.py
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
+
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
         env_file=".env",
@@ -96,6 +98,7 @@ The base Settings class includes:
 ```python
 from pydantic_settings import BaseSettings
 
+
 class Settings(BaseSettings):
     # Application
     project_name: str = "library"
@@ -113,6 +116,7 @@ Add new fields to the Settings class:
 # library/conf/settings.py
 from pydantic import SecretStr
 from pydantic_settings import BaseSettings
+
 
 class Settings(BaseSettings):
     # Existing settings...
@@ -140,9 +144,11 @@ export API_KEY="secret-key-here"
 ```python
 from pydantic import SecretStr
 
+
 class Settings(BaseSettings):
     api_key: SecretStr
     database_password: SecretStr
+
 
 # Access the secret value when needed
 settings.api_key.get_secret_value()  # Returns the actual string
@@ -157,12 +163,14 @@ Organize related settings into nested models:
 from pydantic import BaseModel
 from pydantic_settings import BaseSettings
 
+
 class EmailSettings(BaseModel):
     smtp_host: str = "localhost"
     smtp_port: int = 587
     smtp_user: str = ""
     smtp_password: str = ""
     from_address: str = "noreply@example.com"
+
 
 class Settings(BaseSettings):
     project_name: str = "library"
@@ -236,6 +244,7 @@ Add custom validation logic:
 ```python
 from pydantic import field_validator, BaseSettings
 
+
 class Settings(BaseSettings):
     port: int = 8000
     database_url: str = ""
@@ -278,6 +287,7 @@ Load different settings based on enabled features:
 ```python
 from typing import Optional
 
+
 class Settings(BaseSettings):
     # Core settings
     project_name: str = "library"
@@ -305,10 +315,12 @@ Use different settings per environment:
 ```python
 from enum import Enum
 
+
 class Environment(str, Enum):
     DEVELOPMENT = "development"
     STAGING = "staging"
     PRODUCTION = "production"
+
 
 class Settings(BaseSettings):
     environment: Environment = Environment.DEVELOPMENT
@@ -339,6 +351,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 # Determine environment
 env = os.getenv("ENVIRONMENT", "development")
 env_file = f".env.{env}"  # .env.development, .env.production, etc.
+
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
@@ -407,6 +420,7 @@ def test_settings_inherits_from_cache_settings():
 def test_settings_inherits_from_quasiqueue_settings():
     """Test that Settings inherits from QuasiQueueSettings."""
     from quasiqueue import Settings as QuasiQueueSettings
+
     assert issubclass(Settings, QuasiQueueSettings)
 ```
 
@@ -506,6 +520,7 @@ def test_settings(monkeypatch):
     monkeypatch.setenv("CACHE_BACKEND", "memory")
 
     from library.conf.settings import Settings
+
     return Settings()
 
 
@@ -516,6 +531,7 @@ def production_settings(monkeypatch):
     monkeypatch.setenv("DATABASE_URL", "postgresql://prod/db")
 
     from library.conf.settings import Settings
+
     return Settings()
 
 
@@ -561,7 +577,7 @@ def test_cache_settings_conditional():
 
    ```python
    port: int = 8000  # Good
-   port = 8000       # Bad - no type checking
+   port = 8000  # Bad - no type checking
    ```
 
 2. **Use SecretStr for Sensitive Data**: Protect passwords, API keys, tokens, and other secrets from accidental exposure:
@@ -569,12 +585,14 @@ def test_cache_settings_conditional():
    ```python
    from pydantic import SecretStr
 
+
    class Settings(BaseSettings):
-       api_key: SecretStr              # Good - prevents logging secrets
-       database_password: SecretStr    # Good
-       jwt_secret: SecretStr           # Good
+       api_key: SecretStr  # Good - prevents logging secrets
+       database_password: SecretStr  # Good
+       jwt_secret: SecretStr  # Good
 
        # api_key: str                  # Bad - secret can be logged
+
 
    # Access when needed
    actual_key = settings.api_key.get_secret_value()

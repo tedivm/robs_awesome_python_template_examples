@@ -32,6 +32,7 @@ Typer runs commands synchronously, but this project uses async throughout (datab
 ```python
 from full.cli import syncify
 
+
 @app.command()
 @syncify
 async def my_command(name: str) -> None:
@@ -50,6 +51,7 @@ Use `get_session` from `full.services.db` for database-backed commands. Always u
 
 ```python
 from full.services.db import get_session
+
 
 @app.command()
 @syncify

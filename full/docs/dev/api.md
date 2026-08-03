@@ -56,6 +56,7 @@ async def get_user(user_id: int):
 ```python
 from typing import Optional
 
+
 @app.get("/items")
 async def list_items(skip: int = 0, limit: int = 10, search: Optional[str] = None):
     # Query params: ?skip=0&limit=10&search=foo
@@ -67,10 +68,12 @@ async def list_items(skip: int = 0, limit: int = 10, search: Optional[str] = Non
 ```python
 from pydantic import BaseModel
 
+
 class UserCreate(BaseModel):
     username: str
     email: str
     full_name: Optional[str] = None
+
 
 @app.post("/users")
 async def create_user(user: UserCreate):
@@ -89,15 +92,11 @@ class UserResponse(BaseModel):
     email: str
     created_at: datetime
 
+
 @app.get("/users/{user_id}", response_model=UserResponse)
 async def get_user(user_id: int):
     # FastAPI ensures the response matches UserResponse schema
-    return {
-        "id": user_id,
-        "username": "johndoe",
-        "email": "john@example.com",
-        "created_at": datetime.now()
-    }
+    return {"id": user_id, "username": "johndoe", "email": "john@example.com", "created_at": datetime.now()}
 ```
 
 ## Dependency Injection
@@ -107,11 +106,13 @@ FastAPI's dependency injection system allows you to share logic across routes:
 ```python
 from fastapi import Depends, HTTPException
 
+
 async def get_current_user(token: str = Header(...)):
     # Validate token and get user
     if not token:
         raise HTTPException(status_code=401, detail="Not authenticated")
     return {"username": "johndoe"}
+
 
 @app.get("/me")
 async def read_current_user(current_user: dict = Depends(get_current_user)):
@@ -125,6 +126,7 @@ If SQLAlchemy is enabled, use dependency injection for database sessions:
 ```python
 from sqlalchemy.ext.asyncio import AsyncSession
 from full.services.db import get_session_depends
+
 
 @app.get("/users")
 async def list_users(session: AsyncSession = Depends(get_session_depends)):
@@ -141,18 +143,17 @@ async def list_users(session: AsyncSession = Depends(get_session_depends)):
 from fastapi import HTTPException, Request
 from fastapi.responses import JSONResponse
 
+
 @app.exception_handler(ValueError)
 async def value_error_handler(request: Request, exc: ValueError):
-    return JSONResponse(
-        status_code=400,
-        content={"detail": str(exc)}
-    )
+    return JSONResponse(status_code=400, content={"detail": str(exc)})
 ```
 
 ### Raising HTTP Exceptions
 
 ```python
 from fastapi import HTTPException
+
 
 @app.get("/users/{user_id}")
 async def get_user(user_id: int):
@@ -205,15 +206,14 @@ Run tasks in the background without blocking the response:
 ```python
 from fastapi import BackgroundTasks
 
+
 def send_email(email: str, message: str):
     # Send email logic here
     print(f"Sending email to {email}: {message}")
 
+
 @app.post("/send-notification")
-async def send_notification(
-    email: str,
-    background_tasks: BackgroundTasks
-):
+async def send_notification(email: str, background_tasks: BackgroundTasks):
     background_tasks.add_task(send_email, email, "Hello from FastAPI!")
     return {"message": "Notification will be sent"}
 ```
@@ -245,6 +245,7 @@ Use the `fastapi_client` fixture in your test functions:
 ```python
 # tests/test_www.py
 
+
 def test_root_redirects_to_docs(fastapi_client):
     """Test that root path redirects to /docs."""
     response = fastapi_client.get("/", follow_redirects=False)
@@ -272,10 +273,7 @@ def test_api_endpoint(fastapi_client):
 ```python
 def test_create_user(fastapi_client):
     """Test creating a user via POST."""
-    user_data = {
-        "username": "testuser",
-        "email": "test@example.com"
-    }
+    user_data = {"username": "testuser", "email": "test@example.com"}
     response = fastapi_client.post("/api/users", json=user_data)
     assert response.status_code == 201
     data = response.json()
@@ -350,6 +348,7 @@ docker-compose up www
 
    ```python
    from fastapi import status
+
 
    @app.post("/users", status_code=status.HTTP_201_CREATED)
    async def create_user(user: UserCreate):

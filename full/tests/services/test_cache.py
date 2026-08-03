@@ -3,7 +3,6 @@
 import pytest
 from aiocache import caches
 
-from full.settings import settings
 from full.services.cache import (
     NoOpCache,
     clear_cache,
@@ -13,6 +12,7 @@ from full.services.cache import (
     get_cached,
     set_cached,
 )
+from full.settings import settings
 
 
 class TestNoOpCache:

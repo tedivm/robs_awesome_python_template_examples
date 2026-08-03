@@ -2,6 +2,7 @@ from logging import getLogger
 from typing import Any
 
 from celery import Celery  # type: ignore[import-untyped]
+
 from full.services.cache import configure_caches
 
 logger = getLogger(__name__)

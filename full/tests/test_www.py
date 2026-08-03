@@ -50,7 +50,7 @@ def test_static_route_exists():
     """Test that static route is configured."""
     routes = {route.path: route for route in app.routes}
     # Static files might be mounted at /static or have a prefix
-    has_static = any("/static" in path for path in routes.keys())
+    has_static = any("/static" in path for path in routes)
     assert has_static, "Static files route should be configured"
 
 

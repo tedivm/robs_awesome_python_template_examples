@@ -1,8 +1,10 @@
 """Tests for QuasiQueue configuration and functionality."""
 
 import logging
+
 import pytest
-from full.qq import runner, writer, reader
+
+from full.qq import reader, runner, writer
 
 
 def test_runner_exists():
@@ -49,7 +51,7 @@ async def test_writer_yields_integers():
         results.append(item)
 
     assert len(results) == desired
-    assert results == list(range(0, desired))
+    assert results == list(range(desired))
 
 
 @pytest.mark.asyncio

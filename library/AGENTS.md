@@ -109,6 +109,7 @@ from typing import Dict
 
 logger = getLogger(__name__)
 
+
 def process_data(data: Dict[str, str]) -> None:
     logger.debug("Starting data processing")
     try:
@@ -162,6 +163,7 @@ except FileNotFoundError:
 from dataclasses import dataclass
 from typing import Dict, List
 
+
 # Good: Proper typing
 @dataclass
 class User:
@@ -169,11 +171,13 @@ class User:
     email: str
     age: int | None = None
 
+
 def process_users(users: List[User], tags: Dict[str, str]) -> List[str]:
     results: List[str] = []
     for user in users:
         results.append(user.name)
     return results
+
 
 # Bad: Using dict instead of dataclass (and using native types)
 def process_users_bad(users: list[dict], config: dict) -> list:

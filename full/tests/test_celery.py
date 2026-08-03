@@ -1,6 +1,7 @@
 """Tests for Celery task queue configuration."""
 
 import logging
+
 from full.celery import celery, hello_world
 
 

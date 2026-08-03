@@ -4,15 +4,16 @@ from logging import getLogger
 
 from quasiqueue import QuasiQueue
 
-from .settings import settings
 from full.services.cache import configure_caches
+
+from .settings import settings
 
 logger = getLogger(__name__)
 
 
 async def writer(desired: int) -> AsyncGenerator[int, None]:
     """Feeds data to the Queue when it is low."""
-    for x in range(0, desired):
+    for x in range(desired):
         yield x
 
 

@@ -32,6 +32,7 @@ Typer runs commands synchronously, but this project uses async throughout (datab
 ```python
 from library.cli import syncify
 
+
 @app.command()
 @syncify
 async def my_command(name: str) -> None:

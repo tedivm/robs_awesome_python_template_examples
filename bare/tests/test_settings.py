@@ -1,7 +1,7 @@
 """Tests for settings configuration."""
 
-from bare.settings import settings
 from bare.conf.settings import Settings
+from bare.settings import settings
 
 
 def test_settings_exists():

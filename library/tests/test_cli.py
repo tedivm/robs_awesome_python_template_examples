@@ -1,9 +1,10 @@
 """Tests for CLI application."""
 
-from typer.testing import CliRunner
-from library.cli import app, syncify
 import asyncio
 
+from typer.testing import CliRunner
+
+from library.cli import app, syncify
 
 runner = CliRunner()
 

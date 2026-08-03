@@ -103,6 +103,7 @@ Mark async test functions with `@pytest.mark.asyncio`:
 ```python
 import pytest
 
+
 @pytest.mark.asyncio
 async def test_async_function():
     """Test an async function."""
@@ -116,6 +117,7 @@ Use `@pytest_asyncio.fixture` for async fixtures:
 
 ```python
 import pytest_asyncio
+
 
 @pytest_asyncio.fixture
 async def async_resource():
@@ -146,6 +148,7 @@ Use pytest's built-in mocking capabilities along with unittest.mock for mocking 
 ```python
 from unittest.mock import AsyncMock, MagicMock, patch
 
+
 @pytest.mark.asyncio
 async def test_with_mock():
     """Test with a mocked dependency."""
@@ -161,7 +164,7 @@ async def test_with_mock():
 
 ```python
 @pytest.mark.asyncio
-@patch('bare.services.cache.get_cached')
+@patch("bare.services.cache.get_cached")
 async def test_with_patched_cache(mock_get_cached):
     """Test with patched cache function."""
     mock_get_cached.return_value = "cached_value"
@@ -179,6 +182,7 @@ async def test_with_patched_cache(mock_get_cached):
 async def test_with_custom_env():
     """Test with custom environment variables."""
     from bare.settings import settings
+
     settings.reload()  # Reload settings with new env vars
     assert settings.database_url == "sqlite+aiosqlite:///:memory:"
 ```
@@ -195,6 +199,7 @@ def test_settings_load():
     assert settings.project_name == "bare"
     assert settings.debug is not None
 
+
 def test_settings_validation():
     """Test settings validation."""
     import os
@@ -204,6 +209,7 @@ def test_settings_validation():
     with patch.dict(os.environ, {"REQUIRED_VAR": "value"}):
         settings = Settings()
         assert settings.required_var == "value"
+
 
 def test_settings_with_env_file():
     """Test loading settings from .env file."""
@@ -278,8 +284,10 @@ omit = [
    def test_user_email_validation():
        assert validate_email("test@example.com") is True
 
+
    def test_user_email_validation_rejects_invalid():
        assert validate_email("invalid") is False
+
 
    # Bad (multiple unrelated assertions)
    def test_user_stuff():
@@ -295,6 +303,7 @@ omit = [
    def sample_user():
        return User(name="Test", email="test@example.com")
 
+
    def test_user_name(sample_user):
        assert sample_user.name == "Test"
    ```
@@ -305,6 +314,7 @@ omit = [
    def test_divide_success():
        assert divide(10, 2) == 5
 
+
    def test_divide_by_zero_raises_error():
        with pytest.raises(ZeroDivisionError):
            divide(10, 0)
@@ -313,12 +323,15 @@ omit = [
 5. **Use parametrize for multiple test cases**: Test multiple inputs efficiently
 
    ```python
-   @pytest.mark.parametrize("input,expected", [
-       ("test@example.com", True),
-       ("invalid", False),
-       ("test@", False),
-       ("@example.com", False),
-   ])
+   @pytest.mark.parametrize(
+       "input,expected",
+       [
+           ("test@example.com", True),
+           ("invalid", False),
+           ("test@", False),
+           ("@example.com", False),
+       ],
+   )
    def test_email_validation(input, expected):
        assert validate_email(input) == expected
    ```
@@ -331,6 +344,7 @@ omit = [
    async def test_with_db(db_session):
        result = await query_database(db_session)
        assert result is not None
+
 
    # Bad - sleeps unnecessarily
    @pytest.mark.asyncio
@@ -356,6 +370,7 @@ omit = [
    async def test_async_function():
        result = await async_operation()
        assert result == expected
+
 
    # Bad - won't work properly
    def test_async_function():

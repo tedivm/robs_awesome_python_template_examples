@@ -76,23 +76,19 @@ router = APIRouter()
 
 
 @router.post("/posts", response_model=PostRead, status_code=status.HTTP_201_CREATED)
-async def create_post(post: PostCreate) -> PostRead:
-    ...
+async def create_post(post: PostCreate) -> PostRead: ...
 
 
 @router.get("/posts/{post_id}", response_model=PostRead)
-async def get_post(post_id: UUID) -> PostRead:
-    ...
+async def get_post(post_id: UUID) -> PostRead: ...
 
 
 @router.put("/posts/{post_id}", response_model=PostRead)
-async def update_post(post_id: UUID, post: PostUpdate) -> PostRead:
-    ...
+async def update_post(post_id: UUID, post: PostUpdate) -> PostRead: ...
 
 
 @router.delete("/posts/{post_id}", status_code=status.HTTP_204_NO_CONTENT)
-async def delete_post(post_id: UUID) -> None:
-    ...
+async def delete_post(post_id: UUID) -> None: ...
 ```
 
 ---
@@ -127,6 +123,7 @@ Use `HTTPException` with appropriate status codes:
 ```python
 from fastapi import HTTPException, status
 
+
 @router.get("/posts/{post_id}", response_model=PostRead)
 async def get_post(post_id: UUID) -> PostRead:
     post = await get_post_from_db(post_id)
@@ -148,8 +145,7 @@ from full import get_db
 
 
 @router.get("/posts/{post_id}", response_model=PostRead)
-async def get_post(post_id: UUID, db = Depends(get_db)) -> PostRead:
-    ...
+async def get_post(post_id: UUID, db=Depends(get_db)) -> PostRead: ...
 ```
 
 ---

@@ -1,6 +1,7 @@
 from quasiqueue import Settings as QuasiQueueSettings
-from .db import DatabaseSettings
+
 from .cache import CacheSettings
+from .db import DatabaseSettings
 
 
 class Settings(QuasiQueueSettings, DatabaseSettings, CacheSettings):

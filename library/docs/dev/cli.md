@@ -48,6 +48,7 @@ import typer
 
 app = typer.Typer()
 
+
 @app.command()
 def hello(name: str):
     """Greet someone by name."""
@@ -97,10 +98,12 @@ Typer automatically validates types:
 from pathlib import Path
 from enum import Enum
 
+
 class OutputFormat(str, Enum):
     json = "json"
     yaml = "yaml"
     csv = "csv"
+
 
 @app.command()
 def export(
@@ -146,6 +149,7 @@ The template includes a `syncify` decorator for async CLI commands:
 from library.cli import syncify
 import httpx
 
+
 @app.command()
 @syncify
 async def fetch_data(url: str):
@@ -163,6 +167,7 @@ Use async database operations in CLI commands:
 ```python
 from library.services.db import get_engine
 from sqlalchemy.ext.asyncio import async_sessionmaker, AsyncSession
+
 
 @app.command()
 @syncify
@@ -244,6 +249,7 @@ Show progress for long-running operations:
 ```python
 import time
 
+
 @app.command()
 def process_items():
     """Process multiple items with progress bar."""
@@ -264,6 +270,7 @@ For structured output, use rich tables:
 ```python
 from rich.console import Console
 from rich.table import Table
+
 
 @app.command()
 def report():
@@ -379,6 +386,7 @@ Test async commands that use the `syncify` decorator:
 ```python
 def test_syncify_decorator():
     """Test the syncify decorator for async CLI commands."""
+
     @syncify
     async def async_function():
         await asyncio.sleep(0.01)

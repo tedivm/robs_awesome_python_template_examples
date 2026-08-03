@@ -1,10 +1,11 @@
 """Tests for Jinja2 template service."""
 
 import pytest
+from fastapi.templating import Jinja2Templates
 from jinja2 import Environment
 from jinja2.sandbox import SandboxedEnvironment, SecurityError
-from fastapi.templating import Jinja2Templates
-from full.services.jinja import env, sandbox_env, response_templates
+
+from full.services.jinja import env, response_templates, sandbox_env
 
 
 class TestJinja2Environment:

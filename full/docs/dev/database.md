@@ -39,8 +39,10 @@ from sqlalchemy import String
 from sqlalchemy.orm import Mapped, mapped_column
 from full.models.base import Base
 
+
 class User(Base):
     """User model."""
+
     __tablename__ = "users"
 
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
@@ -58,6 +60,7 @@ import datetime
 from typing import Any
 from sqlalchemy import String, Text, func
 from sqlalchemy.orm import Mapped, mapped_column
+
 
 class Article(Base):
     __tablename__ = "articles"
@@ -78,6 +81,7 @@ class Article(Base):
 ```python
 from sqlalchemy import String, UniqueConstraint, Index, CheckConstraint
 from sqlalchemy.orm import Mapped, mapped_column
+
 
 class Product(Base):
     __tablename__ = "products"
@@ -108,6 +112,7 @@ SQLAlchemy provides powerful relationship patterns for connecting models.
 from typing import List
 from sqlalchemy import String, ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
+
 
 class Author(Base):
     __tablename__ = "authors"
@@ -153,10 +158,7 @@ class Student(Base):
     name: Mapped[str] = mapped_column(String(100))
 
     # Many-to-many relationship to courses
-    courses: Mapped[List["Course"]] = relationship(
-        secondary=student_course_association,
-        back_populates="students"
-    )
+    courses: Mapped[List["Course"]] = relationship(secondary=student_course_association, back_populates="students")
 
 
 class Course(Base):
@@ -166,10 +168,7 @@ class Course(Base):
     title: Mapped[str] = mapped_column(String(200))
 
     # Many-to-many relationship to students
-    students: Mapped[List["Student"]] = relationship(
-        secondary=student_course_association,
-        back_populates="courses"
-    )
+    students: Mapped[List["Student"]] = relationship(secondary=student_course_association, back_populates="courses")
 ```
 
 ### Self-Referential Relationship
@@ -179,6 +178,7 @@ from typing import List
 from sqlalchemy import String, ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
+
 class Employee(Base):
     __tablename__ = "employees"
 
@@ -187,10 +187,7 @@ class Employee(Base):
     manager_id: Mapped[int | None] = mapped_column(ForeignKey("employees.id"))
 
     # Self-referential relationship
-    manager: Mapped["Employee | None"] = relationship(
-        remote_side="Employee.id",
-        back_populates="subordinates"
-    )
+    manager: Mapped["Employee | None"] = relationship(remote_side="Employee.id", back_populates="subordinates")
     subordinates: Mapped[List["Employee"]] = relationship(back_populates="manager")
 ```
 
@@ -202,6 +199,7 @@ The database service provides async context managers for session management.
 
 ```python
 from full.services.db import get_session
+
 
 async def create_user(name: str, email: str):
     """Create a new user."""
@@ -218,12 +216,11 @@ async def create_user(name: str, email: str):
 ```python
 from sqlalchemy import select
 
+
 async def get_user_by_email(email: str):
     """Find a user by email."""
     async with get_session() as session:
-        result = await session.execute(
-            select(User).where(User.email == email)
-        )
+        result = await session.execute(select(User).where(User.email == email))
         return result.scalar_one_or_none()
 
 
@@ -237,9 +234,7 @@ async def get_all_users():
 async def get_users_by_name(name: str):
     """Find users by name pattern."""
     async with get_session() as session:
-        result = await session.execute(
-            select(User).where(User.name.like(f"%{name}%"))
-        )
+        result = await session.execute(select(User).where(User.name.like(f"%{name}%")))
         return result.scalars().all()
 ```
 
@@ -249,9 +244,7 @@ async def get_users_by_name(name: str):
 async def update_user_email(user_id: int, new_email: str):
     """Update a user's email."""
     async with get_session() as session:
-        result = await session.execute(
-            select(User).where(User.id == user_id)
-        )
+        result = await session.execute(select(User).where(User.id == user_id))
         user = result.scalar_one()
         user.email = new_email
         await session.commit()
@@ -264,9 +257,7 @@ async def update_user_email(user_id: int, new_email: str):
 async def delete_user(user_id: int):
     """Delete a user."""
     async with get_session() as session:
-        result = await session.execute(
-            select(User).where(User.id == user_id)
-        )
+        result = await session.execute(select(User).where(User.id == user_id))
         user = result.scalar_one()
         await session.delete(user)
         await session.commit()
@@ -280,13 +271,9 @@ async def transfer_credits(from_user_id: int, to_user_id: int, amount: int):
     async with get_session() as session:
         try:
             # Get both users
-            from_user = (await session.execute(
-                select(User).where(User.id == from_user_id)
-            )).scalar_one()
+            from_user = (await session.execute(select(User).where(User.id == from_user_id))).scalar_one()
 
-            to_user = (await session.execute(
-                select(User).where(User.id == to_user_id)
-            )).scalar_one()
+            to_user = (await session.execute(select(User).where(User.id == to_user_id))).scalar_one()
 
             # Perform transfer
             if from_user.credits < amount:
@@ -313,15 +300,11 @@ from fastapi import Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 from full.services.db import get_session_depends
 
+
 @app.get("/users/{user_id}")
-async def get_user(
-    user_id: int,
-    session: AsyncSession = Depends(get_session_depends)
-):
+async def get_user(user_id: int, session: AsyncSession = Depends(get_session_depends)):
     """Get a user by ID."""
-    result = await session.execute(
-        select(User).where(User.id == user_id)
-    )
+    result = await session.execute(select(User).where(User.id == user_id))
     user = result.scalar_one_or_none()
     if not user:
         raise HTTPException(status_code=404, detail="User not found")
@@ -329,10 +312,7 @@ async def get_user(
 
 
 @app.post("/users")
-async def create_user(
-    user_data: UserCreate,
-    session: AsyncSession = Depends(get_session_depends)
-):
+async def create_user(user_data: UserCreate, session: AsyncSession = Depends(get_session_depends)):
     """Create a new user."""
     user = User(**user_data.dict())
     session.add(user)
@@ -348,10 +328,7 @@ The test suite provides database fixtures that override the dependency:
 ```python
 def test_create_user(fastapi_client):
     """Test creating a user via API."""
-    response = fastapi_client.post(
-        "/users",
-        json={"name": "Test User", "email": "test@example.com"}
-    )
+    response = fastapi_client.post("/users", json={"name": "Test User", "email": "test@example.com"})
     assert response.status_code == 200
     data = response.json()
     assert data["name"] == "Test User"
@@ -394,12 +371,13 @@ Revises: xyz789
 Create Date: 2024-01-15 10:30:00.000000
 
 """
+
 from alembic import op
 import sqlalchemy as sa
 
 # revision identifiers, used by Alembic.
-revision = 'abc123'
-down_revision = 'xyz789'
+revision = "abc123"
+down_revision = "xyz789"
 branch_labels = None
 depends_on = None
 
@@ -407,18 +385,18 @@ depends_on = None
 def upgrade() -> None:
     """Upgrade database schema."""
     op.create_table(
-        'users',
-        sa.Column('id', sa.Integer(), nullable=False),
-        sa.Column('name', sa.String(100), nullable=False),
-        sa.Column('email', sa.String(255), nullable=False),
-        sa.PrimaryKeyConstraint('id'),
-        sa.UniqueConstraint('email')
+        "users",
+        sa.Column("id", sa.Integer(), nullable=False),
+        sa.Column("name", sa.String(100), nullable=False),
+        sa.Column("email", sa.String(255), nullable=False),
+        sa.PrimaryKeyConstraint("id"),
+        sa.UniqueConstraint("email"),
     )
 
 
 def downgrade() -> None:
     """Downgrade database schema."""
-    op.drop_table('users')
+    op.drop_table("users")
 ```
 
 ### Running Migrations
@@ -503,13 +481,11 @@ This command will:
    ```python
    def upgrade() -> None:
        # Schema change
-       op.add_column('users', sa.Column('full_name', sa.String(200)))
+       op.add_column("users", sa.Column("full_name", sa.String(200)))
 
        # Data migration
        connection = op.get_bind()
-       connection.execute(
-           sa.text("UPDATE users SET full_name = name WHERE full_name IS NULL")
-       )
+       connection.execute(sa.text("UPDATE users SET full_name = name WHERE full_name IS NULL"))
    ```
 
 ### Database Reset and Cleanup
@@ -542,30 +518,25 @@ async def create_record(data: dict):
 ```python
 from sqlalchemy import select
 
+
 async def get_record_by_id(record_id: int):
     """Get a single record by ID."""
     async with get_session() as session:
-        result = await session.execute(
-            select(MyModel).where(MyModel.id == record_id)
-        )
+        result = await session.execute(select(MyModel).where(MyModel.id == record_id))
         return result.scalar_one_or_none()
 
 
 async def get_all_records(skip: int = 0, limit: int = 100):
     """Get paginated records."""
     async with get_session() as session:
-        result = await session.execute(
-            select(MyModel).offset(skip).limit(limit)
-        )
+        result = await session.execute(select(MyModel).offset(skip).limit(limit))
         return result.scalars().all()
 
 
 async def get_filtered_records(status: str):
     """Get records with filtering."""
     async with get_session() as session:
-        result = await session.execute(
-            select(MyModel).where(MyModel.status == status)
-        )
+        result = await session.execute(select(MyModel).where(MyModel.status == status))
         return result.scalars().all()
 ```
 
@@ -575,9 +546,7 @@ async def get_filtered_records(status: str):
 async def update_record(record_id: int, updates: dict):
     """Update a record."""
     async with get_session() as session:
-        result = await session.execute(
-            select(MyModel).where(MyModel.id == record_id)
-        )
+        result = await session.execute(select(MyModel).where(MyModel.id == record_id))
         record = result.scalar_one()
 
         for key, value in updates.items():
@@ -594,9 +563,7 @@ async def update_record(record_id: int, updates: dict):
 async def delete_record(record_id: int):
     """Delete a record."""
     async with get_session() as session:
-        result = await session.execute(
-            select(MyModel).where(MyModel.id == record_id)
-        )
+        result = await session.execute(select(MyModel).where(MyModel.id == record_id))
         record = result.scalar_one()
         await session.delete(record)
         await session.commit()
@@ -612,6 +579,7 @@ The test suite provides fixtures for database testing with isolated, in-memory d
 import pytest
 from sqlalchemy import select
 
+
 @pytest.mark.asyncio
 async def test_create_user(db_session):
     """Test creating a user."""
@@ -620,9 +588,7 @@ async def test_create_user(db_session):
     await db_session.commit()
 
     # Verify creation
-    result = await db_session.execute(
-        select(User).where(User.email == "test@example.com")
-    )
+    result = await db_session.execute(select(User).where(User.email == "test@example.com"))
     saved_user = result.scalar_one()
     assert saved_user.name == "Test User"
 ```
@@ -708,9 +674,7 @@ See [Testing Documentation](./testing.md) for comprehensive testing patterns.
    books = author.books  # SQLAlchemy handles the query
 
    # Less efficient - manual joins
-   books = await session.execute(
-       select(Book).where(Book.author_id == author.id)
-   )
+   books = await session.execute(select(Book).where(Book.author_id == author.id))
    ```
 
 8. **Index frequently queried columns**: Improve query performance

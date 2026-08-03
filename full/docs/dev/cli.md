@@ -48,6 +48,7 @@ import typer
 
 app = typer.Typer()
 
+
 @app.command()
 def hello(name: str):
     """Greet someone by name."""
@@ -97,10 +98,12 @@ Typer automatically validates types:
 from pathlib import Path
 from enum import Enum
 
+
 class OutputFormat(str, Enum):
     json = "json"
     yaml = "yaml"
     csv = "csv"
+
 
 @app.command()
 def export(
@@ -146,6 +149,7 @@ The template includes a `syncify` decorator for async CLI commands:
 from full.cli import syncify
 import httpx
 
+
 @app.command()
 @syncify
 async def fetch_data(url: str):
@@ -163,6 +167,7 @@ Use async database operations in CLI commands:
 ```python
 from full.services.db import get_engine
 from sqlalchemy.ext.asyncio import async_sessionmaker, AsyncSession
+
 
 @app.command()
 @syncify
@@ -198,21 +203,25 @@ user_app = typer.Typer()
 app.add_typer(db_app, name="db", help="Database management commands")
 app.add_typer(user_app, name="user", help="User management commands")
 
+
 # Define commands in each group
 @db_app.command("migrate")
 def db_migrate():
     """Run database migrations."""
     typer.echo("Running migrations...")
 
+
 @db_app.command("seed")
 def db_seed():
     """Seed database with initial data."""
     typer.echo("Seeding database...")
 
+
 @user_app.command("create")
 def user_create(username: str, email: str):
     """Create a new user."""
     typer.echo(f"Creating user {username} ({email})")
+
 
 @user_app.command("list")
 def user_list():
@@ -274,6 +283,7 @@ Show progress for long-running operations:
 ```python
 import time
 
+
 @app.command()
 def process_items():
     """Process multiple items with progress bar."""
@@ -294,6 +304,7 @@ For structured output, use rich tables:
 ```python
 from rich.console import Console
 from rich.table import Table
+
 
 @app.command()
 def report():
@@ -409,6 +420,7 @@ Test async commands that use the `syncify` decorator:
 ```python
 def test_syncify_decorator():
     """Test the syncify decorator for async CLI commands."""
+
     @syncify
     async def async_function():
         await asyncio.sleep(0.01)

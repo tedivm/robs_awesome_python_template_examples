@@ -1,8 +1,8 @@
 """Tests for settings configuration."""
 
-from full.settings import settings
-from full.conf.settings import Settings
 from full.conf.cache import CacheSettings
+from full.conf.settings import Settings
+from full.settings import settings
 
 
 def test_settings_exists():

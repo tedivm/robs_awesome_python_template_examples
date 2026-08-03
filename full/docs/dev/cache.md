@@ -75,6 +75,7 @@ You can use aiocache's built-in decorators directly:
 ```python
 from aiocache import cached
 
+
 @cached(ttl=600, alias="persistent", key_builder=lambda f, *args, **kwargs: f"user:{args[0]}")
 async def get_user_data(user_id: int):
     # Expensive operation here

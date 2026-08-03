@@ -68,6 +68,7 @@ If you need to allow specific attributes or callables that the sandbox blocks by
 ```python
 from jinja2.sandbox import SandboxedEnvironment, is_internal_attribute
 
+
 class CustomSandboxedEnvironment(SandboxedEnvironment):
     def is_safe_attribute(self, obj, attr, value):
         # Allow specific attributes that would normally be blocked

@@ -73,6 +73,7 @@ Use `@cached` to automatically cache function return values. The decorator takes
 from aiocache import cached
 from full.services.cache import get_cache
 
+
 @cached(get_cache("memory"), ttl=300, key_builder=lambda f, *args, **kwargs: f"user:{args[0]}")
 async def get_user(user_id: int) -> dict[str, str] | None:
     # Expensive DB call — cached for 300s
@@ -137,30 +138,31 @@ Use `@multi_cached` for functions that return dicts and need to cache individual
 from aiocache import multi_cached
 from full.services.cache import get_cache
 
+
 @multi_cached(get_cache("memory"), keys_from_attr="user_ids", ttl=300)
 async def get_users(user_ids: list[int]) -> dict[int, dict[str, str]]:
     # Only uncached user_ids will be passed here on subsequent calls
     return {uid: {"id": uid, "name": f"User {uid}"} for uid in user_ids}
+
 
 # With custom key builder
 @multi_cached(
     get_cache("persistent"),
     keys_from_attr="product_ids",
     key_builder=lambda key, f, *args, **kwargs: f"product:{key}",
-    ttl=3600
+    ttl=3600,
 )
-async def get_products(product_ids: list[str]) -> dict[str, dict[str, str]]:
-    ...
+async def get_products(product_ids: list[str]) -> dict[str, dict[str, str]]: ...
+
 
 # Skip caching for certain values
 @multi_cached(
     get_cache("memory"),
     keys_from_attr="ids",
     skip_cache_func=lambda key, value: value is None or value.get("inactive"),
-    ttl=300
+    ttl=300,
 )
-async def get_accounts(ids: list[str]) -> dict[str, dict[str, str] | None]:
-    ...
+async def get_accounts(ids: list[str]) -> dict[str, dict[str, str] | None]: ...
 ```
 
 **`@multi_cached` parameters:**
@@ -183,6 +185,7 @@ For custom scripts or CLI commands, call manually:
 
 ```python
 from full.services.cache import configure_caches
+
 configure_caches()
 ```
 

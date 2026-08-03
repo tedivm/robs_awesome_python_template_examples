@@ -70,8 +70,8 @@ send_email.delay("user@example.com", "Welcome", "Thanks for signing up!")
 # With options
 send_email.apply_async(
     args=["user@example.com", "Welcome", "Body"],
-    countdown=60,       # Execute after 60 seconds
-    queue='emails',     # Route to specific queue
+    countdown=60,  # Execute after 60 seconds
+    queue="emails",  # Route to specific queue
 )
 
 # Get result (blocking)
@@ -89,15 +89,12 @@ Use the `on_after_configure` signal in `full/celery.py` (Celery's documented pat
 from celery import Celery
 from celery.schedules import crontab
 
+
 @celery.on_after_configure.connect
 def setup_periodic_tasks(sender: Celery, **kwargs) -> None:
     logger.info("Setting up periodic tasks")
     sender.add_periodic_task(300.0, cleanup_old_data.s(), name="Cleanup every 5 min")
-    sender.add_periodic_task(
-        crontab(hour=2, minute=0),
-        generate_report.s(),
-        name="Daily report at 2 AM"
-    )
+    sender.add_periodic_task(crontab(hour=2, minute=0), generate_report.s(), name="Daily report at 2 AM")
 ```
 
 > **Note:** Use `on_after_finalize` instead of `on_after_configure` only when periodic tasks reference tasks defined in external modules, to ensure the task registry is fully populated before registration.
@@ -112,9 +109,11 @@ Use the project's `get_session` with an async context manager. Wrap async work i
 import asyncio
 from full.services.db import get_session
 
+
 @celery.task
 def process_user_sync(user_id: int) -> dict[str, str]:
     return asyncio.run(process_user(user_id))
+
 
 async def process_user(user_id: int) -> dict[str, str]:
     async with get_session() as session:
@@ -135,6 +134,7 @@ Caches are automatically initialized on `on_after_configure`. Use them directly 
 import asyncio
 from full.services.cache import get_cached, set_cached
 
+
 @celery.task
 def cached_task(key: str) -> str | None:
     async def _run() -> str | None:
@@ -143,6 +143,7 @@ def cached_task(key: str) -> str | None:
             value = compute_expensive_value()
             await set_cached(key, value, alias="persistent")
         return value
+
     return asyncio.run(_run())
 ```
 
@@ -157,13 +158,14 @@ from logging import getLogger
 
 logger = getLogger(__name__)
 
+
 @celery.task(bind=True, max_retries=3, default_retry_delay=60)
 def fragile_task(self) -> None:
     try:
         do_risky_thing()
     except Exception as exc:
         logger.exception("Task failed, retrying")
-        raise self.retry(exc=exc, countdown=2 ** self.request.retries)
+        raise self.retry(exc=exc, countdown=2**self.request.retries)
 ```
 
 > **Note:** Always pass the caught exception to `self.retry(exc=exc)` so the original traceback is preserved in logs and raised when `max_retries` is exceeded.

@@ -1,7 +1,7 @@
 """Tests for settings configuration."""
 
-from library.settings import settings
 from library.conf.settings import Settings
+from library.settings import settings
 
 
 def test_settings_exists():

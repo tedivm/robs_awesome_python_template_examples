@@ -20,24 +20,22 @@ QuasiQueue is initialized in `full/qq.py` with three main components:
 ```python
 from quasiqueue import QuasiQueue
 
+
 # 1. Writer: yields items to queue
 async def writer(desired: int):
     """Called when queue needs items."""
     for x in range(0, desired):
         yield x
 
+
 # 2. Reader: processes items from queue
 async def reader(identifier: int | str):
     """Processes one item."""
     print(f"Processing: {identifier}")
 
+
 # 3. Runner: orchestrates everything
-runner = QuasiQueue(
-    settings.project_name,
-    reader=reader,
-    writer=writer,
-    settings=settings
-)
+runner = QuasiQueue(settings.project_name, reader=reader, writer=writer, settings=settings)
 ```
 
 ### Settings Configuration
@@ -46,6 +44,7 @@ Your Settings class inherits from `QuasiQueueSettings` to get QuasiQueue configu
 
 ```python
 from quasiqueue import Settings as QuasiQueueSettings
+
 
 class Settings(QuasiQueueSettings, ...):
     project_name: str = "my_project"
@@ -103,11 +102,7 @@ async def writer(desired: int):
 async def writer(desired: int):
     """Fetch pending jobs from database."""
     async with get_db_session() as session:
-        jobs = await session.execute(
-            select(Job)
-            .where(Job.status == "pending")
-            .limit(desired)
-        )
+        jobs = await session.execute(select(Job).where(Job.status == "pending").limit(desired))
         for job in jobs.scalars():
             yield job.id
     # No explicit None needed - generator ends naturally
@@ -145,6 +140,7 @@ The reader can be sync or async:
 async def reader(item: int | str):
     await process_item(item)
 
+
 # Sync reader (for CPU bound work)
 def reader(item: int | str):
     process_item(item)
@@ -157,24 +153,23 @@ Use a context function to share resources across reader calls:
 ```python
 def context():
     """Initialize once per reader process."""
-    return {
-        'http': get_http_connection_pool(),
-        'dbengine': get_db_engine()
-    }
+    return {"http": get_http_connection_pool(), "dbengine": get_db_engine()}
+
 
 async def reader(item: int | str, ctx: dict):
     """ctx contains result from context function."""
-    async with ctx['dbengine'].session() as session:
+    async with ctx["dbengine"].session() as session:
         # Use shared database engine
         job = await session.get(Job, item)
         await job.process()
+
 
 runner = QuasiQueue(
     settings.project_name,
     reader=reader,
     writer=writer,
     context=context,  # Pass context function
-    settings=settings
+    settings=settings,
 )
 ```
 
@@ -185,10 +180,10 @@ Access settings in your reader:
 ```python
 async def reader(item: int | str, settings: dict):
     """settings is dict of all QuasiQueue settings."""
-    if settings.get('debug'):
+    if settings.get("debug"):
         print(f"Debug: Processing {item}")
 
-    max_retries = settings.get('max_retries', 3)
+    max_retries = settings.get("max_retries", 3)
     # Use settings as needed
 ```
 
@@ -242,16 +237,17 @@ If using aiocache, caches are automatically initialized before the QuasiQueue ru
 ```python
 from full.services.cache import cache
 
+
 async def reader(item: int | str):
     """Reader can access initialized caches."""
     # Check cache first
-    cached_result = await cache.get(f'result_{item}')
+    cached_result = await cache.get(f"result_{item}")
     if cached_result:
         return cached_result
 
     # Process and cache result
     result = await process_item(item)
-    await cache.set(f'result_{item}', result, ttl=3600)
+    await cache.set(f"result_{item}", result, ttl=3600)
     return result
 ```
 
@@ -265,6 +261,7 @@ Test writer and reader functions individually:
 
 ```python
 """Tests for QuasiQueue components."""
+
 import pytest
 from full.qq import runner, writer, reader
 
@@ -283,6 +280,7 @@ def test_runner_has_settings():
 def test_writer_is_async_generator():
     """Writer should be an async generator function."""
     import inspect
+
     assert inspect.isasyncgenfunction(writer)
 
 
@@ -330,7 +328,7 @@ async def test_reader_uses_context():
 
         # Check if reader accepts ctx parameter
         sig = inspect.signature(reader)
-        if 'ctx' in sig.parameters:
+        if "ctx" in sig.parameters:
             await reader(1, ctx=ctx)
 ```
 
@@ -357,15 +355,12 @@ async def test_quasiqueue_workflow():
         "test_queue",
         reader=test_reader,
         writer=test_writer,
-        settings=Settings(
-            num_processes=2,
-            max_queue_size=50,
-            graceful_shutdown_timeout=1
-        )
+        settings=Settings(num_processes=2, max_queue_size=50, graceful_shutdown_timeout=1),
     )
 
     # Run briefly then cancel
     import asyncio
+
     task = asyncio.create_task(test_runner.main())
     await asyncio.sleep(2)
     task.cancel()
@@ -417,11 +412,7 @@ async def writer(desired: int):
 async def writer(desired: int):
     # Efficient: single query for multiple items
     async with get_db_session() as session:
-        jobs = await session.execute(
-            select(Job)
-            .where(Job.status == "pending")
-            .limit(desired)
-        )
+        jobs = await session.execute(select(Job).where(Job.status == "pending").limit(desired))
         for job in jobs.scalars():
             yield job.id
 ```
@@ -447,7 +438,7 @@ async def writer(desired: int):
 ```python
 # Good: async reader with concurrent tasks
 async def reader(item: int, ctx: dict):
-    async with ctx['http'].get(url) as response:
+    async with ctx["http"].get(url) as response:
         data = await response.json()
         # Process data
 ```
@@ -457,15 +448,12 @@ async def reader(item: int, ctx: dict):
 ```python
 def context():
     """Initialize once per process, not per job."""
-    return {
-        'http': get_http_connection_pool(),
-        'db': get_db_engine(),
-        'redis': get_redis_pool()
-    }
+    return {"http": get_http_connection_pool(), "db": get_db_engine(), "redis": get_redis_pool()}
+
 
 async def reader(item: int, ctx: dict):
     # Reuse pooled connections
-    async with ctx['db'].session() as session:
+    async with ctx["db"].session() as session:
         # Database work
         pass
 ```
@@ -523,6 +511,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+
 async def reader(identifier: int | str):
     logger.info(f"Started processing {identifier}")
     # Process item
@@ -547,8 +536,9 @@ Monitor with metrics:
 ```python
 from prometheus_client import Counter, Histogram
 
-jobs_processed = Counter('jobs_processed_total', 'Total jobs processed')
-job_duration = Histogram('job_duration_seconds', 'Job processing time')
+jobs_processed = Counter("jobs_processed_total", "Total jobs processed")
+job_duration = Histogram("job_duration_seconds", "Job processing time")
+
 
 async def reader(item: int | str):
     with job_duration.time():

@@ -95,8 +95,8 @@ users = result.scalars().all()
 
 # Insert
 session.add(new_user)
-await session.flush()      # write to DB within transaction
-await session.commit()     # or rely on context manager commit
+await session.flush()  # write to DB within transaction
+await session.commit()  # or rely on context manager commit
 
 # Delete
 await session.delete(user)

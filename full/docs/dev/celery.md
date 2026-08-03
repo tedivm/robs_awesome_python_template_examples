@@ -31,6 +31,7 @@ Create tasks by decorating functions with `@celery.task`:
 ```python
 from full.celery import celery
 
+
 @celery.task
 def send_email(to: str, subject: str, body: str):
     """Send an email asynchronously."""
@@ -58,7 +59,7 @@ def process_payment(self, payment_id: int):
         return {"payment_id": payment_id, "status": "processed"}
     except PaymentError as exc:
         # Manual retry with exponential backoff
-        raise self.retry(exc=exc, countdown=2 ** self.request.retries)
+        raise self.retry(exc=exc, countdown=2**self.request.retries)
 ```
 
 ### Async Task (with Database Access)
@@ -69,11 +70,14 @@ Use async tasks for I/O-bound operations:
 from full.services.db import get_engine, AsyncSession
 from sqlalchemy.ext.asyncio import async_sessionmaker
 
+
 @celery.task
 def process_user_sync(user_id: int):
     """Synchronous wrapper for async task."""
     import asyncio
+
     return asyncio.run(process_user(user_id))
+
 
 async def process_user(user_id: int):
     """Process user data with async database access."""
@@ -132,17 +136,17 @@ Use `apply_async` for advanced options:
 ```python
 send_email.apply_async(
     args=["user@example.com", "Subject", "Body"],
-    countdown=300,        # Delay 5 minutes
-    expires=3600,         # Expire after 1 hour
-    priority=9,           # Higher priority (0-9)
-    queue='emails',       # Route to specific queue
-    retry=True,           # Enable retries
+    countdown=300,  # Delay 5 minutes
+    expires=3600,  # Expire after 1 hour
+    priority=9,  # Higher priority (0-9)
+    queue="emails",  # Route to specific queue
+    retry=True,  # Enable retries
     retry_policy={
-        'max_retries': 3,
-        'interval_start': 0,
-        'interval_step': 0.2,
-        'interval_max': 0.2,
-    }
+        "max_retries": 3,
+        "interval_start": 0,
+        "interval_step": 0.2,
+        "interval_max": 0.2,
+    },
 )
 ```
 
@@ -163,11 +167,8 @@ def setup_periodic_tasks(sender, **kwargs):
 
     # Add a task with crontab schedule
     from celery.schedules import crontab
-    sender.add_periodic_task(
-        crontab(hour=2, minute=0),
-        cleanup_old_data.s(),
-        name='Daily Cleanup'
-    )
+
+    sender.add_periodic_task(crontab(hour=2, minute=0), cleanup_old_data.s(), name="Daily Cleanup")
 ```
 
 **Method 2: Using beat_schedule** (alternative):
@@ -176,17 +177,17 @@ def setup_periodic_tasks(sender, **kwargs):
 from celery.schedules import crontab
 
 celery.conf.beat_schedule = {
-    'cleanup-old-data': {
-        'task': 'full.tasks.cleanup_old_data',
-        'schedule': crontab(hour=2, minute=0),  # Run daily at 2 AM
+    "cleanup-old-data": {
+        "task": "full.tasks.cleanup_old_data",
+        "schedule": crontab(hour=2, minute=0),  # Run daily at 2 AM
     },
-    'send-weekly-report': {
-        'task': 'full.tasks.send_weekly_report',
-        'schedule': crontab(day_of_week='monday', hour=9, minute=0),
+    "send-weekly-report": {
+        "task": "full.tasks.send_weekly_report",
+        "schedule": crontab(day_of_week="monday", hour=9, minute=0),
     },
-    'check-status-every-5-min': {
-        'task': 'full.tasks.check_status',
-        'schedule': 300.0,  # Run every 5 minutes (in seconds)
+    "check-status-every-5-min": {
+        "task": "full.tasks.check_status",
+        "schedule": 300.0,  # Run every 5 minutes (in seconds)
     },
 }
 ```
@@ -202,13 +203,13 @@ from celery.schedules import crontab
 crontab(hour=0, minute=0)
 
 # Every Monday at 9 AM
-crontab(day_of_week='monday', hour=9, minute=0)
+crontab(day_of_week="monday", hour=9, minute=0)
 
 # Every 15 minutes
-crontab(minute='*/15')
+crontab(minute="*/15")
 
 # First day of every month
-crontab(day_of_month='1', hour=0, minute=0)
+crontab(day_of_month="1", hour=0, minute=0)
 ```
 
 **Interval Schedule**:
@@ -221,6 +222,7 @@ schedule(run_every=30.0)
 
 # Can also use timedelta
 from datetime import timedelta
+
 schedule(run_every=timedelta(hours=1))
 ```
 
@@ -340,6 +342,7 @@ If aiocache is enabled, the cache setup handler runs automatically:
 ```python
 from full.celery import celery
 
+
 @celery.task
 def task_using_cache():
     """Task that uses caching."""
@@ -401,6 +404,7 @@ def test_hello_world_execution(capsys):
 
 def test_task_with_return_value():
     """Test task that returns a value."""
+
     @celery.task
     def add_numbers(a: int, b: int) -> int:
         return a + b
@@ -439,11 +443,7 @@ def test_periodic_tasks_registered():
             self.periodic_tasks = []
 
         def add_periodic_task(self, interval, task, name=None):
-            self.periodic_tasks.append({
-                "interval": interval,
-                "task": task,
-                "name": name
-            })
+            self.periodic_tasks.append({"interval": interval, "task": task, "name": name})
 
     sender = MockSender()
     setup_periodic_tasks(sender)
@@ -461,6 +461,7 @@ Test Celery signal handlers like cache setup:
 def test_cache_setup_handler_exists():
     """Test that cache setup signal handler is registered."""
     from full.celery import setup_caches
+
     assert callable(setup_caches)
 
 
@@ -481,6 +482,7 @@ Test error handling and retries:
 ```python
 def test_task_with_error_handling():
     """Test that task handles errors gracefully."""
+
     @celery.task(bind=True, max_retries=3)
     def failing_task(self):
         try:
@@ -495,6 +497,7 @@ def test_task_with_error_handling():
 
 def test_task_retry_logic():
     """Test task retry configuration."""
+
     @celery.task(max_retries=3, default_retry_delay=60)
     def retryable_task():
         pass
@@ -516,7 +519,7 @@ def test_task_with_external_api(monkeypatch):
     mock_response = MagicMock()
     mock_response.json.return_value = {"status": "success"}
 
-    with patch('requests.get', return_value=mock_response):
+    with patch("requests.get", return_value=mock_response):
         result = fetch_external_data("https://api.example.com")
         assert result["status"] == "success"
 
@@ -526,7 +529,7 @@ def test_task_with_database(monkeypatch):
     # Mock database operations
     mock_session = MagicMock()
 
-    with patch('full.services.db.get_session', return_value=mock_session):
+    with patch("full.services.db.get_session", return_value=mock_session):
         result = process_user_task(user_id=123)
         assert result is not None
 ```
@@ -559,11 +562,12 @@ def test_task_with_database(monkeypatch):
 4. **Use Task Queues**: Route different task types to different queues:
 
    ```python
-   @celery.task(queue='high-priority')
+   @celery.task(queue="high-priority")
    def urgent_task():
        pass
 
-   @celery.task(queue='low-priority')
+
+   @celery.task(queue="low-priority")
    def background_cleanup():
        pass
    ```
@@ -578,6 +582,7 @@ def test_task_with_database(monkeypatch):
    def process_user(user_id: int):
        user = User.query.get(user_id)
        # Process user
+
 
    # Bad - objects can't be serialized reliably
    @celery.task

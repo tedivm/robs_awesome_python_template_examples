@@ -153,7 +153,6 @@ Provides a test client for making HTTP requests to your FastAPI application:
 ```python
 @pytest_asyncio.fixture
 async def fastapi_client(db_session_maker):
-
     """Fixture to create a FastAPI test client."""
     client = TestClient(app)
 
@@ -210,6 +209,7 @@ Mark async test functions with `@pytest.mark.asyncio`:
 ```python
 import pytest
 
+
 @pytest.mark.asyncio
 async def test_async_function():
     """Test an async function."""
@@ -223,6 +223,7 @@ Use `@pytest_asyncio.fixture` for async fixtures:
 
 ```python
 import pytest_asyncio
+
 
 @pytest_asyncio.fixture
 async def async_resource():
@@ -253,6 +254,7 @@ Use pytest's built-in mocking capabilities along with unittest.mock for mocking 
 ```python
 from unittest.mock import AsyncMock, MagicMock, patch
 
+
 @pytest.mark.asyncio
 async def test_with_mock():
     """Test with a mocked dependency."""
@@ -268,7 +270,7 @@ async def test_with_mock():
 
 ```python
 @pytest.mark.asyncio
-@patch('full.services.cache.get_cached')
+@patch("full.services.cache.get_cached")
 async def test_with_patched_cache(mock_get_cached):
     """Test with patched cache function."""
     mock_get_cached.return_value = "cached_value"
@@ -286,6 +288,7 @@ async def test_with_patched_cache(mock_get_cached):
 async def test_with_custom_env():
     """Test with custom environment variables."""
     from full.settings import settings
+
     settings.reload()  # Reload settings with new env vars
     assert settings.database_url == "sqlite+aiosqlite:///:memory:"
 ```
@@ -300,12 +303,14 @@ def test_get_endpoint(fastapi_client):
     response = fastapi_client.get("/api/resource")
     assert response.status_code == 200
 
+
 def test_post_endpoint(fastapi_client):
     """Test POST endpoint with JSON body."""
     data = {"name": "Test", "value": 42}
     response = fastapi_client.post("/api/resource", json=data)
     assert response.status_code == 201
     assert response.json()["name"] == "Test"
+
 
 def test_endpoint_validation(fastapi_client):
     """Test endpoint validates input."""
@@ -340,12 +345,14 @@ async def test_create_record(db_session):
     await db_session.refresh(record)
     assert record.id is not None
 
+
 @pytest.mark.asyncio
 async def test_query_records(db_session):
     """Test querying database records."""
     result = await db_session.execute(select(MyModel).where(MyModel.name == "Test"))
     record = result.scalar_one_or_none()
     assert record is not None
+
 
 @pytest.mark.asyncio
 async def test_update_record(db_session):
@@ -359,6 +366,7 @@ async def test_update_record(db_session):
     # Verify update
     await db_session.refresh(record)
     assert record.value == 456
+
 
 @pytest.mark.asyncio
 async def test_delete_record(db_session):
@@ -403,17 +411,20 @@ from full.cli import app
 
 runner = CliRunner()
 
+
 def test_cli_command():
     """Test CLI command execution."""
     result = runner.invoke(app, ["command", "--arg", "value"])
     assert result.exit_code == 0
     assert "Expected output" in result.stdout
 
+
 def test_cli_command_with_error():
     """Test CLI command error handling."""
     result = runner.invoke(app, ["command", "--invalid"])
     assert result.exit_code != 0
     assert "Error" in result.stdout
+
 
 def test_cli_help():
     """Test CLI help output."""
@@ -434,6 +445,7 @@ async def test_cache_set_and_get():
     result = await get_cached("test_key")
     assert result == "test_value"
 
+
 @pytest.mark.asyncio
 async def test_cache_with_ttl():
     """Test cache with TTL."""
@@ -448,6 +460,7 @@ async def test_cache_with_ttl():
     await asyncio.sleep(2)
     result = await get_cached("ttl_key")
     assert result is None
+
 
 @pytest.mark.asyncio
 async def test_cache_disabled():
@@ -472,6 +485,7 @@ def test_celery_task_registration():
 
     assert "full.celery.my_task" in celery.tasks
 
+
 def test_celery_task_execution():
     """Test direct task execution."""
     from full.celery import my_task
@@ -479,6 +493,7 @@ def test_celery_task_execution():
     # Execute task directly (not async via worker)
     result = my_task("test_arg")
     assert result == expected_value
+
 
 def test_celery_task_signature():
     """Test task signature and delay methods."""
@@ -505,6 +520,7 @@ async def test_quasiqueue_job_execution():
     result = await job_def.execute()
     assert result == expected_value
 
+
 def test_quasiqueue_configuration():
     """Test QuasiQueue configuration."""
     from full.qq import app, MyJobDefinition
@@ -523,6 +539,7 @@ def test_settings_load():
     assert settings.project_name == "full"
     assert settings.debug is not None
 
+
 def test_settings_validation():
     """Test settings validation."""
     import os
@@ -532,6 +549,7 @@ def test_settings_validation():
     with patch.dict(os.environ, {"REQUIRED_VAR": "value"}):
         settings = Settings()
         assert settings.required_var == "value"
+
 
 def test_settings_with_env_file():
     """Test loading settings from .env file."""
@@ -649,8 +667,10 @@ omit = [
    def test_user_email_validation():
        assert validate_email("test@example.com") is True
 
+
    def test_user_email_validation_rejects_invalid():
        assert validate_email("invalid") is False
+
 
    # Bad (multiple unrelated assertions)
    def test_user_stuff():
@@ -666,6 +686,7 @@ omit = [
    def sample_user():
        return User(name="Test", email="test@example.com")
 
+
    def test_user_name(sample_user):
        assert sample_user.name == "Test"
    ```
@@ -676,6 +697,7 @@ omit = [
    def test_divide_success():
        assert divide(10, 2) == 5
 
+
    def test_divide_by_zero_raises_error():
        with pytest.raises(ZeroDivisionError):
            divide(10, 0)
@@ -684,12 +706,15 @@ omit = [
 5. **Use parametrize for multiple test cases**: Test multiple inputs efficiently
 
    ```python
-   @pytest.mark.parametrize("input,expected", [
-       ("test@example.com", True),
-       ("invalid", False),
-       ("test@", False),
-       ("@example.com", False),
-   ])
+   @pytest.mark.parametrize(
+       "input,expected",
+       [
+           ("test@example.com", True),
+           ("invalid", False),
+           ("test@", False),
+           ("@example.com", False),
+       ],
+   )
    def test_email_validation(input, expected):
        assert validate_email(input) == expected
    ```
@@ -702,6 +727,7 @@ omit = [
    async def test_with_db(db_session):
        result = await query_database(db_session)
        assert result is not None
+
 
    # Bad - sleeps unnecessarily
    @pytest.mark.asyncio
@@ -727,6 +753,7 @@ omit = [
    async def test_async_function():
        result = await async_operation()
        assert result == expected
+
 
    # Bad - won't work properly
    def test_async_function():

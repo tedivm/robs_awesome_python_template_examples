@@ -27,7 +27,7 @@ class NoOpCache(BaseCache):
         """Build a cache key using the standard string builder."""
         return self._str_build_key(key, namespace)  # type: ignore[no-any-return]
 
-    async def _add(self, key: str, value: Any, ttl: int | float | None, _conn: Any = None) -> bool:
+    async def _add(self, key: str, value: Any, ttl: float | None, _conn: Any = None) -> bool:
         """
         No-op add operation.
 
@@ -59,9 +59,7 @@ class NoOpCache(BaseCache):
         """
         return [None] * len(keys)
 
-    async def _set(
-        self, key: str, value: Any, ttl: int | float | None, _cas_token: Any = None, _conn: Any = None
-    ) -> bool:
+    async def _set(self, key: str, value: Any, ttl: float | None, _cas_token: Any = None, _conn: Any = None) -> bool:
         """
         No-op set operation.
 
@@ -69,7 +67,7 @@ class NoOpCache(BaseCache):
         """
         return True
 
-    async def _multi_set(self, pairs: list[tuple[str, Any]], ttl: int | float | None, _conn: Any = None) -> bool:
+    async def _multi_set(self, pairs: list[tuple[str, Any]], ttl: float | None, _conn: Any = None) -> bool:
         """
         No-op multi-set operation.
 
@@ -101,7 +99,7 @@ class NoOpCache(BaseCache):
         """
         return delta
 
-    async def _expire(self, key: str, ttl: int | float, _conn: Any = None) -> bool:
+    async def _expire(self, key: str, ttl: float, _conn: Any = None) -> bool:
         """
         No-op expire operation.
 
@@ -127,7 +125,6 @@ class NoOpCache(BaseCache):
 
     async def _close(self, *args: Any, _conn: Any = None, **kwargs: Any) -> None:
         """No-op close operation - nothing to close."""
-        pass
 
 
 def configure_caches() -> None:

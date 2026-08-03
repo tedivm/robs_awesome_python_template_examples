@@ -34,6 +34,7 @@ For FastAPI responses, use `response_templates`:
 from fastapi import Request
 from full.services.jinja import response_templates
 
+
 @app.get("/page")
 async def page(request: Request) -> Response:
     return response_templates.TemplateResponse(
@@ -81,6 +82,7 @@ Add to `full/services/jinja.py`:
 ```python
 def format_currency(value: float) -> str:
     return f"${value:,.2f}"
+
 
 env.filters["currency"] = format_currency
 env.globals["settings"] = settings

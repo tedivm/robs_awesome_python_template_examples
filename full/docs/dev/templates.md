@@ -57,12 +57,10 @@ from fastapi.templating import Jinja2Templates
 app = FastAPI()
 templates = Jinja2Templates(directory="full/templates")
 
+
 @app.get("/")
 async def homepage(request: Request):
-    return templates.TemplateResponse(
-        "index.html",
-        {"request": request, "title": "Welcome"}
-    )
+    return templates.TemplateResponse("index.html", {"request": request, "title": "Welcome"})
 ```
 
 ## Basic Template Usage
@@ -90,13 +88,7 @@ Render in a route:
 @app.get("/hello/{name}")
 async def hello(request: Request, name: str):
     return templates.TemplateResponse(
-        "hello.html",
-        {
-            "request": request,
-            "title": f"Hello {name}",
-            "name": name,
-            "project_name": "My Application"
-        }
+        "hello.html", {"request": request, "title": f"Hello {name}", "name": name, "project_name": "My Application"}
     )
 ```
 
@@ -259,15 +251,18 @@ from datetime import datetime
 
 env = Environment(loader=PackageLoader("full", "templates"))
 
+
 def format_datetime(value, format="%Y-%m-%d %H:%M:%S"):
     """Format datetime object."""
     if isinstance(value, datetime):
         return value.strftime(format)
     return value
 
+
 def currency(value):
     """Format as currency."""
     return f"${value:,.2f}"
+
 
 # Register custom filters
 env.filters["datetime"] = format_datetime
@@ -290,14 +285,18 @@ def pluralize(count, singular, plural=None):
         plural = singular + "s"
     return singular if count == 1 else plural
 
+
 def markdown_to_html(text):
     """Convert Markdown to HTML."""
     import markdown
+
     return markdown.markdown(text)
+
 
 def nl2br(text):
     """Convert newlines to <br> tags."""
     return text.replace("\n", "<br>")
+
 
 # Register filters
 env.filters["pluralize"] = pluralize
@@ -315,14 +314,17 @@ Add functions available in all templates:
 # full/services/jinja.py
 from full.conf import settings
 
+
 def url_for(endpoint: str, **params) -> str:
     """Generate URL for endpoint."""
     # URL generation logic
     return f"/{endpoint}"
 
+
 def asset_url(path: str) -> str:
     """Generate URL for static asset."""
     return f"/static/{path}"
+
 
 # Register global functions
 env.globals["url_for"] = url_for
@@ -403,6 +405,7 @@ Render templates in other contexts (tasks, CLI, emails):
 ```python
 from full.services.jinja import env
 
+
 def send_welcome_email(user_email: str, user_name: str):
     """Send welcome email using template."""
     template = env.get_template("emails/welcome.html")
@@ -423,6 +426,7 @@ Use templates in Celery tasks:
 ```python
 from full.celery import celery
 from full.services.jinja import env
+
 
 @celery.task
 def generate_report(report_id: int):
@@ -464,13 +468,11 @@ Mark trusted content as safe to bypass escaping:
 ```python
 from markupsafe import Markup
 
+
 @app.get("/page")
 async def page(request: Request):
     safe_html = Markup("<strong>Bold text</strong>")
-    return templates.TemplateResponse(
-        "page.html",
-        {"request": request, "content": safe_html}
-    )
+    return templates.TemplateResponse("page.html", {"request": request, "content": safe_html})
 ```
 
 Or in the template:
@@ -489,19 +491,13 @@ Handle missing templates gracefully:
 ```python
 from jinja2 import TemplateNotFound
 
+
 @app.get("/page/{name}")
 async def dynamic_page(request: Request, name: str):
     try:
-        return templates.TemplateResponse(
-            f"pages/{name}.html",
-            {"request": request}
-        )
+        return templates.TemplateResponse(f"pages/{name}.html", {"request": request})
     except TemplateNotFound:
-        return templates.TemplateResponse(
-            "404.html",
-            {"request": request},
-            status_code=404
-        )
+        return templates.TemplateResponse("404.html", {"request": request}, status_code=404)
 ```
 
 ### Debug Mode
@@ -561,8 +557,8 @@ env = Environment(
 env = Environment(
     loader=PackageLoader("full", "templates"),
     autoescape=select_autoescape(["html", "xml"]),
-    auto_reload=True,      # Reload on changes
-    cache_size=0,           # Disable caching
+    auto_reload=True,  # Reload on changes
+    cache_size=0,  # Disable caching
 )
 ```
 
@@ -573,8 +569,8 @@ env = Environment(
 env = Environment(
     loader=PackageLoader("full", "templates"),
     autoescape=select_autoescape(["html", "xml"]),
-    auto_reload=False,     # Don't reload
-    cache_size=400,         # Cache compiled templates
+    auto_reload=False,  # Don't reload
+    cache_size=400,  # Cache compiled templates
     trim_blocks=True,
     lstrip_blocks=True,
 )
@@ -729,6 +725,7 @@ def test_custom_filter_registered():
 
 def test_custom_currency_filter():
     """Test custom currency filter."""
+
     # Add the filter first (or ensure it's in services/jinja.py)
     def currency(value):
         return f"${value:,.2f}"
