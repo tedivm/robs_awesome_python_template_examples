@@ -29,22 +29,7 @@ dependencies = [
 full = "full.cli:app"
 
 [dependency-groups]
-dev = [
-  "build",
-  "glom",
-  "greenlet",
-  "httpx",
-  "mypy",
-  "paracelsus",
-  "pytest",
-  "pytest-asyncio",
-  "pytest-cov",
-  "pytest-pretty",
-  "ruamel.yaml",
-  "ruff",
-  "tombi",
-  "uv"
-]
+dev = ["build", "glom", "greenlet", "httpx", "mypy", "paracelsus", "pytest", "pytest-asyncio", "pytest-cov", "pytest-pretty", "ruamel.yaml", "ruff", "tombi", "uv"]
 
 [build-system]
 requires = ["setuptools>=67.0", "setuptools_scm[toml]>=7.1"]
